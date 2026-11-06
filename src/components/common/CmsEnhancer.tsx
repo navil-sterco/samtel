@@ -1,0 +1,55 @@
+"use client";
+
+import { useEffect } from "react";
+import { adfSwiperModule } from "@/lib/cms/adfSwiper";
+import { heroSliderModule } from "@/lib/cms/heroSlider";
+import type { SliderModule } from "@/lib/cms/types";
+import { careerSliderModule } from "@/lib/cms/careerSlider";
+import { milestoneSliderModule } from "@/lib/cms/milestoneSlider";
+import { milestoneTimelineModule } from "@/lib/cms/milestoneTimeline";
+
+const SLIDER_MODULES: SliderModule[] = [
+  adfSwiperModule,
+  milestoneSliderModule,
+  heroSliderModule,
+  careerSliderModule,
+  milestoneTimelineModule,
+];
+
+export default function CmsEnhancer({ containerId }: { containerId: string }) {
+  useEffect(() => {
+    let cancelled = false;
+    const allInstances: { module: SliderModule; instances: unknown[] }[] = [];
+
+    async function init() {
+      const root = document.getElementById(containerId);
+      if (!root) return;
+
+      if (root.querySelector('[data-bs-toggle="collapse"]')) {
+        await import("bootstrap/dist/js/bootstrap.bundle.min.js");
+        if (cancelled) return;
+      }
+
+      for (const mod of SLIDER_MODULES) {
+        const instances = await mod.init(root);
+        if (cancelled) {
+          mod.destroy(instances);
+          continue;
+        }
+        if (instances.length) allInstances.push({ module: mod, instances });
+      }
+    }
+
+    void init().catch((error) => {
+      console.error("Failed to initialize CMS enhancements", error);
+    });
+
+    return () => {
+      cancelled = true;
+      allInstances.forEach(({ module, instances }) => module.destroy(instances));
+      allInstances.length = 0;
+    };
+  }, [containerId]);
+
+  return null;
+}
