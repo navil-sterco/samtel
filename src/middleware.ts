@@ -3,22 +3,23 @@ import type { NextRequest } from 'next/server';
 import { API_URL } from './config/config';
 
 function buildCsp(nonce: string, isDev: boolean): string {
-
   const apiOrigin = API_URL ? new URL(API_URL).origin : '';
-  
+
   return `
     default-src 'self';
-    script-src 'self'  https://cdn.example.com https://cdn.keka.com; img-src 'self'" 'nonce-${nonce}' 'strict-dynamic'
+    script-src 'self' 'nonce-${nonce}' 'strict-dynamic'
+      https://cdn.example.com
+      https://cdn.keka.com
       https://www.google.com
       https://www.gstatic.com
       https://www.recaptcha.net
-      https://www.googletagmanager.com 
+      https://www.googletagmanager.com
       https://www.google-analytics.com
       https://cdn.jsdelivr.net
-      ${isDev ? "'unsafe-eval'" : ""};
+      ${isDev ? "'unsafe-eval'" : ''};
     style-src 'self' 'unsafe-inline'
       https://fonts.googleapis.com
-      https://cdn.jsdelivr.net;
+      https://cdn.jsdelivr.net
       https://cdn.keka.com;
     img-src 'self' data: blob: https:;
     media-src 'self' https:;
