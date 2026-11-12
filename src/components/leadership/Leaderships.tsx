@@ -141,7 +141,7 @@ export default function Leaderships({
                   >
                     <Image
                       src="/assets/images/right-arrow-white.svg"
-                      alt="arrow"
+                      alt="right arrow"
                       width={20}
                       height={20}
                       className="img-fluid"

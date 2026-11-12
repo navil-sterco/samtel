@@ -81,7 +81,7 @@ export default async function AwardsRecognitionsPage({
                       <div className="zoombtn" aria-hidden="true">
                         <Image
                           src="/assets/icons/zoombtn.svg"
-                          alt=""
+                          alt="zoom icon"
                           className="img-fluid"
                           width={39}
                           height={39}

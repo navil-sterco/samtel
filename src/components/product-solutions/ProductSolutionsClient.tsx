@@ -272,7 +272,7 @@ export default function ProductSolutionsClient({
                         aria-label={isNavOpen ? "Close navigation" : "Open navigation"}
                     >
                         <img
-                            alt="arrow"
+                            alt="right arrow"
                             className="img-fluid"
                             src="/assets/icons/right-arrow-white.svg"
                         />
@@ -358,7 +358,7 @@ export default function ProductSolutionsClient({
                                                                     onKeyDown={(event) => handleCardKeyDown(event, index)}
                                                                 >
                                                                     <span className="plus_icon" aria-hidden="true">
-                                                                        <Image src="/assets/icons/plus-icon.svg" alt="" width={24} height={24} />
+                                                                        <Image src="/assets/icons/plus-icon.svg" alt="zoom icon" width={24} height={24} />
                                                                     </span>
                                                                     <figure>
                                                                         <Image
@@ -450,7 +450,7 @@ export default function ProductSolutionsClient({
                                                         aria-label={`Zoom image ${index + 1} of ${selectedProduct.name}`}
                                                         onClick={() => openImageGallery(index)}
                                                     >
-                                                        <Image src="/assets/icons/zoombtn.svg" alt="" width={39} height={39} />
+                                                        <Image src="/assets/icons/zoombtn.svg" alt="zoom icon" width={39} height={39} />
                                                     </button>
                                                 )}
                                             </SwiperSlide>
@@ -460,11 +460,11 @@ export default function ProductSolutionsClient({
                                     {selectedProductImages.length > 1 && (
                                         <>
                                             <button type="button" className="swiper_custom_prev" aria-label="Previous product" >
-                                                <Image src="/assets/icons/left-arrow.svg" alt="" width={52} height={52} />
+                                                <Image src="/assets/icons/left-arrow.svg" alt="left arrow" width={52} height={52} />
                                             </button>
                                             
                                             <button type="button" className="swiper_custom_next" aria-label="Next product">
-                                                <Image src="/assets/icons/right-arrow-white.svg" alt="" width={52} height={52} />
+                                                <Image src="/assets/icons/right-arrow-white.svg" alt="right arrow" width={52} height={52} />
                                             </button>
                                         </>
                                     )}
@@ -484,7 +484,7 @@ export default function ProductSolutionsClient({
                                 <Breadcrumbs data={breadcrumbFn} isModal={true}  />
 
                                 <div className="product_content">
-                                    <h1 className="font45" id="product-modal-title">{selectedProduct.name}</h1>
+                                    <h4 className="font45" id="product-modal-title">{selectedProduct.name}</h4>
                                     <div id="modalDynamicBody">
                                         {selectedProduct?.description && (
                                             <div className="sort_desc_bx">
@@ -504,11 +504,11 @@ export default function ProductSolutionsClient({
                     </div>
                     <div className="product_slide_btns">
                         <button type="button" className="more_btn" aria-label="Previous product" onClick={() => moveProduct(-1)}>
-                            <Image src="/assets/icons/left-arrow.svg" alt="" width={52} height={52} />
+                            <Image src="/assets/icons/left-arrow.svg" alt="left arrow" width={52} height={52} />
                         </button>
                         <div className="product_count"><p>{selectedIndex + 1}/{products.length}</p></div>
                         <button type="button" className="more_btn" aria-label="Next product" onClick={() => moveProduct(1)}>
-                            <Image src="/assets/icons/right-arrow-white.svg" alt="" width={52} height={52} />
+                            <Image src="/assets/icons/right-arrow-white.svg" alt="right arrow" width={52} height={52} />
                         </button>
                     </div>
                 </div>

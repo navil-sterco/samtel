@@ -48,7 +48,7 @@ export default function MegaMenu({
                 )}
                 
                 <Link href={`${BASE_URL}industries`} className="mega-btn">
-                  <Image src={`/assets/icons/right-arrow-white.svg`} width={10} height={10} alt="arrow right" />
+                  <Image src={`/assets/icons/right-arrow-white.svg`} width={10} height={10} alt="right arrow" />
                 </Link>
               </div>
               <div className="mega-count">

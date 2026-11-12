@@ -195,7 +195,7 @@ export default function ContactForm() {
         >
           {status === "sending" ? "Submitting..." : "Submit"}
           <span>
-            <img src="/assets/icons/arrow2.svg" alt="" />
+            <img src="/assets/icons/arrow2.svg" alt="arrow icon" />
           </span>
         </button>
       </form>

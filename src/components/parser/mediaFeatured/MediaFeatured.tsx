@@ -50,7 +50,7 @@ export default function MediaFeatured({ data }: { data: any }) {
           <div className="zoombtn">
             <img
               src="/assets/icons/videopausebtn.svg"
-              alt="play"
+              alt="video play icon"
               className="img-fluid"
             />
           </div>

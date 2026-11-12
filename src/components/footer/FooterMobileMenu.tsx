@@ -339,10 +339,10 @@ export default function FooterMobileMenu({
                 Gurugram 122015, Haryana, INDIA.
               </p>
               <p className="contact-phone">
-                <a href="tel:+911244682000">
+                <a className="cta_number" href="tel:+911244682000">
                   <Image
                     src="/assets/icons/phone.svg"
-                    alt=""
+                    alt="phone"
                     width={18}
                     height={18}
                   />
@@ -350,10 +350,10 @@ export default function FooterMobileMenu({
                 </a>
               </p>
 
-                 <p className="contact-phone">
+                 <p className="contact-phone cta_number">
                   <Image
                     src="/assets/icons/fax2.svg"
-                    alt=""
+                    alt="fax"
                     width={18}
                     height={18}
                   />
@@ -371,10 +371,10 @@ export default function FooterMobileMenu({
                 Place, New Delhi - 110019
               </p>
               <p className="contact-phone">
-                <a href="tel:+911140555700">
+                <a href="tel:+911140555700" className="cta_number">
                   <Image
                     src="/assets/icons/phone.svg"
-                    alt=""
+                    alt="phone"
                     width={18}
                     height={18}
                   />
@@ -382,10 +382,10 @@ export default function FooterMobileMenu({
                 </a>
               </p>
 
-                  <p className="contact-phone">
+                  <p className="contact-phone cta_number">
                   <Image
                     src="/assets/icons/fax2.svg"
-                    alt=""
+                    alt="fax"
                     width={18}
                     height={18}
                   />
@@ -421,7 +421,7 @@ export default function FooterMobileMenu({
                         <div className="email-icon">
                           <Image
                             src="/assets/icons/mail.svg"
-                            alt=""
+                            alt="email icon"
                             width={24}
                             height={24}
                           />
@@ -429,7 +429,7 @@ export default function FooterMobileMenu({
                         <p className="email-text">{slide.description}</p>
                         <a
                           href={`mailto:${slide.email}`}
-                          className="email-link"
+                          className="email-link cta_mail"
                         >
                           {slide.email}
                         </a>
@@ -447,7 +447,7 @@ export default function FooterMobileMenu({
                 >
                   <Image
                     src="/assets/icons/right-arrow-white.svg"
-                    alt=""
+                    alt="left arrow"
                     className="img-fluid"
                     width={16}
                     height={16}
@@ -461,7 +461,7 @@ export default function FooterMobileMenu({
                 >
                   <Image
                     src="/assets/icons/right-arrow-white.svg"
-                    alt=""
+                    alt="right arrow"
                     className="img-fluid"
                     width={16}
                     height={16}
@@ -517,7 +517,7 @@ export default function FooterMobileMenu({
                   <span className="menu-arrow">
                     <Image
                       src="/assets/icons/right-arrow-white.svg"
-                      alt=""
+                      alt="right arrow"
                       className="img-fluid"
                       width={16}
                       height={16}
@@ -573,7 +573,7 @@ export default function FooterMobileMenu({
                             >
                               <Image
                                 src="/assets/icons/right-arrow-white.svg"
-                                alt=""
+                                alt="right arrow"
                                 width={16}
                                 height={16}
                               />

@@ -73,7 +73,7 @@ export default async function PressOnScreen({
           <div className="zoombtn">
             <img
               src="/assets/icons/videopausebtn.svg"
-              alt="play"
+              alt="video play icon"
               className="img-fluid"
             />
           </div>
