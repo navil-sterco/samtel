@@ -4,6 +4,7 @@ import Header from "@/components/header/Header";
 import WipeOnScroll from "@/components/common/WipeOnScroll";
 import RouteBodyClass from "@/components/common/RouteBodyClass";
 import PageTransitionLoader from "@/components/common/PageTransitionLoader";
+import ImageAltEnhancer from "@/components/common/ImageAltEnhancer";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "aos/dist/aos.css";
@@ -187,6 +188,7 @@ gtag('config', 'G-RSVP17KFKM');`,
         <PageTransitionLoader />
         <ScrollToTop />
         <RouteBodyClass />
+        <ImageAltEnhancer />
         <WipeOnScroll />
         <Providers>
           <AosProvider />

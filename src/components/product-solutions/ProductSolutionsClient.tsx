@@ -358,7 +358,7 @@ export default function ProductSolutionsClient({
                                                                     onKeyDown={(event) => handleCardKeyDown(event, index)}
                                                                 >
                                                                     <span className="plus_icon" aria-hidden="true">
-                                                                        <Image src="/assets/icons/plus-icon.svg" alt="" width={24} height={24} />
+                                                                        <Image src="/assets/icons/plus-icon.svg" alt="zoom icon" width={24} height={24} />
                                                                     </span>
                                                                     <figure>
                                                                         <Image
@@ -450,7 +450,7 @@ export default function ProductSolutionsClient({
                                                         aria-label={`Zoom image ${index + 1} of ${selectedProduct.name}`}
                                                         onClick={() => openImageGallery(index)}
                                                     >
-                                                        <Image src="/assets/icons/zoombtn.svg" alt="" width={39} height={39} />
+                                                        <Image src="/assets/icons/zoombtn.svg" alt="zoom icon" width={39} height={39} />
                                                     </button>
                                                 )}
                                             </SwiperSlide>

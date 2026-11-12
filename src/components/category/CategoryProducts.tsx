@@ -142,7 +142,7 @@ export default function CategoryProducts({title, data}:CategoryPropsInterface) {
                                     onKeyDown={(event) => handleCardKeyDown(event, index)}
                                 >
                                     <span className="plus_icon" aria-hidden="true">
-                                        <Image src="/assets/icons/plus-icon.svg" alt="" width={24} height={24} />
+                                        <Image src="/assets/icons/plus-icon.svg" alt="zoom icon" width={24} height={24} />
                                     </span>
                                     <figure>
                                         <Image src={item.image || placeholderImage} alt={item.name} className="img-fluid" width={275} height={265} loading="lazy" />
@@ -166,7 +166,7 @@ export default function CategoryProducts({title, data}:CategoryPropsInterface) {
                     <div className="product_modal_content" role="dialog" aria-modal="true" aria-labelledby="category-product-modal-title">
                         <div className="product_modal_close">
                             <button type="button" aria-label="Close product details" onClick={() => setModalOpen(false)}>
-                                <Image src="/assets/icons/close-icon.svg" alt="" width={31} height={31} />
+                                <Image src="/assets/icons/close-icon.svg" alt="close icon" width={31} height={31} />
                             </button>
                         </div>
 
@@ -214,7 +214,7 @@ export default function CategoryProducts({title, data}:CategoryPropsInterface) {
                                                             aria-label={`Zoom image ${index + 1} of ${selectedProduct.name}`}
                                                             onClick={() => openImageGallery(index)}
                                                         >
-                                                            <Image src="/assets/icons/zoombtn.svg" alt="" width={39} height={39} />
+                                                            <Image src="/assets/icons/zoombtn.svg" alt="zoom icon" width={39} height={39} />
                                                         </button>
                                                     )}
                                                 </SwiperSlide>

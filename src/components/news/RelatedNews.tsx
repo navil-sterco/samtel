@@ -92,7 +92,7 @@ export default function RelatedNews({ items }: RelatedNewsProps) {
                                                     src="/assets/images/icons/read-icon.svg"
                                                     width={20}
                                                     height={20}
-                                                    alt=""
+                                                    alt="read icon"
                                                 />
                                             </div>
                                         </div>
