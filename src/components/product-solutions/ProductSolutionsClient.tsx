@@ -15,6 +15,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Breadcrumbs from "../common/breadcrumbs/Breadcrumbs";
+import { BASE_URL } from "@/config/config";
 
 interface MappingItemInterface{
     title?:string;
@@ -287,7 +288,7 @@ export default function ProductSolutionsClient({
                                 if(category.products_count || category.name.includes('Custom Solutions')){
                                     return <li key={category.slug} className={category.slug === activeCategory?.slug ? "active" : ""}>
                                     <Link
-                                        href={`${pathname}?type=${encodeURIComponent(category.slug)}`}
+                                        href={`${BASE_URL}product-solutions/${category.slug}`}
                                         onClick={() => {
                                             if (category.slug !== activeCategory?.slug) {
                                                 setIsCategoryLoading(true);

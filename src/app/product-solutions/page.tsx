@@ -3,8 +3,6 @@ import { apiFetch } from "@/lib/api"
 import { getPageSEO } from "@/lib/seo";
 import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata(): Promise<Metadata> {
     const seo = await getPageSEO("product-solutions");
 

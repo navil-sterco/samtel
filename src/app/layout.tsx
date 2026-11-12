@@ -10,14 +10,14 @@ import "aos/dist/aos.css";
 import Footer from "@/components/footer/Footer";
 import Script from "next/script";
 import ScrollToTop from "@/components/common/ScrollToTop";
-import '../styles/globals.css'
+import "../styles/globals.css";
 import Providers from "@/lib/Providers";
 import AosProvider from "@/components/AosProvider";
 
 const funnelSans = Funnel_Sans({
-  subsets: ['latin'], 
-  variable: '--font-funnel'
-})
+  subsets: ["latin"],
+  variable: "--font-funnel",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://samtelavionics.com"),
@@ -58,6 +58,57 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Samtel Avionics",
+  url: "https://samtelavionics.com/",
+  logo: "https://samtelavionics.com/assets/images/main-logo.webp",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+911244682000",
+    contactType: "customer service",
+    areaServed: "IN",
+    availableLanguage: "en",
+  },
+  sameAs: [
+    "https://www.facebook.com/Samtel.Avionics/",
+    "https://x.com/SamtelAvionics",
+    "https://www.instagram.com/samtelavionics/",
+    "https://www.youtube.com/channel/UCvv5NSvZf0mUKAcSVqtrtaw",
+    "https://www.linkedin.com/company/samtel/home/",
+  ],
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Samtel Avionics",
+  image: "https://samtelavionics.com/assets/images/main-logo.webp",
+  "@id": "https://samtelavionics.com/#localbusiness",
+  url: "https://samtelavionics.com/",
+  telephone: "+91 124 4682000",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "2nd Floor, Plot No. 288-A, Udyog Vihar Phase-IV",
+    addressLocality: "Gurugram",
+    postalCode: "122015",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 28.4976584,
+    longitude: 77.07959389999999,
+  },
+  sameAs: [
+    "https://www.facebook.com/Samtel.Avionics/",
+    "https://x.com/SamtelAvionics",
+    "https://www.instagram.com/samtelavionics/",
+    "https://www.youtube.com/channel/UCvv5NSvZf0mUKAcSVqtrtaw",
+    "https://www.linkedin.com/company/samtel/home/",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -72,12 +123,25 @@ export default function RootLayout({
     >
       <head>
         <meta
-            name="google-site-verification"
-            content="5F1J4u7wctCD5Kzl3AJ0dOVJ12mfZUPxZL7EBvdfz3c"
+          name="google-site-verification"
+          content="5F1J4u7wctCD5Kzl3AJ0dOVJ12mfZUPxZL7EBvdfz3c"
         />
 
-        
-
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema).replace(
+              /</g,
+              "\\u003c",
+            ),
+          }}
+        />
       </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <Script
@@ -120,11 +184,11 @@ export default function RootLayout({
         <RouteBodyClass />
         <WipeOnScroll />
         <Providers>
-        <AosProvider />
-        <Header />
-        {children}
-        <Footer />
-        <Script src="/js/smoothscroll.min.js" strategy="lazyOnload" />
+          <AosProvider />
+          <Header />
+          {children}
+          <Footer />
+          <Script src="/js/smoothscroll.min.js" strategy="lazyOnload" />
         </Providers>
       </body>
     </html>
