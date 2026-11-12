@@ -339,7 +339,7 @@ export default function FooterMobileMenu({
                 Gurugram 122015, Haryana, INDIA.
               </p>
               <p className="contact-phone">
-                <a href="tel:+911244682000">
+                <a className="cta_number" href="tel:+911244682000">
                   <Image
                     src="/assets/icons/phone.svg"
                     alt="phone"
@@ -350,7 +350,7 @@ export default function FooterMobileMenu({
                 </a>
               </p>
 
-                 <p className="contact-phone">
+                 <p className="contact-phone cta_number">
                   <Image
                     src="/assets/icons/fax2.svg"
                     alt="fax"
@@ -371,7 +371,7 @@ export default function FooterMobileMenu({
                 Place, New Delhi - 110019
               </p>
               <p className="contact-phone">
-                <a href="tel:+911140555700">
+                <a href="tel:+911140555700" className="cta_number">
                   <Image
                     src="/assets/icons/phone.svg"
                     alt="phone"
@@ -382,7 +382,7 @@ export default function FooterMobileMenu({
                 </a>
               </p>
 
-                  <p className="contact-phone">
+                  <p className="contact-phone cta_number">
                   <Image
                     src="/assets/icons/fax2.svg"
                     alt="fax"
@@ -429,7 +429,7 @@ export default function FooterMobileMenu({
                         <p className="email-text">{slide.description}</p>
                         <a
                           href={`mailto:${slide.email}`}
-                          className="email-link"
+                          className="email-link cta_mail"
                         >
                           {slide.email}
                         </a>

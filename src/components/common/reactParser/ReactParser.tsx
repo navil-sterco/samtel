@@ -199,7 +199,7 @@ function renderImage(attribs: Element["attribs"]) {
 
   const width = toInt(props.width);
   const height = toInt(props.height);
-  const alt = props.alt ?? "";
+  const alt = props.alt ?? "Samtel";
 
   if (!width || !height) {
     const { src: _src, width: _w, height: _h, ...rest } = props;
