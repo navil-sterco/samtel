@@ -136,7 +136,7 @@ export default function Happenings({data}:HappeningsPropsInterface) {
                                             {image && <Image loading='lazy' width={500} height={350} src={getUrl(image) ?? ''} className="img-fluid" alt={title} />}
                                             {videoUrl && (
                                                 <span className="happening-video-play" aria-hidden="true">
-                                                    <img src="/assets/icons/videopausebtn.svg" alt="" />
+                                                    <img src="/assets/icons/videopausebtn.svg" alt="video icon" />
                                                 </span>
                                             )}
                                         </div>

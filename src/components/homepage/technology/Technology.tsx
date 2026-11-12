@@ -206,7 +206,7 @@ export default function Technology({ data }: TechnologyPropsInterface) {
                 <Link href={`${BASE_URL}${data.buttonlink}`} className="more_btn">
                   <Image
                     src="/assets/icons/right-arrow-white.svg"
-                    alt="arrow"
+                    alt="right arrow"
                     className="img-fluid"
                     width={64}
                     height={64}
@@ -300,7 +300,7 @@ export default function Technology({ data }: TechnologyPropsInterface) {
                         <a href={`${BASE_URL}${item.slug}`} className="more_btn">
                           <img
                             src="/assets/icons/right-arrow-white.svg"
-                            alt="arrow"
+                            alt="right arrow"
                             className="img-fluid"
                           />
                         </a>

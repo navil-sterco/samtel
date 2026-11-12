@@ -186,7 +186,7 @@ export default function People({ data }: PeoplePropsInterface) {
                                         <blockquote ref={picTextBlockquoteRef} dangerouslySetInnerHTML={{ __html: data.message }} />
                                         {data?.slug && (
                                             <Link href={data.slug} className="more_btn" ref={moreBtnRef}>
-                                                <img src="/assets/icons/right-arrow-white.svg" alt="arrow" className="img-fluid" />
+                                                <img src="/assets/icons/right-arrow-white.svg" alt="right arrow" className="img-fluid" />
                                             </Link>
                                         )}
 
@@ -207,7 +207,7 @@ export default function People({ data }: PeoplePropsInterface) {
                                             <ul ref={rightLinkListRef}>
                                                 {data.buttonsgroup.map((item, idx) => (
                                                     <li key={idx}>
-                                                        <Link href={item?.url}>{item?.name} <img src="/assets/icons/right-arrow-white.svg" alt="arrow" className="img-fluid" /></Link>
+                                                        <Link href={item?.url}>{item?.name} <img src="/assets/icons/right-arrow-white.svg" alt="right arrow" className="img-fluid" /></Link>
                                                     </li>
                                                 ))}
 

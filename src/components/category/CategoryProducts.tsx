@@ -223,10 +223,10 @@ export default function CategoryProducts({title, data}:CategoryPropsInterface) {
                                         {selectedProductImages.length > 1 && (
                                             <>
                                                 <button type="button" className="swiper_custom_prev" aria-label="Previous image">
-                                                    <Image src="/assets/icons/left-arrow.svg" alt="" width={52} height={52} />
+                                                    <Image src="/assets/icons/left-arrow.svg" alt="left arrow" width={52} height={52} />
                                                 </button>
                                                 <button type="button" className="swiper_custom_next" aria-label="Next image">
-                                                    <Image src="/assets/icons/right-arrow-white.svg" alt="" width={52} height={52} />
+                                                    <Image src="/assets/icons/right-arrow-white.svg" alt="right arrow" width={52} height={52} />
                                                 </button>
                                             </>
                                         )}
@@ -245,7 +245,7 @@ export default function CategoryProducts({title, data}:CategoryPropsInterface) {
                                         </nav>
                                     </section>
                                     <div className="product_content">
-                                        <h1 className="font45" id="category-product-modal-title">{selectedProduct.name}</h1>
+                                        <h4 className="font45" id="category-product-modal-title">{selectedProduct.name}</h4>
                                         <div id="modalDynamicBody">
                                             {selectedProduct.description && (
                                                 <p dangerouslySetInnerHTML={{ __html: selectedProduct.description }} />
@@ -263,11 +263,11 @@ export default function CategoryProducts({title, data}:CategoryPropsInterface) {
                         </div>
                         <div className="product_slide_btns">
                             <button type="button" className="more_btn" aria-label="Previous product" onClick={() => moveProduct(-1)}>
-                                <Image src="/assets/icons/left-arrow.svg" alt="" width={52} height={52} />
+                                <Image src="/assets/icons/left-arrow.svg" alt="left arrow" width={52} height={52} />
                             </button>
                             <div className="product_count"><p>{selectedIndex + 1}/{products.length}</p></div>
                             <button type="button" className="more_btn" aria-label="Next product" onClick={() => moveProduct(1)}>
-                                <Image src="/assets/icons/right-arrow-white.svg" alt="" width={52} height={52} />
+                                <Image src="/assets/icons/right-arrow-white.svg" alt="right arrow" width={52} height={52} />
                             </button>
                         </div>
                     </div>

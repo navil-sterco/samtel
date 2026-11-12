@@ -10,7 +10,7 @@ import "aos/dist/aos.css";
 import Footer from "@/components/footer/Footer";
 import Script from "next/script";
 import ScrollToTop from "@/components/common/ScrollToTop";
-import "../styles/globals.css";
+import "@/styles/globals.css";
 import Providers from "@/lib/Providers";
 import AosProvider from "@/components/AosProvider";
 
@@ -128,6 +128,29 @@ export default function RootLayout({
         />
 
         <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P5DJ66QV');`,
+          }}
+        />
+
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-RSVP17KFKM"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RSVP17KFKM');`,
+          }}
+        />
+
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
@@ -144,39 +167,21 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
-        <Script
-          id="google-tag-manager"
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtm.js?id=GTM-P5DJ66QV"
-        />
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-P5DJ66QV"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
 
-        <Script id="google-tag-manager-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'GTM-P5DJ66QV');
-          `}
-        </Script>
         <Script id="reset-scroll-position" strategy="beforeInteractive">
           {`if ("scrollRestoration" in window.history) {
               window.history.scrollRestoration = "manual";
             }
           window.scrollTo({ top: 0, left: 0, behavior: "instant" });`}
-        </Script>
-
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-RSVP17KFKM"
-          strategy="afterInteractive"
-        />
-
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-RSVP17KFKM');
-          `}
         </Script>
 
         <PageTransitionLoader />

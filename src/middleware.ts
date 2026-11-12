@@ -131,8 +131,13 @@ export async function middleware(request: NextRequest) {
         const target = toInternalTarget(json.data.new_url, request);
 
         if (target && target.pathname !== pathname) {
-          // Clone keeps the host the user actually requested (www / non-www)
           const redirectUrl = request.nextUrl.clone();
+          if (
+            request.nextUrl.hostname === 'samtelavionics.com' ||
+            request.nextUrl.hostname === 'www.samtelavionics.com'
+          ) {
+            redirectUrl.hostname = 'www.samtelavionics.com';
+          }
           redirectUrl.pathname = target.pathname;
           redirectUrl.search = target.search;
 

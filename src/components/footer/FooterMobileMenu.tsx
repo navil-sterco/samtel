@@ -342,7 +342,7 @@ export default function FooterMobileMenu({
                 <a href="tel:+911244682000">
                   <Image
                     src="/assets/icons/phone.svg"
-                    alt=""
+                    alt="phone"
                     width={18}
                     height={18}
                   />
@@ -353,7 +353,7 @@ export default function FooterMobileMenu({
                  <p className="contact-phone">
                   <Image
                     src="/assets/icons/fax2.svg"
-                    alt=""
+                    alt="fax"
                     width={18}
                     height={18}
                   />
@@ -374,7 +374,7 @@ export default function FooterMobileMenu({
                 <a href="tel:+911140555700">
                   <Image
                     src="/assets/icons/phone.svg"
-                    alt=""
+                    alt="phone"
                     width={18}
                     height={18}
                   />
@@ -385,7 +385,7 @@ export default function FooterMobileMenu({
                   <p className="contact-phone">
                   <Image
                     src="/assets/icons/fax2.svg"
-                    alt=""
+                    alt="fax"
                     width={18}
                     height={18}
                   />
@@ -421,7 +421,7 @@ export default function FooterMobileMenu({
                         <div className="email-icon">
                           <Image
                             src="/assets/icons/mail.svg"
-                            alt=""
+                            alt="email icon"
                             width={24}
                             height={24}
                           />
@@ -447,7 +447,7 @@ export default function FooterMobileMenu({
                 >
                   <Image
                     src="/assets/icons/right-arrow-white.svg"
-                    alt=""
+                    alt="left arrow"
                     className="img-fluid"
                     width={16}
                     height={16}
@@ -461,7 +461,7 @@ export default function FooterMobileMenu({
                 >
                   <Image
                     src="/assets/icons/right-arrow-white.svg"
-                    alt=""
+                    alt="right arrow"
                     className="img-fluid"
                     width={16}
                     height={16}
@@ -517,7 +517,7 @@ export default function FooterMobileMenu({
                   <span className="menu-arrow">
                     <Image
                       src="/assets/icons/right-arrow-white.svg"
-                      alt=""
+                      alt="right arrow"
                       className="img-fluid"
                       width={16}
                       height={16}
@@ -573,7 +573,7 @@ export default function FooterMobileMenu({
                             >
                               <Image
                                 src="/assets/icons/right-arrow-white.svg"
-                                alt=""
+                                alt="right arrow"
                                 width={16}
                                 height={16}
                               />
