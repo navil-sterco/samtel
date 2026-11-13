@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://samtelavionics.com/sitemap.xml
+Sitemap: https://www.samtelavionics.com/sitemap.xml
