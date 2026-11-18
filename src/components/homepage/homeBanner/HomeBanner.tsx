@@ -333,8 +333,8 @@ export default function HomeBanner({ data }: HomeBannerProps) {
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=180%",
-            scrub: 1,
+            end: "+=250%",
+            scrub: 1.8,
             pin: true,
             pinSpacing: true,
             invalidateOnRefresh: true,
