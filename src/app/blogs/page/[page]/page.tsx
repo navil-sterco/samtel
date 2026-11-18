@@ -15,9 +15,10 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     const { page } = await params;
     const n = parsePage(page);
     const seo = await getPageSEO("blogs");
+    const title = typeof seo.title === "string" ? seo.title : seo.title.absolute;
 
     return {
-        title: n && n > 1 ? `${seo.title} - Page ${n}` : seo.title,
+        title: { absolute: n && n > 1 ? `${title} - Page ${n}` : title },
         description: seo.description,
         keywords: seo.keywords,
         alternates: { canonical: `/blogs/page/${n ?? 1}` },

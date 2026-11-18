@@ -1,0 +1,130 @@
+# www.samtelavionics.com
+
+> Samtel Avionics designs and manufactures avionics, displays, electro-optic and electronic warfare systems for defence and railways in India.
+
+
+## Home
+
+- [Defence Electronics Company in India | Samtel Avionics](https://www.samtelavionics.com/): Samtel Avionics designs and manufactures avionics, displays, electro-optic and electronic warfare systems for defence and railways in India.
+
+## Industries
+
+- [Industries We Serve: Defence, Rail, Space | Samtel | Samtel Avionics](https://www.samtelavionics.com/industries): Seven domains: airborne, naval, land, space and satellite, unmanned, railway and emerging tech. Avionics and electronics for mission-critical platforms.
+
+## Media
+
+- [Press Coverage | Samtel Avionics in the Media | Samtel Avionics](https://www.samtelavionics.com/media/press-coverage): 2026 media coverage of Samtel Avionics: WION interview with CEO Puneet Kaura, Republic Summit, AajTak feature and India Strategic on its $107M order book.
+- [Media Gallery | Samtel Avionics Events & Photos | Samtel Avionics](https://www.samtelavionics.com/media/media-gallery): Photo albums from Samtel Avionics events: Republic Forces First Conclave, the HAL partnership, a CII Northern Regional Council meeting and the BULL Co. tie-up.
+- [Press Releases | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/media/press-releases): Official announcements: ET Entrepreneur Award 2026, Rs 75 crore from True North, CEO leading CII Northern Region for 2026-27, and the AeroIndia 2025 showcase.
+- [Awards & Recognitions | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/media/awards-recognitions): Honours include SIDM Champions 2022, an ET Entrepreneur Award for manufacturing, a CII Gold award for defence R&D and founder Satish K. Kaura's Padmashree.
+
+## Blogs
+
+- [Samtel | Samtel Avionics](https://www.samtelavionics.com/blogs): Samtel
+
+## Company overview
+
+- [About Samtel Avionics | Company Profile & Capabilities | Samtel Avionics](https://www.samtelavionics.com/company-overview): 50+ years, 100+ products designed, 1M+ flying hours. Samtel Avionics delivers design, manufacturing, MRO and lifecycle support for mission-critical electronics.
+
+## Contact us
+
+- [Contact Samtel Avionics | Gurugram & New Delhi | Samtel Avionics](https://www.samtelavionics.com/contact-us): Contact Samtel Avionics for business, careers, sourcing or media queries. Design and production site in Gurugram; registered office in New Delhi.
+
+## Careers
+
+- [Careers at Samtel Avionics | Defence & Aerospace Jobs | Samtel Avionics](https://www.samtelavionics.com/careers): Build avionics, defence, space, unmanned and railway technologies at Samtel Avionics. Values: innovation, integrity, accountability, teamwork, excellence.
+
+## Leadership
+
+- [Leadership Team | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/leadership): Meet the leadership guiding Samtel Avionics across avionics, defence, aerospace, space, unmanned and railway electronics, led by MD & CEO Puneet Kaura.
+
+## Our journey milestones
+
+- [Our Journey & Milestones | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/our-journey-milestones): From India's first private picture tube plant in 1973 to avionics, HAL and Thales joint ventures, railways and space: five decades of Samtel's growth.
+
+## Certifications quality
+
+- [ISO 9001:2015, AS9100D, CEMILAC Approvals | Samtel | Samtel Avionics](https://www.samtelavionics.com/certifications-quality): Samtel Avionics holds ISO 9001:2015 and AS9100D, is a CEMILAC-approved design house with a DGAQA-approved facility, and has RDSO-approved railway DDUs.
+
+## Global partnerships collaborations and key customers
+
+- [Global Partners & Key Customers | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/global-partnerships-collaborations-and-key-customers): Works with HAL, DRDO, Bharat Electronics, Indian Railways, Honeywell, Thales, BAE Systems, HENSOLDT, Siemens and ALSTOM across defence, aerospace and rail.
+
+## Overview
+
+- [What We Do: Mission-Critical Electronics | Samtel | Samtel Avionics](https://www.samtelavionics.com/overview): Samtel designs, manufactures and sustains avionics, displays, rugged electronics, optronics, space payloads, UAVs, railway electronics and test benches.
+
+## Engineering design
+
+- [Avionics & Display Systems: HUD, MFD | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/engineering-design/avionics-display-systems): Cockpit displays and airborne electronics: multi-function and head-up displays, standby instruments and mission computers for aircraft.
+- [Optronics: EO/IR, Gimbals & Video Trackers | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/engineering-design/optronics): EO/IR imaging, tracking and stabilization: gimbals, video trackers, motion controllers and camera electronics for surveillance and Counter-UAS.
+- [Rugged Electronics Engineering | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/engineering-design/rugged-electronics): High-reliability electronics for harsh environments: embedded processing, power electronics, thermal and mechanical design and lifecycle support.
+- [Railway Electronics Engineering | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/engineering-design/railway-electronics): Build-to-spec design, ruggedized build-to-print manufacturing and lifecycle support for rail electronics on rolling stock that runs 30 to 40 years.
+- [UAV Engineering & Integration | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/engineering-design/uavs): UAV systems for defence, homeland security and infrastructure surveillance: propulsion, avionics, navigation, data links and flight testing support.
+- [Test Benches & Automated Test Equipment | Samtel | Samtel Avionics](https://www.samtelavionics.com/engineering-design/test-benches): Custom test benches and ATE for avionics, displays, optronics and railway systems, covering production acceptance, fault isolation and depot-level sustainment.
+- [Space & Satellite Engineering | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/engineering-design/space-satellite-systems): RF, embedded and mission-critical communications for satellite payloads, gateways and user terminals, with thermal vacuum and EMC/EMI qualification testing.
+- [Engineering & Design Services | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/engineering-design): 100+ products designed in five decades: requirements analysis, electronics, embedded software, FPGA, optical and mechanical design, EMI/EMC and qualification.
+
+## Sustainability csr
+
+- [Sustainability & CSR | Education Focus | Samtel | Samtel Avionics](https://www.samtelavionics.com/sustainability-csr): Samtel Avionics' CSR centres on education: nearly four decades of support through the Modern Public School Society, serving 5,000+ students in North India.
+
+## Manufacturing
+
+- [Manufacturing | High-Mix, Low-Volume Electronics | Samtel | Samtel Avionics](https://www.samtelavionics.com/manufacturing): Display manufacturing with optical bonding, electronics assembly, cable harness and box build for high-reliability, low-volume, high-mix programs.
+
+## Mro repair and lifecycle support
+
+- [MRO & Obsolescence Management | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/mro-repair-and-lifecycle-support): Depot-level maintenance, failure analysis, DMSMS management, reverse engineering and form-fit-function replacements to extend mission-critical system life.
+
+## Category
+
+- [Airborne Avionics: MFD, HUD & ISIS | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/category/airborne-solutions): Multifunction displays, head-up displays, ISIS and mission computers for Su-30 MKI, Mirage 2000 MLU, LCH, ALH, LUH and IJT. Type approved, combat proven.
+- [Naval Displays & Electronics Solutions | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/category/naval-solutions): Command console, surveillance and mission displays with rugged maritime electronics and naval EO/IR systems, from design to lifecycle support.
+- [Space-Based IoT, AIS & ADS-B Services | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/category/space-satellite-systems): Satellite IoT/MSS, AIS, ADS-B and ISL payload services over a LEO constellation with AES-256 encryption, plus space debris management services.
+- [Railway Electronics: DDU, TCMS, PIS & JRU | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/category/railway-electronics): Driver display units, centralized control and monitoring, PIS/PA, event recorders and remote diagnostics for Vande Bharat, metros and locomotives.
+- [Rugged Displays & SIGINT for Land Systems | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/category/land-solutions): Rugged displays from 7 to 24 inch, combat vehicle display solutions and NETRA-SAMTEL, an indigenous DMR-based SIGINT system, for land platforms.
+- [Unmanned Solutions | UAVs & Loitering Munitions | Samtel | Samtel Avionics](https://www.samtelavionics.com/category/unmanned-solutions): Mini UAVs, long-range ISR drones, loitering munitions and heavy-lift logistics drones, supporting India's indigenous defence goals and lower import reliance.
+- [Industrial & Emerging Technologies | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/category/industrial-emerging-technologies): High-reliability electronic and optronic solutions for industrial and emerging technology domains, from embedded systems to collaborative co-development.
+
+## Product solutions
+
+- [Product Solutions for Defence & Aerospace - Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/product-solutions?type=naval-solutions): Discover Samtel Avionics product solutions for defence, aerospace, space, UAVs and railways. Explore mission-critical systems engineered for reliability.
+- [Product Solutions for Defence & Aerospace - Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/product-solutions?type=airborne-solutions): Discover Samtel Avionics product solutions for defence, aerospace, space, UAVs and railways. Explore mission-critical systems engineered for reliability.
+- [Product Solutions for Defence & Aerospace - Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/product-solutions?type=land-solutions): Discover Samtel Avionics product solutions for defence, aerospace, space, UAVs and railways. Explore mission-critical systems engineered for reliability.
+- [Product Solutions for Defence & Aerospace - Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/product-solutions?type=unmanned-solutions): Discover Samtel Avionics product solutions for defence, aerospace, space, UAVs and railways. Explore mission-critical systems engineered for reliability.
+- [Product Solutions for Defence & Aerospace - Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/product-solutions?type=space-satellite-systems): Discover Samtel Avionics product solutions for defence, aerospace, space, UAVs and railways. Explore mission-critical systems engineered for reliability.
+- [Product Solutions for Defence & Aerospace - Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/product-solutions?type=railway-electronics): Discover Samtel Avionics product solutions for defence, aerospace, space, UAVs and railways. Explore mission-critical systems engineered for reliability.
+- [Product Solutions for Defence & Aerospace - Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/product-solutions?type=test-benches): Discover Samtel Avionics product solutions for defence, aerospace, space, UAVs and railways. Explore mission-critical systems engineered for reliability.
+- [Product Solutions for Defence & Aerospace - Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/product-solutions?type=optronics-imaging-solutions): Discover Samtel Avionics product solutions for defence, aerospace, space, UAVs and railways. Explore mission-critical systems engineered for reliability.
+- [Product Solutions for Defence & Aerospace - Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/product-solutions?type=custom-solutions-co-development): Discover Samtel Avionics product solutions for defence, aerospace, space, UAVs and railways. Explore mission-critical systems engineered for reliability.
+- [Product Solutions for Defence & Aerospace - Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/product-solutions): Discover Samtel Avionics product solutions for defence, aerospace, space, UAVs and railways. Explore mission-critical systems engineered for reliability.
+
+## Infrastructure technology
+
+- [Infrastructure & Technology | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/infrastructure-technology): Integrated design, test, integration and manufacturing infrastructure backed by ISO 9001:2015, AS9100D, a CEMILAC design house and DGAQA approval.
+
+## Products solutions overview
+
+- [Products & Solutions Overview | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/products-solutions-overview): Rugged electronics, avionics, optronics, embedded systems, power electronics and test systems for defence, aerospace, naval, land, space, unmanned and rail.
+
+## Testing qualification
+
+- [Testing & Qualification | MIL-STD, DO-160 | Samtel | Samtel Avionics](https://www.samtelavionics.com/testing-qualification): In-house functional, environmental, reliability and EMI/EMC testing aligned to MIL-STD-810, MIL-STD-461, DO-160 and IP65/IP67 qualification needs.
+
+## Manufacturing facilities
+
+- [Manufacturing Facilities | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/manufacturing-facilities): Controlled facilities for optical bonding, cleanroom work, box build, production testing, first-article inspection and repair across defence and rail programs.
+
+## Design rd facilities
+
+- [Design & R&D Facilities | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/design-rd-facilities): Electronics and optical labs, Class 1000 cleanrooms and rapid prototyping with ARAS Innovator, Zemax and MATLAB, behind 100+ products over five decades.
+
+## System integration validation
+
+- [System Integration & Validation | Samtel Avionics | Samtel Avionics](https://www.samtelavionics.com/system-integration-validation): LRU-to-system integration across electronics, displays, sensors and software, with protocol validation, customer-witness testing and field validation.
+
+## Current opening
+
+- [Current Openings | Samtel Avionics Careers | Samtel Avionics](https://www.samtelavionics.com/current-opening): Explore current job openings at Samtel Avionics and grow your career in avionics, defence, space, unmanned and railway electronics engineering.
+

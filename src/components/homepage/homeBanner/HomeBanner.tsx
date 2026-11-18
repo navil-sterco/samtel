@@ -103,6 +103,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const videoElRef = useRef<HTMLVideoElement | null>(null);
   const sourceElRef = useRef<HTMLSourceElement | null>(null);
+  const posterRef = useRef<HTMLImageElement | null>(null);
   const ytWrapperRef = useRef<HTMLDivElement | null>(null);
   const ytPlayerRef = useRef<any>(null);
   const bannerCaptionRef = useRef<HTMLDivElement | null>(null);
@@ -139,10 +140,14 @@ export default function HomeBanner({ data }: HomeBannerProps) {
     const h1 = h1Ref.current;
     const btn = btnRef.current;
     const pEm = pEmRef.current;
-    const pList = pListRef.current;
     const ytWrapper = ytWrapperRef.current;
 
     if (!section || !h1) return;
+
+    // Only the visible desktop paragraphs (excludes the hidden <h1> spans)
+    const pList = Array.from(
+      section.querySelectorAll<HTMLElement>(".banner_title.for_desktop > p"),
+    );
 
     let cancelled = false;
     let scrollUnlocked = false;
@@ -268,8 +273,15 @@ export default function HomeBanner({ data }: HomeBannerProps) {
             if (video.readyState > 0) video.currentTime = 0;
           },
 
-          addVisibleClass: () => video.classList.add("visible"),
-          removeVisibleClass: () => video.classList.remove("visible"),
+          addVisibleClass: () => {
+            video.classList.add("visible");
+            // poster sits above the video in the DOM and would cover it
+            if (posterRef.current) posterRef.current.style.visibility = "hidden";
+          },
+          removeVisibleClass: () => {
+            video.classList.remove("visible");
+            if (posterRef.current) posterRef.current.style.visibility = "visible";
+          },
           ensureLoaded,
         };
       }
@@ -282,6 +294,8 @@ export default function HomeBanner({ data }: HomeBannerProps) {
         return;
       }
 
+      controller.ensureLoaded();
+
       window.addEventListener("scroll", lockScroll, { passive: false });
       window.addEventListener("wheel", preventWheel, { passive: false });
       window.addEventListener("touchmove", preventTouch, { passive: false });
@@ -292,6 +306,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
         let videoStarted = false;
         let mainScrollTrigger: ScrollTrigger | undefined;
 
+        // SA text: visible but shifted down (rises with scroll)
         gsap.set(h1, {
           y: 0,
           x: 0,
@@ -299,9 +314,11 @@ export default function HomeBanner({ data }: HomeBannerProps) {
           opacity: 0,
           visibility: "visible",
           transformOrigin: "center center",
+          force3D: true,
         });
 
-        gsap.set([...pList, btn, pEm], {
+        // Other elements hidden initially
+        gsap.set([...pList, btn, pEm].filter(Boolean), {
           y: 50,
           opacity: 0,
         });
@@ -317,7 +334,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
             trigger: section,
             start: "top top",
             end: "+=180%",
-            scrub: 1.8,
+            scrub: 1,
             pin: true,
             pinSpacing: true,
             invalidateOnRefresh: true,
@@ -328,6 +345,10 @@ export default function HomeBanner({ data }: HomeBannerProps) {
               const scrollingUp = self.progress < lastProgress;
 
               lastProgress = self.progress;
+
+              // Same class the "bottom bottom" trigger toggles, but driven by
+              // the pinned timeline so it can't be missed.
+              h1.classList.toggle("filled", self.progress > 0);
 
               if (
                 scrollingDown &&
@@ -352,13 +373,14 @@ export default function HomeBanner({ data }: HomeBannerProps) {
                 bannerCaption?.classList.remove("transparent");
                 controller.removeVisibleClass();
                 controller.pause();
-                controller.reset();
+                // no reset: video resumes from where it stopped
                 videoStarted = false;
               }
             },
           },
         });
 
+        /* LINE + H1 MOVE TOGETHER */
         tl.fromTo(
           lineProgress,
           {
@@ -372,16 +394,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
           0,
         )
 
-          .to(
-            bannerTitle,
-            {
-              y: -50,
-              ease: "none",
-              duration: 0.2,
-            },
-            0,
-          )
-
+          // h1 moves up with scroll
           .to(
             h1,
             {
@@ -392,6 +405,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
             0,
           );
 
+        /* MAIN EXIT ANIMATION */
         tl.to(
           h1,
           {
@@ -426,6 +440,8 @@ export default function HomeBanner({ data }: HomeBannerProps) {
             1,
           )
 
+          
+
           .to(
             btn,
             {
@@ -437,9 +453,11 @@ export default function HomeBanner({ data }: HomeBannerProps) {
             1,
           );
 
+        // store trigger & disable initially
         mainScrollTrigger = tl.scrollTrigger;
         mainScrollTrigger?.disable();
 
+        /* RESET ON SCROLL BACK */
         ScrollTrigger.create({
           trigger: section,
           start: "bottom bottom",
@@ -451,25 +469,15 @@ export default function HomeBanner({ data }: HomeBannerProps) {
           onLeaveBack: () => {
             h1.classList.remove("filled");
 
-            gsap.set(bannerTitle, { y: 0 });
-
-            gsap.set(h1, {
-              y: 0,
-              x: 0,
-              scale: 1,
-              opacity: 1,
-              visibility: "visible",
-            });
-
-            gsap.set(pList, { y: 0, opacity: 1 });
-            gsap.set(pEm, { y: 0, opacity: 1 });
-            gsap.set(btn, { y: 0, opacity: 1 });
-            gsap.set(lineProgress, { height: "0%", opacity: 1 });
+            // No gsap.set on h1 / pList / pEm / btn / lineProgress here.
+            // The scrubbed timeline owns those values and reverses them
+            // itself; setting them here fought the scrub and left the SVG
+            // in a different position on the way back.
 
             bannerCaption?.classList.remove("transparent");
 
             controller.pause();
-            controller.reset();
+            // no reset: keep the current playback position
             controller.removeVisibleClass();
 
             videoStarted = false;
@@ -477,53 +485,51 @@ export default function HomeBanner({ data }: HomeBannerProps) {
           },
         });
 
+        /* INTRO ANIMATION (h1 is NOT part of the intro) */
         /* INTRO ANIMATION: ALL TEXT + H1 TOGETHER */
+gsap
+  .timeline({
+    onComplete: () => {
+      if (cancelled) return;
 
-        gsap
-          .timeline({
-            onComplete: () => {
-              if (cancelled) return;
+      gsap.set(h1, {
+        y: 0,
+        x: 0,
+        scale: 1,
+        opacity: 1,
+        visibility: "visible",
+      });
 
-              gsap.set(bannerTitle, { y: 0 });
+      gsap.set(lineProgress, { height: "0%", opacity: 1 });
 
-              gsap.set(h1, {
-                y: 0,
-                x: 0,
-                scale: 1,
-                opacity: 1,
-                visibility: "visible",
-              });
+      mainScrollTrigger?.enable();
+      refreshScrollTriggers();
 
-              gsap.set(lineProgress, { height: "0%", opacity: 1 });
+      clearTimeout(safetyTimeout);
+      unlockOnce();
+    },
+  })
 
-              mainScrollTrigger?.enable();
-              refreshScrollTriggers();
+  .to({}, { duration: 0.4 })
 
-              clearTimeout(safetyTimeout);
-              unlockOnce();
-            },
-          })
+  // Paragraphs + description + button + H1 together
+  .to([...pList, pEm, btn, h1].filter(Boolean), {
+    y: 0,
+    opacity: 1,
+    duration: 0.7,
+    stagger: 0,
+    ease: "power3.out",
+  })
 
-          .to({}, { duration: 0.4 })
-
-          // Paragraphs + description + button + H1 together
-          .to([...pList, pEm, btn, h1].filter(Boolean), {
-            y: 0,
-            opacity: 1,
-            duration: 0.7,
-            stagger: 0,
-            ease: "power3.out",
-          })
-
-          .to(
-            lineProgress,
-            {
-              opacity: 1,
-              duration: 0.6,
-              ease: "power2.out",
-            },
-            "-=0.1",
-          );
+  .to(
+    lineProgress,
+    {
+      opacity: 1,
+      duration: 0.6,
+      ease: "power2.out",
+    },
+    "-=0.1",
+  );
       });
 
       if (!cancelled) refreshScrollTriggers();
@@ -640,6 +646,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
 
         {!isYouTube && data?.poster && (
           <img
+            ref={posterRef}
             className="desktop_video_poster"
             src={data.poster}
             alt="home video poster"

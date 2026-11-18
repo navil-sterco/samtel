@@ -4,6 +4,8 @@ import ReactParserDynamic from "@/components/common/reactParser/ReactParserDynam
 import { apiFetch } from "@/lib/api";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { getPageSEO } from "@/lib/seo";
 
 const formatDate = (date: string) => {
   const d = new Date(date);
@@ -13,6 +15,26 @@ const formatDate = (date: string) => {
     year: "numeric",
   });
 };
+
+type PageProps = { params: Promise<{ slug: string }> };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const seo = await getPageSEO(`blogs/${slug}`);
+
+    return {
+        title: seo.title,
+        description: seo.description,
+        keywords: seo.keywords,
+        alternates: seo.alternates,
+        robots: seo.robots,
+        openGraph: seo.openGraph
+            ? {
+                  ...seo.openGraph,
+              }
+            : undefined,
+    };
+}
 
 export default async function BlogDetailPage({
   params,

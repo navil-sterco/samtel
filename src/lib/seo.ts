@@ -30,7 +30,7 @@ type OpenGraphImage =
     };
 
 type SEOResult = {
-  title: string;
+  title: string | { absolute: string };
   description: string;
   keywords: string;
   alternates: { canonical: string };
@@ -141,9 +141,8 @@ async function fetchPageSEO(slug: string): Promise<SEOResult> {
     const pageRobots = data.data.robots;
     const index = pageRobots?.index ?? globalRobots?.index ?? true;
     const follow = pageRobots?.follow ?? globalRobots?.follow ?? true;
-
     return {
-      title: data.data.title,
+      title: { absolute: data.data.title },
       description: data.data.description,
       keywords: data.data.keywords?.length > 0 ? data.data.keywords : "Samtel",
       robots: {

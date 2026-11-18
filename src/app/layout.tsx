@@ -21,7 +21,7 @@ const funnelSans = Funnel_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://samtelavionics.com"),
+  metadataBase: new URL("https://www.samtelavionics.com"),
 
   title: {
     default: "Samtel Avionics | Defence Electronics Company in India",
@@ -63,8 +63,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Samtel Avionics",
-  url: "https://samtelavionics.com/",
-  logo: "https://samtelavionics.com/assets/images/main-logo.webp",
+  url: "https://www.samtelavionics.com/",
+  logo: "https://www.samtelavionics.com/assets/images/main-logo.webp",
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+911244682000",
@@ -85,9 +85,9 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Samtel Avionics",
-  image: "https://samtelavionics.com/assets/images/main-logo.webp",
-  "@id": "https://samtelavionics.com/#localbusiness",
-  url: "https://samtelavionics.com/",
+  image: "https://www.samtelavionics.com/assets/images/main-logo.webp",
+  "@id": "https://www.samtelavionics.com/#localbusiness",
+  url: "https://www.samtelavionics.com/",
   telephone: "+91 124 4682000",
   address: {
     "@type": "PostalAddress",
