@@ -36,7 +36,8 @@ function buildCsp(nonce: string, isDev: boolean): string {
       https://analytics.google.com
       https://stats.g.doubleclick.net
       https://www.gstatic.com
-      https://www.recaptcha.net;
+      https://www.recaptcha.net
+      https://*.clarity.ms;
     frame-src 'self'
       https://www.youtube.com
       https://youtube.com
