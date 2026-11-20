@@ -128,27 +128,9 @@ export default function RootLayout({
           content="5F1J4u7wctCD5Kzl3AJ0dOVJ12mfZUPxZL7EBvdfz3c"
         />
 
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P5DJ66QV');`,
-          }}
-        />
-
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-RSVP17KFKM"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-RSVP17KFKM');`,
-          }}
+        <Script
+          src="/js/google-tags.js"
+          strategy="beforeInteractive"
         />
 
         <script
@@ -168,22 +150,10 @@ gtag('config', 'G-RSVP17KFKM');`,
         />
       </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-P5DJ66QV"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-
-        <Script id="reset-scroll-position" strategy="beforeInteractive">
-          {`if ("scrollRestoration" in window.history) {
-              window.history.scrollRestoration = "manual";
-            }
-          window.scrollTo({ top: 0, left: 0, behavior: "instant" });`}
-        </Script>
+        <Script
+          src="/js/reset-scroll-position.js"
+          strategy="beforeInteractive"
+        />
 
         <PageTransitionLoader />
         <ScrollToTop />
