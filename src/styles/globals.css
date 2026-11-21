@@ -353,6 +353,14 @@ ul.list li::marker{color: var(--color-f8); }
 
 } */
 
+@media (max-width:1399px) {
+.swiper_custom_next,
+.swiper_custom_prev{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+}
+
 
 @media (max-width:1199px) {
 html { font-size: 45.5%; }

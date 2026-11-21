@@ -30,6 +30,10 @@
 }
 @media (max-width: 1399px) {
 .happenings-section .slider-outer-wrapper { margin-left: calc((100vw - min(1505px, 81.409091vw)) / 2 + 6.5rem); }
+.happenings-section {
+
+    padding-block: 7rem;
+}
 }
 @media (max-width: 1199px) {
     .happenings-section .slider-outer-wrapper {
@@ -53,4 +57,10 @@
 .happenings-section { padding: 5rem 1.5rem; }
 .happening-content { margin-block: 1.5rem 2.8rem; }
 .happenings-section .swiper-slide { width: 100% !important; }
+}
+
+@media (max-width: 567px) {
+    .happening-content {
+        margin-block: 1.5rem 0.8rem;
+    }
 }

@@ -211,6 +211,12 @@
 .storie_grid { grid-template-columns: 66rem auto; gap: 7.5rem; }
 .princ-sec .work_ttl h2 { margin: 0 0 1rem 0; }
 .work_ttl blockquote { margin: 0 0 1.2rem 0;}
+.swiper_custom_next,
+.swiper_custom_prev{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
 
 }
 @media(max-width:1299px){
