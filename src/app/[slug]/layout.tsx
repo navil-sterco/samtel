@@ -4,11 +4,11 @@ import { apiFetch } from "@/lib/api";
 import { getSlug } from "@/lib/getSlug";
 
 import '@/styles/inner.css'
-import NotFound from "../not-found";
 import ComingSoon from "@/components/common/comingSoon/ComingSoon";
 import ScrollToTop from "@/components/common/ScrollToTop";
 import { getPageSEO } from "@/lib/seo";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 type PageProps = {
     children: React.ReactNode;
@@ -37,9 +37,7 @@ export default async function DynamicPageLayout({ children }: PageProps) {
     const slug = await getSlug();
     const {data, error} = await apiFetch(`cms/${slug}`);
 
-    if(error ){
-        return <NotFound />;
-    }
+    if(error || !data.status) notFound();
 
     const topData = data?.data || {};
 

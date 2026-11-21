@@ -2,6 +2,7 @@ import ProductSolutionsClient from "@/components/product-solutions/ProductSoluti
 import { apiFetch } from "@/lib/api"
 import { getPageSEO } from "@/lib/seo";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({params}: { params: Promise<{ type?: string }> }) {
     const { type } = await params;
@@ -73,12 +74,17 @@ export default async function ProductTypePage({params, searchParams }: { params:
     const productCategories = (ProductCategoriesData as CategoryInterface)?.data ?? [];
 
     const activeType = productCategories.some((category) => category.slug === type)
-        ? type
-        : productCategories[0]?.slug;
+        && type;
+
+    console.log('activeType',activeType);
 
     const { data } = activeType
         ? await apiFetch(`product/${encodeURIComponent(activeType)}?page=${currentPage}`, {revalidate:60})
         : { data: null };
+
+    console.log('product solutions data', data);
+
+    if(!data?.status) notFound();
 
     const apiData = (data as ProductsDataInterface)?.products;
     const productsData = apiData?.data ?? [];

@@ -1,10 +1,10 @@
-import NotFound from "@/app/not-found";
 import Breadcrumbs from "@/components/common/breadcrumbs/Breadcrumbs";
 import ReactParserDynamic from "@/components/common/reactParser/ReactParserDynamic";
 import RelatedNews from "@/components/news/RelatedNews";
 import { apiFetch } from "@/lib/api"
 import { getPageSEO } from "@/lib/seo";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 interface PageProps {
     params: Promise<{
@@ -37,7 +37,7 @@ export default async function NewsDetailPage({ params }: PageProps) {
         apiFetch(`cms/newsroom`)
     ])
 
-    if (error || !data.status) return <NotFound />
+    if (error || !data.status) notFound();
 
     const NewsData = data?.newsAndEvent?.data ?? {};
 
