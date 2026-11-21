@@ -52,6 +52,18 @@ type SEOResult = {
   schema: Record<string, unknown> | null;
 };
 
+const isDevelopmentEnvironment =
+  process.env.STATUS?.trim().toLowerCase() === "development";
+
+export const environmentRobots: SEOResult["robots"] = {
+  index: !isDevelopmentEnvironment,
+  follow: !isDevelopmentEnvironment,
+  googleBot: {
+    index: !isDevelopmentEnvironment,
+    follow: !isDevelopmentEnvironment,
+  },
+};
+
 function defaultSchema(): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
@@ -75,54 +87,15 @@ function defaultSEO(slug = ""): SEOResult {
     description: "Samtel",
     keywords: "Samtel",
     alternates: { canonical: canonicalForSlug(slug) },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-      },
-    },
+    robots: environmentRobots,
     schema: null,
   };
 }
 
-async function fetchGlobalRobots(): Promise<SEOResult["robots"] | null> {
-  try {
-    const res = await fetch(`${SEO_URL}seo/global`, {
-      cache: "force-cache",
-      next: { revalidate: 360 },
-    });
-
-    if (!res.ok) return null;
-
-    const data = await res.json();
-    const robots = data?.data?.robots;
-
-    if (typeof robots?.index !== "boolean" && typeof robots?.follow !== "boolean") {
-      return null;
-    }
-
-    const index = robots.index ?? true;
-    const follow = robots.follow ?? true;
-
-    return {
-      index,
-      follow,
-      googleBot: { index, follow },
-    };
-  } catch {
-    return null;
-  }
-}
-
 async function fetchPageSEO(slug: string): Promise<SEOResult> {
-  const globalRobotsPromise = fetchGlobalRobots();
-
   try {
-    const globalRobots = await globalRobotsPromise;
     if (!slug) {
-      return { ...defaultSEO(slug), robots: globalRobots ?? defaultSEO(slug).robots };
+      return defaultSEO(slug);
     }
 
     const encodedSlug = slug
@@ -138,18 +111,11 @@ async function fetchPageSEO(slug: string): Promise<SEOResult> {
     if (!res.ok) throw new Error("SEO data not found");
 
     const data = await res.json();
-    const pageRobots = data.data.robots;
-    const index = pageRobots?.index ?? globalRobots?.index ?? true;
-    const follow = pageRobots?.follow ?? globalRobots?.follow ?? true;
     return {
       title: { absolute: data.data.title },
       description: data.data.description,
       keywords: data.data.keywords?.length > 0 ? data.data.keywords : "Samtel",
-      robots: {
-        index,
-        follow,
-        googleBot: { index, follow },
-      },
+      robots: environmentRobots,
       alternates: {
         canonical: data.data.alternates?.canonical || canonicalForSlug(slug),
       },
@@ -166,8 +132,7 @@ async function fetchPageSEO(slug: string): Promise<SEOResult> {
       schema: data.data.schema || defaultSchema(),
     };
   } catch {
-    const globalRobots = await globalRobotsPromise;
-    return { ...defaultSEO(slug), robots: globalRobots ?? defaultSEO(slug).robots };
+    return defaultSEO(slug);
   }
 }
 

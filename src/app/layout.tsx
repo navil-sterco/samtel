@@ -14,6 +14,7 @@ import ScrollToTop from "@/components/common/ScrollToTop";
 import "@/styles/globals.css";
 import Providers from "@/lib/Providers";
 import AosProvider from "@/components/AosProvider";
+import { environmentRobots } from "@/lib/seo";
 
 const funnelSans = Funnel_Sans({
   subsets: ["latin"],
@@ -22,6 +23,7 @@ const funnelSans = Funnel_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.samtelavionics.com"),
+  robots: environmentRobots,
 
   title: {
     default: "Samtel Avionics | Defence Electronics Company in India",
