@@ -2053,6 +2053,11 @@ br.desktop-break { display: none; }
 @media (max-width: 1399px) {
     .product_content .font45{font-size: 2rem;}
     .product_modal_grid{gap: 5rem;}
+    .product_content {
+    max-width: 31rem;
+    margin-bottom: 10rem;
+}
+
 
 }
 @media (max-width: 1299px) {
@@ -2581,10 +2586,6 @@ br.desktop-break { display: none; }
 .product_image .image_title h6{
     font: var(--font-14);
 }
-.product_content {
-    max-width: 31rem;
-    margin-bottom: 10rem;
-}
 
 
 }
@@ -2669,6 +2670,7 @@ br.desktop-break { display: none; }
 .product_modal_close { padding-bottom: 4.5rem; }
 .land_tactical_systems_banner .container-full { padding-inline: 4.5rem; }
 .left_airborne_sys { margin-left: 0; }
+
 
  }
 @media(max-width:768px) {
