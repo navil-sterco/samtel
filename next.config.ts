@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Keep dynamically generated metadata in <head> for every user agent.
+  htmlLimitedBots: /.*/,
   serverExternalPackages: ["jsdom", "isomorphic-dompurify"],
   images:{
     remotePatterns:[
