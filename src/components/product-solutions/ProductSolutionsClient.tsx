@@ -408,54 +408,56 @@ export default function ProductSolutionsClient({
                         <div className="product_modal_grid">
                             <div className="product_image">
                                 <figure>
-                                    <Swiper
-                                        key={selectedProduct.id}
-                                        className="product-image-swiper"
-                                        modules={[Pagination, Autoplay, Navigation]}
-                                        slidesPerView={1}
-                                        loop={selectedProductImages.length > 1}
-                                        autoplay={{
-                                            delay:3000,
-                                            disableOnInteraction: false,
-                                        }}
-                                        navigation={{
-                                            nextEl:'.swiper_custom_next',
-                                            prevEl: '.swiper_custom_prev',
-                                        }}
-                                    >
-                                        {(selectedProductImages.length
-                                            ? selectedProductImages
-                                            : [{ src: placeholderImage, caption: undefined }]
-                                        ).map((item, index) => (
-                                            <SwiperSlide key={`${item.src}-${index}`} className={selectedProduct?.padding ? 'padding' : ''}>
-                                                <Image
-                                                    src={item.src}
-                                                    className="img-fluid w-100"
-                                                    width={850}
-                                                    height={850}
-                                                    alt={`${selectedProduct.name}${selectedProductImages.length > 1 ? ` - image ${index + 1}` : ""}`}
-                                                    priority={index === 0}
-                                                />
+                                    {modalOpen && (
+                                        <Swiper
+                                            key={selectedProduct.id}
+                                            className="product-image-swiper"
+                                            modules={[Pagination, Autoplay, Navigation]}
+                                            slidesPerView={1}
+                                            loop={selectedProductImages.length > 1}
+                                            autoplay={{
+                                                delay:3000,
+                                                disableOnInteraction: false,
+                                            }}
+                                            navigation={{
+                                                nextEl:'.swiper_custom_next',
+                                                prevEl: '.swiper_custom_prev',
+                                            }}
+                                        >
+                                            {(selectedProductImages.length
+                                                ? selectedProductImages
+                                                : [{ src: placeholderImage, caption: undefined }]
+                                            ).map((item, index) => (
+                                                <SwiperSlide key={`${item.src}-${index}`} className={selectedProduct?.padding ? 'padding' : ''}>
+                                                    <Image
+                                                        src={item.src}
+                                                        className="img-fluid w-100"
+                                                        width={850}
+                                                        height={850}
+                                                        alt={`${selectedProduct.name}${selectedProductImages.length > 1 ? ` - image ${index + 1}` : ""}`}
+                                                        priority={index === 0}
+                                                    />
 
-                                                {item.caption && (
-                                                    <div className="image_title">
-                                                        <h6>{item.caption}</h6>
-                                                    </div>
-                                                )}
+                                                    {item.caption && (
+                                                        <div className="image_title">
+                                                            <h6>{item.caption}</h6>
+                                                        </div>
+                                                    )}
 
-                                                {selectedProductImages.length > 0 && (
-                                                    <button
-                                                        type="button"
-                                                        className="product-image-zoom"
-                                                        aria-label={`Zoom image ${index + 1} of ${selectedProduct.name}`}
-                                                        onClick={() => openImageGallery(index)}
-                                                    >
-                                                        <Image src="/assets/icons/zoombtn.svg" alt="zoom icon" width={39} height={39} />
-                                                    </button>
-                                                )}
-                                            </SwiperSlide>
-                                        ))}
-                                    </Swiper>
+                                                    {selectedProductImages.length > 0 && (
+                                                        <button
+                                                            type="button"
+                                                            className="product-image-zoom"
+                                                            aria-label={`Zoom image ${index + 1} of ${selectedProduct.name}`}
+                                                            onClick={() => openImageGallery(index)}
+                                                        >
+                                                            <Image src="/assets/icons/zoombtn.svg" alt="zoom icon" width={39} height={39} />
+                                                        </button>
+                                                    )}
+                                                </SwiperSlide>
+                                            ))}
+                                        </Swiper>
+                                    )}
 
                                     {selectedProductImages.length > 1 && (
                                         <>
