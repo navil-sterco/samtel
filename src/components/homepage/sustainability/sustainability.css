@@ -17,6 +17,20 @@
     
 }
 
+@media (max-width:1399px) {
+    .home_sustainbility {
+        padding-block: 18rem 4rem;
+    }
+}
+@media (max-width:1199px) {
+    .home_sustainbility {
+        padding-block: 10rem 4rem;
+    }
+}
+
+
+
+
 @media (max-width:992px) {
 .font_title { text-align: center; }
 .home_sustainbility .font_title>blockquote {padding-inline: 0; margin-bottom: 0rem; }
