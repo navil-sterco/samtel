@@ -8,6 +8,8 @@ import "./homeBanner.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const HOME_BANNER_POSTER = "/assets/videos/home-banner-poster.webp";
+
 interface HomeBannerProps {
   data: {
     titles: any;
@@ -634,6 +636,7 @@ gsap
           <video
             className="desktop_video"
             ref={videoElRef}
+            poster={HOME_BANNER_POSTER}
             muted
             playsInline
             loop
@@ -644,16 +647,16 @@ gsap
           </video>
         )}
 
-        {!isYouTube && data?.poster && (
+        {/* {!isYouTube && (
           <img
             ref={posterRef}
             className="desktop_video_poster"
-            src={data.poster}
+            src={HOME_BANNER_POSTER}
             alt="home video poster"
             aria-hidden="true"
             fetchPriority="high"
           />
-        )}
+        )} */}
 
         <div className="banner_caption" ref={bannerCaptionRef}>
           <div className="container">
@@ -750,12 +753,12 @@ gsap
               <video
                 className="for_mobile"
                 ref={mVideoRef}
-                poster={data?.poster}
+                poster={HOME_BANNER_POSTER}
                 muted
                 playsInline
                 loop
                 autoPlay
-                preload="metadata"
+                preload="none"
                 aria-hidden="true"
               />
             )}
