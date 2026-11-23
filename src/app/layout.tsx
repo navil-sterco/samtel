@@ -15,6 +15,7 @@ import "@/styles/globals.css";
 import Providers from "@/lib/Providers";
 import AosProvider from "@/components/AosProvider";
 import { environmentRobots } from "@/lib/seo";
+import { headers } from "next/headers";
 
 const funnelSans = Funnel_Sans({
   subsets: ["latin"],
@@ -112,11 +113,13 @@ const localBusinessSchema = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   return (
     <html
       lang="en"
@@ -133,16 +136,19 @@ export default function RootLayout({
         <Script
           src="/js/google-tags.js"
           strategy="beforeInteractive"
+          nonce={nonce}
         />
 
         <script
           type="application/ld+json"
+          nonce={nonce}
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
           }}
         />
         <script
           type="application/ld+json"
+          nonce={nonce}
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(localBusinessSchema).replace(
               /</g,
@@ -155,6 +161,7 @@ export default function RootLayout({
         <Script
           src="/js/reset-scroll-position.js"
           strategy="beforeInteractive"
+          nonce={nonce}
         />
 
         <PageTransitionLoader />

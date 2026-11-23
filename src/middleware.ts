@@ -85,7 +85,7 @@ function toInternalTarget(
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const isDev = process.env.NODE_ENV === 'development';
-  const nonce = btoa(crypto.randomUUID());
+  const nonce = btoa(crypto.randomUUID()).replace(/=/g, '');
   const cspHeader = buildCsp(nonce, isDev);
 
   const requestHeaders = new Headers(request.headers);
