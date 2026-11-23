@@ -989,8 +989,8 @@
 .media_sec2 .press_bx { background-color: var(--color-white); padding: 0; }
 .media_sec2 .press_bx figure img { width: 100%; }
 .media_sec1 .press_bx { background:transparent; padding:0; }
-.media_sec2 .press_bx p,
-.media_sec1 .press_bx p { margin-top: 3rem; }
+.media_sec2 .press_bx .bContent,
+.media_sec1 .press_bx .bContent { margin-top: 3rem; }
 .media_sec1 .press_grid { gap:4rem }
 .media_sec1 .press_grid { grid-template-columns: repeat(3, 1fr); }
 .media_sec3 { padding-block: 10rem; }
@@ -1004,7 +1004,8 @@
 .video_grid .zoombtn img { width: 7rem; filter: brightness(0) invert(1); }
 .med_txt blockquote { margin-top: 2rem; margin-bottom: 0; }
 .video_grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
-.video_grid .media_bx p { margin-top: 3rem; }
+.video_grid .media_bx .bContent { margin-top: 2rem; }
+.video_grid .media_bx .date{margin-bottom: 0.5rem;}
 .video_grid .media_bx .zoombtn { top: 40%; }
 .cus-media { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7rem; gap: 3rem; }
 h4.kh-job-title { font: var(--font-21); color: var(--color-23) }
