@@ -9,6 +9,8 @@ import "./header.css";
 export interface HeaderMenuItem {
   title: string;
   slug: string;
+  overwrite_url?:string;
+  target_blank:number;
   mega_menu?: {
     name: string;
     content: string;

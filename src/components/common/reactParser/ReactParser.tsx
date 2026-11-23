@@ -270,7 +270,7 @@ function createParserOptions(pressCoverage?: PressCoverage, modularData?:any, se
         case "contact_form":
           return <ContactForm  />;
         case "leadership_grid":
-          return <LeadershipGrid />;
+          return <LeadershipGrid searchParams={searchParams} />;
         case "media_coverage_grid":
           return <MediaCoverageGrid data={modularData}  />;
         case "press_collection":
