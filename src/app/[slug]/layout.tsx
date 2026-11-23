@@ -1,7 +1,6 @@
 import Breadcrumbs from "@/components/common/breadcrumbs/Breadcrumbs";
 import InnerSection from "@/components/common/innerSection/InnerSection";
 import { apiFetch } from "@/lib/api";
-import { getSlug } from "@/lib/getSlug";
 
 import '@/styles/inner.css'
 import ComingSoon from "@/components/common/comingSoon/ComingSoon";
@@ -33,8 +32,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
 }
 
-export default async function DynamicPageLayout({ children }: PageProps) {
-    const slug = await getSlug();
+export default async function DynamicPageLayout({ children, params }: PageProps) {
+    const {slug} = await params;
     const {data, error} = await apiFetch(`cms/${slug}`);
 
     if(error || !data.status) notFound();

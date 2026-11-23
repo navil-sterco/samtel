@@ -1,10 +1,8 @@
 import Breadcrumbs from "@/components/common/breadcrumbs/Breadcrumbs";
 import InnerSection from "@/components/common/innerSection/InnerSection";
 import { apiFetch } from "@/lib/api";
-import { getSlug } from "@/lib/getSlug";
 
 import '@/styles/inner.css'
-import ComingSoon from "@/components/common/comingSoon/ComingSoon";
 import ScrollToTop from "@/components/common/ScrollToTop";
 import { notFound } from "next/navigation";
 
