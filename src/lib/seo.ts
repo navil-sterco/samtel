@@ -1,4 +1,4 @@
-import { SEO_URL } from "@/config/config";
+import { REVALIDATE, SEO_URL } from "@/config/config";
 import { cache } from "react";
 import { CANONICAL_ORIGIN } from "@/config/config";
 
@@ -54,6 +54,7 @@ type SEOResult = {
 
 const isDevelopmentEnvironment =
   process.env.STATUS?.trim().toLowerCase() === "development";
+const revalidateSeconds = Number(REVALIDATE ?? 360);
 
 export const environmentRobots: SEOResult["robots"] = {
   index: !isDevelopmentEnvironment,
@@ -105,7 +106,7 @@ async function fetchPageSEO(slug: string): Promise<SEOResult> {
 
     const res = await fetch(`${SEO_URL}seo/${encodedSlug}`, {
       cache: "force-cache",
-      next: { revalidate: 360 },
+      next: { revalidate: revalidateSeconds },
     });
 
     if (!res.ok) throw new Error("SEO data not found");

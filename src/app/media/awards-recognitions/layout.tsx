@@ -5,7 +5,6 @@ import { getSlug } from "@/lib/getSlug";
 import "@/styles/inner.css";
 import { notFound } from "next/navigation";
 
-export const dynamic = "force-dynamic";
 
 export default async function AwardsRecognitionsLayout({
   children,

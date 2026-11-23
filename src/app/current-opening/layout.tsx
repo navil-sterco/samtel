@@ -8,7 +8,6 @@ import ComingSoon from "@/components/common/comingSoon/ComingSoon";
 import ScrollToTop from "@/components/common/ScrollToTop";
 import { notFound } from "next/navigation";
 
-export const dynamic = "force-dynamic";
 
 export default async function CurrentOpeningPageLayout({ children }: { children: React.ReactNode }) {
     const {data, error} = await apiFetch(`cms/current-opening`);

@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 
+const revalidateSeconds = Number(process.env.NEXT_PUBLIC_REVALIDATE ?? 360);
+const cacheControl = `public, s-maxage=${revalidateSeconds}, stale-while-revalidate=86400`;
+
 const nextConfig: NextConfig = {
   // Keep dynamically generated metadata in <head> for every user agent.
   htmlLimitedBots: /.*/,
@@ -22,6 +25,15 @@ const nextConfig: NextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
           { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+        ],
+      },
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: cacheControl,
+          },
         ],
       },
     ];

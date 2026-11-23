@@ -6,7 +6,6 @@ import { getSlug } from "@/lib/getSlug";
 import '@/styles/inner.css'
 import { notFound } from "next/navigation";
 
-export const dynamic = "force-dynamic";
 
 export default async function GalleryLayoutPage({ children }: { children: React.ReactNode }) {
     const slug = await getSlug();
