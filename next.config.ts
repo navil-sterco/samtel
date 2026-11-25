@@ -9,9 +9,10 @@ const cacheControl = `public, s-maxage=${revalidateSeconds}, stale-while-revalid
 
 const nextConfig: NextConfig = {
   htmlLimitedBots: /.*/,
-
   serverExternalPackages: ["jsdom", "isomorphic-dompurify"],
-
+  experimental: {
+    cssChunking: true, // or 'strict' depending on your Next version
+  },
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "**" },
