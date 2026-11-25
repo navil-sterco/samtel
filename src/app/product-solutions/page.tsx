@@ -1,91 +1,129 @@
 import ProductSolutionsClient from "@/components/product-solutions/ProductSolutionsClient";
-import { apiFetch } from "@/lib/api"
+import { apiFetch } from "@/lib/api";
+import { getFirstImageFromSections } from "@/lib/extractFirstImage";
 import { getPageSEO } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-    const seo = await getPageSEO("product-solutions");
+  const seo = await getPageSEO("product-solutions");
 
-    return {
-        title: seo.title,
-        description: seo.description,
-        keywords: seo.keywords,
-        alternates: seo.alternates,
-        robots: seo.robots,
-        openGraph: seo.openGraph
-            ? {
-                  ...seo.openGraph,
-              }
-            : undefined,
-    };
+  let openGraph: Metadata["openGraph"] = seo.openGraph
+    ? { ...seo.openGraph, siteName: seo.openGraph.siteName ?? undefined }
+    : undefined;
+
+  const hasOgImage = Array.isArray(openGraph?.images)
+    ? openGraph.images.length > 0
+    : Boolean(openGraph?.images);
+
+  let fallbackImage: string | null = null;
+
+  if (!hasOgImage) {
+    const { data } = await apiFetch(`cms/product-solutions`);
+    fallbackImage = getFirstImageFromSections(data?.data?.sections);
+
+    if (fallbackImage) {
+      openGraph = {
+        ...(openGraph ?? {}),
+        images: [{ url: fallbackImage }],
+      } as Metadata["openGraph"];
+    }
+  }
+
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: seo.alternates,
+    robots: seo.robots,
+    openGraph,
+    twitter: fallbackImage
+      ? { card: "summary_large_image", images: [fallbackImage] }
+      : undefined,
+  };
 }
 
-interface MappingItemInterface{
-    title?:string;
-    description?:string;
+interface MappingItemInterface {
+  title?: string;
+  description?: string;
 }
 
 interface ProductMappingImage {
-    image?: string;
+  image?: string;
 }
 
 interface ProductDataInterface {
-    name: string;
-    image?: string;
-    ['product-category']: string;
-    slug: string;
-    id: string;
-    description?: string;
-    details?: string;
-    content?: string;
-    product_details?: string;
-    product_details_html?: string;
-    mapping_items?:{
-        lists?:MappingItemInterface[];
-        images?:ProductMappingImage[];
-    }
+  name: string;
+  image?: string;
+  ["product-category"]: string;
+  slug: string;
+  id: string;
+  description?: string;
+  details?: string;
+  content?: string;
+  product_details?: string;
+  product_details_html?: string;
+  mapping_items?: {
+    lists?: MappingItemInterface[];
+    images?: ProductMappingImage[];
+  };
 }
 
 interface ProductsDataInterface {
-    products: {
-        current_page: number;
-        data: ProductDataInterface[];
-        last_page: number;
-    },
+  products: {
+    current_page: number;
+    data: ProductDataInterface[];
+    last_page: number;
+  };
 }
 
 interface ProductCategoryInterface {
-    name: string;
-    slug: string;
+  name: string;
+  slug: string;
 }
 
 interface CategoryInterface {
-    data: ProductCategoryInterface[];
+  data: ProductCategoryInterface[];
 }
 
-export default async function ProductListingPage({ searchParams }: { searchParams: Promise<{ page?: string; type?:string }> }) {
-    const { page, type } = await searchParams;
-    const currentPage = Number(page) || 1;
+export default async function ProductListingPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string; type?: string }>;
+}) {
+  const { page, type } = await searchParams;
+  const currentPage = Number(page) || 1;
 
-    const { data: ProductCategoriesData } = await apiFetch(`product-categories`, {revalidate:60});
-    const productCategories = (ProductCategoriesData as CategoryInterface)?.data ?? [];
+  const { data: ProductCategoriesData } = await apiFetch(`product-categories`, {
+    revalidate: 60,
+  });
+  const productCategories =
+    (ProductCategoriesData as CategoryInterface)?.data ?? [];
 
-    const activeType = productCategories.some((category) => category.slug === type)
-        ? type
-        : productCategories[0]?.slug;
+  const activeType = productCategories.some(
+    (category) => category.slug === type,
+  )
+    ? type
+    : productCategories[0]?.slug;
 
-    const { data } = activeType
-        ? await apiFetch(`product/${encodeURIComponent(activeType)}?page=${currentPage}`, {revalidate:60})
-        : { data: null };
+  const { data } = activeType
+    ? await apiFetch(
+        `product/${encodeURIComponent(activeType)}?page=${currentPage}`,
+        { revalidate: 60 },
+      )
+    : { data: null };
 
-    const apiData = (data as ProductsDataInterface)?.products;
-    const productsData = apiData?.data ?? [];
+  const apiData = (data as ProductsDataInterface)?.products;
+  const productsData = apiData?.data ?? [];
 
-    return <ProductSolutionsClient
-        categories={productCategories}
-        activeCategory={productCategories.find((category) => category.slug === activeType)}
-        products={productsData}
-        currentPage={apiData?.current_page || 1}
-        totalPages={apiData?.last_page || 1}
-    />;
+  return (
+    <ProductSolutionsClient
+      categories={productCategories}
+      activeCategory={productCategories.find(
+        (category) => category.slug === activeType,
+      )}
+      products={productsData}
+      currentPage={apiData?.current_page || 1}
+      totalPages={apiData?.last_page || 1}
+    />
+  );
 }
