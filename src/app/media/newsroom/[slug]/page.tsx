@@ -16,17 +16,38 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const { slug } = await params;
     const seo = await getPageSEO(`media/newsroom/${slug}`);
 
-    return {
-        title: seo.title,
-        description: seo.description,
-        keywords: seo.keywords,
-        alternates: seo.alternates,
-        robots: seo.robots,
-        openGraph: seo.openGraph
-            ? {
-                  ...seo.openGraph,
-              }
-            : undefined,
+    let openGraph: Metadata["openGraph"] = seo.openGraph
+        ? { ...seo.openGraph, siteName: seo.openGraph.siteName ?? undefined }
+        : undefined;
+            
+        const hasOgImage = Array.isArray(openGraph?.images)
+            ? openGraph.images.length > 0
+            : Boolean(openGraph?.images);
+            
+        let fallbackImage: string | null = null;
+            
+        if (!hasOgImage) {
+            const { data } = await apiFetch(`gallery`);
+            fallbackImage = data?.data?.data[0]?.mapping_items?.gallery[0].upload_media
+
+            if (fallbackImage) {
+            openGraph = {
+                ...(openGraph ?? {}),
+                images: [{ url: fallbackImage }],
+            } as Metadata["openGraph"];
+            }
+        }
+
+        return {
+            title: seo.title,
+            description: seo.description,
+            keywords: seo.keywords,
+            alternates: seo.alternates,
+            robots: seo.robots,
+            openGraph,
+            twitter: fallbackImage
+        ? { card: "summary_large_image", images: [fallbackImage] }
+        : undefined,
     };
 }
 

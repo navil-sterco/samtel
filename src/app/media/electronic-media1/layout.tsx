@@ -10,18 +10,39 @@ import type { Metadata } from "next";
 export async function generateMetadata(): Promise<Metadata> {
     const seo = await getPageSEO("media/electronic-media1");
 
+    let openGraph: Metadata["openGraph"] = seo.openGraph
+    ? { ...seo.openGraph, siteName: seo.openGraph.siteName ?? undefined }
+    : undefined;
+        
+    const hasOgImage = Array.isArray(openGraph?.images)
+        ? openGraph.images.length > 0
+        : Boolean(openGraph?.images);
+        
+    let fallbackImage: string | null = null;
+        
+    if (!hasOgImage) {
+        const { data } = await apiFetch(`award-recognition`);
+        fallbackImage = data?.data?.data[0]?.image
+
+        if (fallbackImage) {
+        openGraph = {
+            ...(openGraph ?? {}),
+            images: [{ url: fallbackImage }],
+        } as Metadata["openGraph"];
+        }
+    }
+
     return {
         title: seo.title,
         description: seo.description,
         keywords: seo.keywords,
         alternates: seo.alternates,
         robots: seo.robots,
-        openGraph: seo.openGraph
-            ? {
-                  ...seo.openGraph,
-              }
-            : undefined,
-    };
+        openGraph,
+        twitter: fallbackImage
+    ? { card: "summary_large_image", images: [fallbackImage] }
+    : undefined,
+};
 }
 
 export default async function MediaCoverageLayout({ children }: { children: React.ReactNode }) {
