@@ -31,6 +31,7 @@ interface AwardItem {
   image: string;
   image_large?: string | null;
   slug: string;
+  date:string | null;
 }
 
 interface AwardsResponse {
@@ -94,6 +95,9 @@ export default async function AwardsRecognitionsPage({
                         aria-label={`View ${award.title}`}
                       />
                       <div className="award-text">
+                        {award?.date && (
+                          <span className="date">{new Date(award.date).toLocaleDateString('en-US', {year:"numeric", month:'long', day:'2-digit'})}</span>
+                        )}
                         <p>{award.title}</p>
                       </div>
                     </div>

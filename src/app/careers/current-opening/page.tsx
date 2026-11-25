@@ -3,7 +3,7 @@ import { getPageSEO } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const seo = await getPageSEO("current-opening");
+  const seo = await getPageSEO("careers/current-opening");
 
   return {
     title: seo.title,

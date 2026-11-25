@@ -9,6 +9,7 @@ interface MediaPDFInterface {
   pdf: string;
   id: number;
   image?:string;
+  date:string | null;
 }
 
 interface PageDataInterface {
@@ -48,7 +49,12 @@ export default async function PressCollection({searchParams}:{searchParams?:Prom
                       loading="lazy"
                     />
                   </figure>
-                  <p dangerouslySetInnerHTML={{ __html: item.name }} />
+                  <div className="bContent">
+                    {item?.date && (
+                      <span className="date">{new Date(item.date).toLocaleDateString('en-US', {year:"numeric", month:'long', day:'2-digit'})}</span>
+                    )}
+                    <p dangerouslySetInnerHTML={{ __html: item.name }} />
+                  </div>
                   {/* <Image
                     src="/assets/icons/pdf_icon.webp"
                     className="img-fluid"

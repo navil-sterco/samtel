@@ -115,14 +115,14 @@ async function fetchPageSEO(slug: string): Promise<SEOResult> {
     return {
       title: { absolute: data.data.title },
       description: data.data.description,
-      keywords: data.data.keywords?.length > 0 ? data.data.keywords : "Samtel",
+      keywords: data.data.keywords?.length > 0 ? data.data.keywords : "Samtel Avionics",
       robots: environmentRobots,
       alternates: {
         canonical: data.data.alternates?.canonical || canonicalForSlug(slug),
       },
       openGraph: {
-        title: data.data.openGraph?.title || data.data.title || "Samtel",
-        description: data.data.openGraph?.description || data.data.description || "Samtel",
+        title: data.data.openGraph?.title || data.data.title || "Samtel Avionics",
+        description: data.data.openGraph?.description || data.data.description || "Samtel Avionics",
         type: data.data.openGraph?.type || "website",
         images: data.data.openGraph?.images || [],
         url:

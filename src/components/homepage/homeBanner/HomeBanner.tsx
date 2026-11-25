@@ -296,8 +296,6 @@ export default function HomeBanner({ data }: HomeBannerProps) {
         return;
       }
 
-      controller.ensureLoaded();
-
       window.addEventListener("scroll", lockScroll, { passive: false });
       window.addEventListener("wheel", preventWheel, { passive: false });
       window.addEventListener("touchmove", preventTouch, { passive: false });
@@ -570,9 +568,14 @@ gsap
 
     let cancelled = false;
     let observer: IntersectionObserver | undefined;
+    let isVisible = false;
+    let playbackReady = false;
+    let waitingForLoad = false;
+    let playbackTimerId: number | undefined;
 
     const mYtWrapper = mYtWrapperRef.current;
     const video = mVideoRef.current;
+    let onPageLoad: (() => void) | undefined;
 
     if (isYouTube && youtubeId) {
       loadYouTubeApi().then(() => {
@@ -598,13 +601,53 @@ gsap
         });
       });
     } else if (video && data?.video) {
-      video.src = data.video;
-      video.load();
+      const videoUrl = data.video;
+
+      const startVideo = () => {
+        if (cancelled || !isVisible) return;
+
+        if (!video.getAttribute("src")) {
+          video.src = videoUrl;
+          video.load();
+        }
+
+        video.play().catch(() => {});
+      };
+
+      const deferPlaybackAfterLoad = () => {
+        waitingForLoad = false;
+        if (cancelled) return;
+
+        const markPlaybackReady = () => {
+          playbackReady = true;
+          startVideo();
+        };
+
+        playbackTimerId = window.setTimeout(markPlaybackReady, 1000);
+      };
+
+      const waitForPageLoad = () => {
+        if (document.readyState === "complete") {
+          deferPlaybackAfterLoad();
+        } else {
+          waitingForLoad = true;
+          onPageLoad = deferPlaybackAfterLoad;
+          window.addEventListener("load", onPageLoad, { once: true });
+        }
+      };
 
       observer = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) video.play().catch(() => {});
-          else video.pause();
+          isVisible = entry.isIntersecting;
+
+          if (isVisible) {
+            if (playbackReady) startVideo();
+            else if (!waitingForLoad && playbackTimerId === undefined) {
+              waitForPageLoad();
+            }
+          } else {
+            video.pause();
+          }
         },
         { threshold: 0.25 },
       );
@@ -615,6 +658,12 @@ gsap
     return () => {
       cancelled = true;
       observer?.disconnect();
+      if (waitingForLoad && onPageLoad) {
+        window.removeEventListener("load", onPageLoad);
+      }
+      if (playbackTimerId !== undefined) {
+        window.clearTimeout(playbackTimerId);
+      }
 
       destroyYouTubePlayer(mYtPlayerRef.current, mYtWrapper);
       mYtPlayerRef.current = null;
@@ -757,7 +806,6 @@ gsap
                 muted
                 playsInline
                 loop
-                autoPlay
                 preload="none"
                 aria-hidden="true"
               />

@@ -11,6 +11,7 @@ interface MediaDataInterface {
   media_name: string;
   link: string;
   id: number;
+  date:string | null;
 }
 
 interface PageDataInterface {
@@ -49,18 +50,27 @@ export default async function MediaElectronic({searchParams}:{searchParams?:Prom
                     />
                   </figure>
                 </div>
-                {item?.title && (
-                  <p dangerouslySetInnerHTML={{ __html: item.title }} />
-                )}
 
-                {item?.media_name && (
-                  <div className="media_link">
-                    <p dangerouslySetInnerHTML={{ __html: item.media_name }} />
+                <div className="bContent">
+                  {item?.date && (
+                    <span className="date">{new Date(item.date).toLocaleDateString('en-US', {year:"numeric", month:'long', day:'2-digit'})}</span>
+                  )}
+                  {item?.title && (
+                    <p dangerouslySetInnerHTML={{ __html: item.title }} />
+                  )}
+
+                  {item?.media_name && (
+                    <div className="media_link">
+                      <p dangerouslySetInnerHTML={{ __html: item.media_name }} />
+                    </div>
+                  )}
+
+                  <div className="divider">
+                    <span></span>
                   </div>
-                )}
-                <div className="divider">
-                  <span></span>
+                  
                 </div>
+                
                 {item?.link && (
                   <Link
                     href={item.link}
