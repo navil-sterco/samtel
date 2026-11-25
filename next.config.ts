@@ -62,7 +62,11 @@ async redirects() {
       destination: "/",
       permanent: true,
     },
-
+    {
+      source: "/index.php",
+      destination: "/",
+      permanent: true,
+    },
     {
       source: "/:path+/index.html",
       destination: "/:path*",
