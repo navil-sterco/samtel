@@ -48,6 +48,7 @@ type SEOResult = {
     type: OpenGraphType;
     images: OpenGraphImage[];
     url: string;
+    siteName:string | null;
   };
   schema: Record<string, unknown> | null;
 };
@@ -122,6 +123,7 @@ async function fetchPageSEO(slug: string): Promise<SEOResult> {
       },
       openGraph: {
         title: data.data.openGraph?.title || data.data.title || "Samtel Avionics",
+        siteName:'Samtel Avionics',
         description: data.data.openGraph?.description || data.data.description || "Samtel Avionics",
         type: data.data.openGraph?.type || "website",
         images: data.data.openGraph?.images || [],

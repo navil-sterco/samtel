@@ -6,6 +6,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getPageSEO } from "@/lib/seo";
+import { getFirstImageFromSections } from "@/lib/extractFirstImage";
 
 const formatDate = (date: string) => {
   const d = new Date(date);
@@ -22,17 +23,39 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const { slug } = await params;
     const seo = await getPageSEO(`blogs/${slug}`);
 
+    let openGraph: Metadata["openGraph"] = seo.openGraph
+      ? { ...seo.openGraph, siteName: seo.openGraph.siteName ?? undefined }
+      : undefined;
+        
+    const hasOgImage = Array.isArray(openGraph?.images)
+        ? openGraph.images.length > 0
+        : Boolean(openGraph?.images);
+        
+    let fallbackImage: string | null = null;
+        
+    if (!hasOgImage) {
+        const { data } = await apiFetch(`blogs/${slug}`);
+
+        fallbackImage = data?.data?.image_url || null;
+    
+        if (fallbackImage) {
+          openGraph = {
+            ...(openGraph ?? {}),
+            images: [{ url: fallbackImage }],
+          } as Metadata["openGraph"];
+        }
+    }
+
     return {
         title: seo.title,
         description: seo.description,
         keywords: seo.keywords,
         alternates: seo.alternates,
         robots: seo.robots,
-        openGraph: seo.openGraph
-            ? {
-                  ...seo.openGraph,
-              }
-            : undefined,
+        openGraph,
+        twitter: fallbackImage
+            ? { card: "summary_large_image", images: [fallbackImage] }
+        : undefined,
     };
 }
 

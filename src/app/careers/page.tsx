@@ -7,9 +7,33 @@ import { apiFetch } from "@/lib/api";
 import { getPageSEO } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import '@/styles/inner.css'
+import { Metadata } from "next";
+import { getFirstImageFromSections } from "@/lib/extractFirstImage";
 
 export async function generateMetadata(){
     const seo = await getPageSEO('careers');
+
+    let openGraph: Metadata["openGraph"] = seo.openGraph
+      ? { ...seo.openGraph, siteName: seo.openGraph.siteName ?? undefined }
+      : undefined;
+        
+    const hasOgImage = Array.isArray(openGraph?.images)
+        ? openGraph.images.length > 0
+        : Boolean(openGraph?.images);
+        
+    let fallbackImage: string | null = null;
+        
+    if (!hasOgImage) {
+        const { data } = await apiFetch(`cms/careers`);
+        fallbackImage = getFirstImageFromSections(data?.data?.sections, 2);
+    
+        if (fallbackImage) {
+          openGraph = {
+            ...(openGraph ?? {}),
+            images: [{ url: fallbackImage }],
+          } as Metadata["openGraph"];
+        }
+      }
 
     return {
         title: seo.title,
@@ -17,11 +41,10 @@ export async function generateMetadata(){
         keywords: seo.keywords,
         alternates: seo.alternates,
         robots: seo.robots,
-        openGraph: seo.openGraph
-            ? {
-                  ...seo.openGraph,
-              }
-            : undefined,
+        openGraph,
+        twitter: fallbackImage
+      ? { card: "summary_large_image", images: [fallbackImage] }
+      : undefined,
     };
 }
 
