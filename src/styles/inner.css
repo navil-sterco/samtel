@@ -2145,6 +2145,29 @@ br.desktop-break { display: none; }
 .naval_systems .left_in_grid a.more_btn { margin-top: 3.2rem; }
 .naval_systems .naval_system_box { grid-template-columns: 25% 70%; gap: 2rem; margin-top: 9.3rem; }
 .industries_panel1 .naval_systems h2 { margin-bottom: 4rem; }
+@media (max-width: 2545px) and (min-width: 1170px) { 
+.product_modal_close {
+      cursor: pointer;
+    text-align: end;
+    padding-bottom: 3.5rem;
+    padding-right: 3.9rem;
+    line-height: 1;
+    position: sticky;
+    top: 0;
+    right: 2rem;
+    background: #fff;
+    z-index: 9;
+    padding-top: 3rem;
+}
+.product_modal_grid .product_image {
+           margin-top: -5rem;
+        z-index: 9;
+}
+
+
+ }
+
+
 @media(max-width:1699px) {
  .right_in_grid { width: 70rem; }
 .naval_systems .right_in_grid { width: 74rem; margin-left: -20.5rem; }
@@ -2562,16 +2585,8 @@ br.desktop-break { display: none; }
             width: 17rem;
         margin-left: -19.625rem;
     }
-.product_modal_close button {
-    font: var(--font-12);
-    padding: .3rem 1.3rem;
-}
-.product_modal_close {
-    padding-bottom: 2.5rem;
-    padding-right: 0.9rem;
-    position: sticky;
-    top: 1rem;
-}
+
+
 .product_modal_grid .product_image .product-image-zoom img {
     width: 2.9rem;
     height: 2.9rem;
@@ -2671,6 +2686,13 @@ br.desktop-break { display: none; }
 .product_modal_close { padding-bottom: 4.5rem; }
 .land_tactical_systems_banner .container-full { padding-inline: 4.5rem; }
 .left_airborne_sys { margin-left: 0; }
+    .product_modal_close {
+            z-index: 99;
+        background: #fff;
+        padding-bottom: 4.5rem;
+        padding: 2rem;
+        top: 0;
+    }
 
 
  }
@@ -2708,7 +2730,14 @@ br.desktop-break { display: none; }
  }
 /* max-width:640px end */
 @media(max-width:575px) {
-.product_modal_close{        padding-bottom: 4.5rem;}
+    .product_modal_close {
+            z-index: 99;
+        background: #fff;
+        padding-bottom: 4.5rem;
+        padding: 2rem;
+        top: 0;
+    }
+
 }
 @media(max-width:480px) {
  .product_grid { grid-template-columns: repeat(1, 1fr); }
