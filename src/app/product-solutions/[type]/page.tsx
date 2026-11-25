@@ -4,6 +4,7 @@ import { getFirstImageFromSections } from "@/lib/extractFirstImage";
 import { getPageSEO } from "@/lib/seo";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { headers } from "next/headers";
 
 export async function generateMetadata({params}: { params: Promise<{ type?: string }> }) {
     const { type } = await params;
@@ -87,6 +88,13 @@ interface CategoryInterface {
     data: ProductCategoryInterface[];
 }
 
+interface ProductCategoryDetailInterface {
+    name?: string;
+    image?: string;
+    description?: string;
+    subtitle?:string;
+}
+
 export default async function ProductTypePage({params, searchParams }: { params: Promise<{ type?: string }>; searchParams: Promise<{ page?: string; type?:string }> }) {
     const {type} = await params;
     const { page } = await searchParams;
@@ -100,9 +108,12 @@ export default async function ProductTypePage({params, searchParams }: { params:
 
     console.log('activeType',activeType);
 
-    const { data } = activeType
-        ? await apiFetch(`product/${encodeURIComponent(activeType)}?page=${currentPage}`, {revalidate:60})
-        : { data: null };
+    const [{ data }, { data: categoryResponse }] = activeType
+        ? await Promise.all([
+            apiFetch(`product/${encodeURIComponent(activeType)}?page=${currentPage}`, {revalidate:60}),
+            apiFetch(`product-category/${encodeURIComponent(activeType)}`, {revalidate:60}),
+        ])
+        : [{ data: null }, { data: null }];
 
     console.log('product solutions data', data);
 
@@ -110,12 +121,40 @@ export default async function ProductTypePage({params, searchParams }: { params:
 
     const apiData = (data as ProductsDataInterface)?.products;
     const productsData = apiData?.data ?? [];
+    const category = categoryResponse?.data?.productCategory?.data as ProductCategoryDetailInterface | undefined;
+    const nonce = (await headers()).get("x-nonce") ?? undefined;
+    const productSchema = category?.name
+        ? {
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            name: category.name,
+            ...(category.image ? { image: category.image } : {}),
+            ...(category.subtitle ? { description: category.subtitle } : {}),
+            brand: {
+                "@type": "Brand",
+                name: "Samtel Avionics",
+            },
+        }
+        : null;
 
-    return <ProductSolutionsClient
-        categories={productCategories}
-        activeCategory={productCategories.find((category) => category.slug === activeType)}
-        products={productsData}
-        currentPage={apiData?.current_page || 1}
-        totalPages={apiData?.last_page || 1}
-    />;
+    return (
+        <>
+            {productSchema && (
+                <script
+                    type="application/ld+json"
+                    nonce={nonce}
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(productSchema).replace(/</g, "\\u003c"),
+                    }}
+                />
+            )}
+            <ProductSolutionsClient
+                categories={productCategories}
+                activeCategory={productCategories.find((category) => category.slug === activeType)}
+                products={productsData}
+                currentPage={apiData?.current_page || 1}
+                totalPages={apiData?.last_page || 1}
+            />
+        </>
+    );
 }
