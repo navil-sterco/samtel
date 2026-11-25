@@ -1,386 +1,452 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://samtelavionics.com/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/product-solutions?type=test-benches</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/system-integration-validation</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/category/railway-electronics</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/design-rd-facilities</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/category/naval-solutions</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/category/industrial-emerging-technologies</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/media/media-gallery</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/leadership</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/category/land-solutions</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/category/airborne-solutions</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/product-solutions?type=custom-solutions-co-development</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/company-overview</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/design-rd-facilities</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/category/railway-electronics</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/engineering-design/space-satellite-systems</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/our-journey-milestones</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/engineering-design/uavs</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/blogs</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/media/press-releases</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/engineering-design</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/current-opening</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/category/unmanned-solutions</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/media/awards-recognitions</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/product-solutions/land-solutions</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/contact-us</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/manufacturing</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/overview</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/engineering-design/test-benches</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/company-overview</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/product-solutions/unmanned-solutions</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/testing-qualification</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/media/media-gallery</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/engineering-design/rugged-electronics</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/engineering-design/avionics-display-systems</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/manufacturing-facilities</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/category/land-solutions</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/our-journey-milestones</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/engineering-design/optronics</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/category/airborne-solutions</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/sustainability-csr</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/leadership</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/product-solutions/airborne-solutions</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/system-integration-validation</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/engineering-design/rugged-electronics</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/certifications-quality</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/testing-qualification</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/category/unmanned-solutions</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/category/space-satellite-systems</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/global-partnerships-collaborations-and-key-customers</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/media/press-coverage</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/sustainability-csr</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/product-solutions/space-satellite-systems</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/engineering-design/railway-electronics</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/certifications-quality</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/infrastructure-technology</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/engineering-design/railway-electronics</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/product-solutions?type=naval-solutions</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/product-solutions/optronics-imaging-solutions</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/industries</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/engineering-design/uavs</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/product-solutions?type=land-solutions</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/products-solutions-overview</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/engineering-design/test-benches</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/product-solutions/naval-solutions</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/media/press-coverage</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/industries</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/manufacturing</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/product-solutions/test-benches</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/engineering-design/optronics</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/media/press-releases</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/product-solutions?type=unmanned-solutions</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/engineering-design/space-satellite-systems</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/category/industrial-emerging-technologies</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/careers</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/careers</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/manufacturing-facilities</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/product-solutions?type=airborne-solutions</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/current-opening</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/products-solutions-overview</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/overview</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/product-solutions?type=railway-electronics</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/product-solutions/custom-solutions-co-development</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/engineering-design</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/category/naval-solutions</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/mro-repair-and-lifecycle-support</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/global-partnerships-collaborations-and-key-customers</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/category/space-satellite-systems</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/media/awards-recognitions</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/product-solutions?type=optronics-imaging-solutions</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/contact-us</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/product-solutions</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/product-solutions/railway-electronics</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/engineering-design/avionics-display-systems</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/mro-repair-and-lifecycle-support</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/product-solutions?type=space-satellite-systems</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/infrastructure-technology</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/product-solutions?type=airborne-systems</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/leadership/desh-raj-singh</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/engineering-and-design-UAVs</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/leadership/kashif-iqbal</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/avionics-display-systems</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/media/press-on-screen</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/leadership/puneet-kaura</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/media/press-gallery</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/media/press-gallery</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/leadership/sharan-mehta</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/rugged-electronics</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/railway-electronics</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/optronics</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/blogs/safety-first-how-avionics-advancements-enhancing-flight-safety-in-india</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/media/press-collection</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/test-benches</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/media/electronic-media</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/avionics-display-systems</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/space-satellite-systems</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/optronics</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/test-benches</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/media/press-collection</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/uavs</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/leadership/puneet-kaura</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/space-satellite-system</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/leadership/hammad-y-kazi</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/railway-electronics</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/blogs/digital-cockpits-and-beyond-the-technological-innovations-propelling-indias-avionics-industry</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samtelavionics.com/media/press-on-screen</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://www.samtelavionics.com/leadership/rajesh-narang</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samtelavionics.com/leadership/shivani-jindal</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samtelavionics.com/leadership/manisha-madan</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samtelavionics.com/space-satellite-systems</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samtelavionics.com/uavs</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samtelavionics.com/media/electronic-media</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samtelavionics.com/blogs/harnessing-the-future-the-odyssey-of-technological-advancements-in-military-aviation</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samtelavionics.com/leadership/val-bring</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samtelavionics.com/leadership/vani-gupta</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samtelavionics.com/rugged-electronics</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samtelavionics.com/leadership/rakesh-bhan</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samtelavionics.com/leadership/rajeshwari-s-chinagudi</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>

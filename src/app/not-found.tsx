@@ -3,7 +3,6 @@ import './not-found.css'
 import { BASE_URL } from "@/config/config";
 import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Page not found",

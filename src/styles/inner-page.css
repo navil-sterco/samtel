@@ -37,11 +37,11 @@
 .career_sec_four .work_ttl h2,.career_sec_four .work_ttl blockquote,.career_sec_four .work_ttl p,.car_btmcont p{color:var(--color-white);}
 .car_btmcont{margin:7rem 0 0 0;}
 .car_btmcont p{margin:0;}
-.storie_grid{display:grid;grid-template-columns:85rem auto;gap:12.5rem;align-items:center;padding:15rem 0;background-color:var(--color-white);position:relative;}
+.storie_grid{display:grid;grid-template-columns:75rem auto;gap:12.5rem;align-items:center;padding:15rem 0;background-color:var(--color-white);position:relative;}
 .storie_list .work_ttl blockquote{margin:0 0 6rem 0;}
 .storie_list .work_ttl figure{margin:0 0 6rem 0;}
 .storie_list {
-    width: 50rem;
+    max-width: 50rem;
 }
 .employ_cont{margin:4rem 0 0 0;}
 .employ_cont h4{font:var(--font-30);font-weight:300;color:var(--color-c8);letter-spacing:-0.99px;margin:0 0 1rem 0;}
@@ -211,6 +211,12 @@
 .storie_grid { grid-template-columns: 66rem auto; gap: 7.5rem; }
 .princ-sec .work_ttl h2 { margin: 0 0 1rem 0; }
 .work_ttl blockquote { margin: 0 0 1.2rem 0;}
+.swiper_custom_next,
+.swiper_custom_prev{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
 
 }
 @media(max-width:1299px){

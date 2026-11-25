@@ -1,13 +1,8 @@
-"use client";
 import "./leadership.css";
 import Image from "next/image";
 import Link from "next/link";
 import { BASE_URL } from "@/config/config";
 import PaginationWrapper from "../common/pagination/PaginationWrapper";
-import { useQuery } from "@tanstack/react-query";
-import { useSearchParams } from "next/navigation";
-import { apiFetch } from "@/lib/api";
-import Loading from "@/app/loading1";
 
 interface LeaderItem {
   id: number;
@@ -36,16 +31,6 @@ export interface LeadershipResponse {
 }
 
 const PLACEHOLDER = "/assets/images/placeholders/leadership.webp";
-
-const fetchLeadershipPage = async (
-  page: number,
-): Promise<LeadershipResponse> => {
-  const { data, error } = await apiFetch(`leadership?page=${page}`);
-  if (error || !data) {
-    throw new Error("Failed to fetch leadership");
-  }
-  return data; // keep whole body so we also get `meta`
-};
 
 const ArrowIcon = () => (
   <svg
@@ -78,19 +63,8 @@ export default function Leaderships({
 }: {
   pageData: LeadershipResponse;
 }) {
-  const searchParams = useSearchParams();
-  const page = Number(searchParams.get("page") || 1);
-
-  const { data, isLoading } = useQuery({
-    queryKey: ["leadership", page],
-    queryFn: () => fetchLeadershipPage(page),
-    initialData: page === pageData?.meta?.current_page ? pageData : undefined,
-  });
-
-  if (isLoading) return <Loading />;
-
-  const first = data?.data?.first ?? null;
-  const rest = data?.data?.rest ?? [];
+  const first = pageData?.data?.first ?? null;
+  const rest = pageData?.data?.rest ?? [];
 
   return (
     <section className="leadership_sec">
@@ -199,9 +173,9 @@ export default function Leaderships({
 
         <PaginationWrapper
           currentPage={
-            data?.meta?.current_page ?? pageData?.meta?.current_page ?? 1
+            pageData?.meta?.current_page ?? 1
           }
-          totalPages={data?.meta?.last_page ?? pageData?.meta?.last_page ?? 1}
+          totalPages={pageData?.meta?.last_page ?? 1}
         />
       </div>
     </section>

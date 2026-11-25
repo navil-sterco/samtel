@@ -3,14 +3,17 @@
 import { useEffect, useState } from "react";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import "./breadcrumbs.css";
 
-import { BASE_URL } from "@/config/config";
+import { BASE_URL, CANONICAL_ORIGIN } from "@/config/config";
 
 export interface BreadcrumbsInterface {
   title: string;
   slug: string;
+  overwrite_url?: string | null;
+  target_blank?: number | boolean;
 }
 
 export interface BreadcrumbPropsInterface {
@@ -26,6 +29,7 @@ export default function Breadcrumbs({
 }: BreadcrumbPropsInterface) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const checkWidth = () => {
@@ -42,10 +46,76 @@ export default function Breadcrumbs({
   const breadcrumbs = data?.breadcrumbs ?? [];
 
   const allBreadcrumbs = [
-    { title: "Home", slug: BASE_URL ?? "/", isHome: true },
+    {
+      title: "Home",
+      slug: BASE_URL ?? "/",
+      overwrite_url: null,
+      target_blank: 0,
+      isHome: true,
+    },
 
     ...breadcrumbs.map((item) => ({ ...item, isHome: false })),
   ];
+
+  const schemaOrigin = CANONICAL_ORIGIN
+    ? new URL("/", CANONICAL_ORIGIN).toString()
+    : null;
+  const pathSegments: string[] = [];
+  const schemaItems = breadcrumbs.flatMap((item, index) => {
+    const title = item.title?.trim();
+    if (!title || title.toLowerCase() === "home" || !schemaOrigin) return [];
+
+    const slug = item.slug?.trim();
+    let slugPath = "";
+    if (slug && slug !== "#") {
+      if (/^[a-z][a-z\d+.-]*:\/\//i.test(slug)) {
+        slugPath = slug;
+      } else if (slug.startsWith("/") || slug.includes("/")) {
+        const segments = slug.split("/").filter(Boolean);
+        pathSegments.splice(0, pathSegments.length, ...segments);
+        slugPath = slug;
+      } else {
+        pathSegments.push(slug);
+        slugPath = pathSegments.join("/");
+      }
+    }
+
+    const overwriteUrl = item.overwrite_url?.trim();
+    const path =
+      (overwriteUrl && overwriteUrl !== "#" ? overwriteUrl : slugPath) ||
+      (index === breadcrumbs.length - 1 ? pathname : "");
+    if (!path || path === "#") return [];
+
+    try {
+      const url = new URL(path, schemaOrigin);
+      if (url.protocol !== "http:" && url.protocol !== "https:") {
+        console.error(`Invalid breadcrumb URL for "${title}": ${path}`);
+        return [];
+      }
+      return [{ "@type": "ListItem", name: title, item: url.toString() }];
+    } catch (error) {
+      console.error(`Invalid breadcrumb URL for "${title}": ${path}`, error);
+      return [];
+    }
+  });
+  const breadcrumbSchema = schemaOrigin
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: schemaOrigin,
+          },
+          ...schemaItems.map((item, index) => ({
+            ...item,
+            position: index + 2,
+          })),
+        ],
+      }
+    : null;
 
   const visibleBreadcrumbs =
     isMobile && !isExpanded ? allBreadcrumbs.slice(-2) : allBreadcrumbs;
@@ -54,6 +124,14 @@ export default function Breadcrumbs({
 
   return (
     <section className={`breadcrumb-sec ${isModal ? "modal-breadcrumb" : ""}`}>
+      {!isModal && breadcrumbSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+          }}
+        />
+      )}
       <div className="container">
         <div className="col-lg-10 mx-auto">
           <nav aria-label="breadcrumb" className="breadcrumb-custom">
@@ -101,11 +179,11 @@ export default function Breadcrumbs({
                     {item.isHome ? (
                       <Link href={BASE_URL ?? "/"}>Home</Link>
                     ) : isLast ||
-                      String(item.slug).includes("#") ||
+                      // String(item.slug).includes("#") ||
                       item.slug === "media" ? (
                       item.title
                     ) : (
-                      <Link href={`/${item.slug}`}>{item.title}</Link>
+                      <Link href={`${item.target_blank ? `${item.overwrite_url || item.slug}` : `${BASE_URL}${item.overwrite_url || item.slug}`}`} target={item.target_blank ? '_blank' : '_self'}>{item.title}</Link>
                     )}
                   </li>
                 );

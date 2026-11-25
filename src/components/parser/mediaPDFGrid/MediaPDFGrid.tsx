@@ -21,9 +21,14 @@ export default async function MediaPDFGrid({ data }: { data: any }) {
                 loading="lazy"
               />
             </figure>
+            <div className="bContent">
+            {item?.date && (
+              <span className="date">{new Date(item.date).toLocaleDateString('en-US', {year:"numeric", month:'long', day:'2-digit'})}</span>
+            )}
             {item?.name && (
               <p dangerouslySetInnerHTML={{__html:item?.name}} />
             )}
+            </div>
             {/* <Image src="/assets/icons/pdf_icon.webp" className="img-fluid" width={31} height={39} loading="lazy" alt="pdf icon" /> */}
             {item?.pdf && (
               <Link

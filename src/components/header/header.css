@@ -39,7 +39,8 @@ ul.site_dropdown_menu li:hover>a { background: #fff; }
 .other-links-drawer.open { transform: translateX(0); }
 .other-links-drawer .media-dropdown { display: none; }
 .other-links-drawer ul { list-style: none; padding: 0; margin: 0; }
-.other-links-drawer ul li a { text-decoration: none; color: var(--color-white); font: var(--font-24); font-weight: 500; transition: color 0.2s;outline:0; }
+.other-links-drawer ul li a,
+.other-links-drawer ul li button { text-decoration: none; color: var(--color-white); font: var(--font-24); font-weight: 500; transition: color 0.2s;outline:0; width: 100%;}
 .other-links-drawer ul li a:hover { color: var(--color-white); }
 .other-links-drawer.open ul { display: block; }
 .other-links-drawer .media-dropdown { display: none; margin:0rem 0 0; padding: 0 0 0 1rem; list-style: none; position: absolute; }

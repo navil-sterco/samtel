@@ -6,6 +6,7 @@ import '@/styles/inner.css'
 import Breadcrumbs from "@/components/common/breadcrumbs/Breadcrumbs";
 import { getPageSEO } from "@/lib/seo";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -32,9 +33,7 @@ export default async function LeadershipDetailPage({params}:PageProps){
     const {data, error} = await apiFetch(`leadership/${slug}`);
     const {data:cmsData} = await apiFetch(`cms/leadership`);
  
-    if(error){
-        throw new Error(`Failed to fetch leadership detail api`);
-    }
+    if(error || !data.status) notFound();
 
     const combinedHtml = Object.values(data?.leadership?.cms ?? {}).join('');
     const descriptionData = cmsData?.data?.description;

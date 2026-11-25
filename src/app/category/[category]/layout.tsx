@@ -1,10 +1,10 @@
 import Breadcrumbs from "@/components/common/breadcrumbs/Breadcrumbs";
 import InnerSection from "@/components/common/innerSection/InnerSection";
 import { apiFetch } from "@/lib/api";
-import NotFound from "@/app/not-found";
 import '@/styles/inner.css'
 import { getPageSEO } from "@/lib/seo";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 type PageProps = {
     children: React.ReactNode;
@@ -33,9 +33,7 @@ export default async function CategoryPageLayout({ children, params }: PageProps
     const {category} = await params;
     const {data, error} = await apiFetch(`product-category/${category}`);
 
-    if(error || !data.status){
-        return <NotFound />;
-    }
+    if(error || !data.status) notFound();
 
     const topData = data?.data || {};
 

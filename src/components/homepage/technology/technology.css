@@ -349,10 +349,18 @@
 .journey-txt .more_btn:hover img {
     filter: invert(0);
 }
-@media (max-width:1366px) {
+@media (max-width:1399px) {
     .journey-sec {
-    padding-block: 12rem;
+        padding-block: 7rem 0rem;
+        margin-bottom: -7rem;
+    }
+.journey-txt .more_btn {
+    margin-top: 2.5rem;
 }
+.journey-txt:before {
+    bottom: -5rem;
+}
+
 
 }
 
@@ -362,7 +370,8 @@
     display: none;
 }
   .journey-sec {
-    padding-block: 10rem;
+    padding-block: 8rem;
+            margin-bottom: 0rem;
     }
 
 }

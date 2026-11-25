@@ -74,8 +74,8 @@ export default function Hamburger({ sidebarData }: HamburgerProps) {
         <li key={key}>
           {hasChildren ? (
             <>
-              <a
-                href="#"
+              <button
+                // href="#"
                 role="button"
                 aria-expanded={isOpen}
                 className={`media-toggle ${isOpen ? "active" : ""}`}
@@ -86,7 +86,7 @@ export default function Hamburger({ sidebarData }: HamburgerProps) {
               >
                 {item.title}
                 <span className="media-arrow">+</span>
-              </a>
+              </button>
 
               <div
                 className={`media-dropdown-wrap ${isOpen ? "active open" : ""}`}

@@ -10,6 +10,7 @@ interface FeaturedScreenInterface {
   video: string;
   video_url?: string;
   id: number;
+  date:string | null;
 }
 
 interface PageDataInterface {
@@ -78,7 +79,12 @@ export default async function PressOnScreen({
             />
           </div>
 
-          {item?.title && <p dangerouslySetInnerHTML={{ __html: item.title }} />}
+<div className="bContent">
+  {item?.date && (
+      <span className="date">{new Date(item.date).toLocaleDateString('en-US', {year:"numeric", month:'long', day:'2-digit'})}</span>
+    )}
+    {item?.title && <p dangerouslySetInnerHTML={{ __html: item.title }} />}
+</div>
 
           {fancyboxUrl && (
             <a

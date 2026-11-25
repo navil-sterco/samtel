@@ -90,9 +90,7 @@ export default function Happenings({data}:HappeningsPropsInterface) {
                     )}
                     
                 </div>
-            </div>
-
-            {data?.happeningsData && data?.happeningsData?.length > 0 && (
+                  {data?.happeningsData && data?.happeningsData?.length > 0 && (
                 <div className="slider-outer-wrapper fade-up" data-aos="fade-up" data-aos-delay="700">
                     <FancyboxWrapper variant="video">
                         <Swiper
@@ -109,11 +107,11 @@ export default function Happenings({data}:HappeningsPropsInterface) {
                                     spaceBetween: 8
                                 },
                                 768: {
-                                    slidesPerView: 3.2,
+                                    slidesPerView: 3,
                                     spaceBetween: 8
                                 },
                                 1024: {
-                                    slidesPerView: 4,
+                                    slidesPerView: 3,
                                     spaceBetween: 8,
                                     allowTouchMove: true
                                 }
@@ -188,6 +186,9 @@ export default function Happenings({data}:HappeningsPropsInterface) {
                     </FancyboxWrapper>
                 </div>
             )}
+            </div>
+
+          
 
             
         </section>

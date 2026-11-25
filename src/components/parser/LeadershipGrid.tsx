@@ -1,20 +1,18 @@
-import { apiFetch } from "@/lib/api";
+import { fetchLeadershipPage } from "../leadership/actions";
 import Leaderships from "../leadership/Leaderships";
 
+export default async function LeadershipGrid({
+  searchParams,
+}: {
+  searchParams?: Promise<{ page?: string }>;
+}) {
+  const { page } = (await searchParams) ?? {};
+  const requestedPage = Number(page ?? 1);
+  const currentPage =
+    Number.isSafeInteger(requestedPage) && requestedPage > 0
+      ? requestedPage
+      : 1;
+  const leadershipData = await fetchLeadershipPage(currentPage);
 
-export default async function LeadershipGrid() {
-  const {data, error} = await apiFetch(`leadership`);
-
-  if(error) {
-    throw new Error(`Failed to fetch Leadership data `+error);
-  }
-
-  const leadershipData = data?.data;
-
-  return (
-    <>
-      <Leaderships pageData={leadershipData} />
-      
-    </>
-  );
+  return <Leaderships pageData={leadershipData} />;
 }

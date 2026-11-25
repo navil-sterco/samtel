@@ -138,15 +138,9 @@ export default function HeaderData({
                       if (hasMegaMenu) closeMenu();
                     }}
                   >
-                    {isClickableLink ? (
-                      <Link href={`${BASE_URL}${item.slug}`}>
+                      <Link href={`${item.target_blank ? `${item.overwrite_url || item.slug}` : `${BASE_URL}${item.overwrite_url || item.slug || '#'}`}`} target={item.target_blank ? '_blank' : '_self'}>
                         {item.title}
                       </Link>
-                    ) : (
-                      <Link href="#">
-                        {item.title}
-                      </Link>
-                    )}
                   </li>
                 );
               })}

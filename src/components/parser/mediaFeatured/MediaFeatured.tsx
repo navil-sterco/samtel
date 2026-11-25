@@ -55,7 +55,13 @@ export default function MediaFeatured({ data }: { data: any }) {
             />
           </div>
 
-          {item?.title && <p dangerouslySetInnerHTML={{ __html: item.title }} />}
+          <div className="bContent">
+            {item?.date && (
+              <span className="date">{new Date(item.date).toLocaleDateString('en-US', {year:"numeric", month:'long', day:'2-digit'})}</span>
+            )}
+
+            {item?.title && <p dangerouslySetInnerHTML={{ __html: item.title }} />}
+          </div>
 
           {videoUrl && (
             <a

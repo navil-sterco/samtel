@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 
 import '@/styles/inner.css'
 
-export const dynamic = "force-dynamic";
 
 export default async function BlogsLayout({ children }: { children: React.ReactNode }) {
     const { data, error } = await apiFetch(`cms/blogs`);
