@@ -6,7 +6,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getPageSEO } from "@/lib/seo";
-import { getFirstImageFromSections } from "@/lib/extractFirstImage";
+import { headers } from "next/headers";
 
 const formatDate = (date: string) => {
   const d = new Date(date);
@@ -72,43 +72,79 @@ export default async function BlogDetailPage({
   const pageData = data?.data;
 
   const combinedHtml = Object.values(pageData?.content ?? {}).join("");
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.samtelavionics.com/blogs/${slug}`,
+    },
+    headline: pageData?.title,
+    description: pageData?.description,
+    image: pageData?.image_url,
+    author: {
+      "@type": "Organization",
+      name: "Samtel Avionics",
+      url: "https://www.samtelavionics.com/",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Samtel Avionics",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.samtelavionics.com/_next/image?url=%2Fassets%2Fimages%2Fmain-logo.webp&w=256&q=75",
+      },
+    },
+    datePublished: pageData?.created_at,
+    dateModified: pageData?.updated_at || pageData?.created_at,
+  };
 
   if (combinedHtml?.length === 0) {
     return <ComingSoon />;
   }
 
   return (
-    <div className="company-sec1 newsroom-detail-panel">
-      <div className="container">
-        <div className="col-lg-10 mx-auto">
-          <div className="company-text">
-            <div className="date">{formatDate(pageData?.created_at)}</div>
-            <h2>{pageData?.title}</h2>
-          </div>
-        </div>
-
-        <div className="col-lg-12">
-          <div className="newsroom_full">
-            <figure>
-              <Image alt={pageData?.image_alt || pageData?.title} src={pageData?.image_url} className="img-fluid" width={1475} height={603} loading="lazy" />
-            </figure>
-          </div>
-
-          <div className="row">
-            <div className="col-lg-10 mx-auto">
-              <div className="news_panel_text">
-                <ReactParserDynamic html={combinedHtml} />
-              </div>
+    <>
+      <script
+        type="application/ld+json"
+        nonce={nonce}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <div className="company-sec1 newsroom-detail-panel">
+        <div className="container">
+          <div className="col-lg-10 mx-auto">
+            <div className="company-text">
+              <div className="date">{formatDate(pageData?.created_at)}</div>
+              <h2>{pageData?.title}</h2>
             </div>
           </div>
 
-          <div className="row">
-            <div className="col-lg-10 mx-auto">
-              <BlogCommentForm id={pageData.id} />
+          <div className="col-lg-12">
+            <div className="newsroom_full">
+              <figure>
+                <Image alt={pageData?.image_alt || pageData?.title} src={pageData?.image_url} className="img-fluid" width={1475} height={603} loading="lazy" />
+              </figure>
+            </div>
+
+            <div className="row">
+              <div className="col-lg-10 mx-auto">
+                <div className="news_panel_text">
+                  <ReactParserDynamic html={combinedHtml} />
+                </div>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-lg-10 mx-auto">
+                <BlogCommentForm id={pageData.id} />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
