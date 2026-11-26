@@ -68,6 +68,7 @@ export default async function PressCollection({searchParams}:{searchParams?:Prom
                       href={item.pdf}
                       className="streched_link"
                       target="_blank"
+                      rel="noopener"
                     ></a>
                   )}
                 </div>

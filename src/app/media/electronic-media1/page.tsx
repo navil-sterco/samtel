@@ -73,6 +73,7 @@ export default async function PressCoveragePage({
                     className="streched_link"
                     target="_blank"
                     rel="noopener"
+                    aria-label={item.title}
                   ></Link>
                 )}
               </div>

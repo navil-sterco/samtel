@@ -164,6 +164,7 @@ export default function Leaderships({
                   <Link
                     href={`${BASE_URL}leadership/${item.slug}`}
                     className="streched_link"
+                    aria-label={item.name}
                   ></Link>
                 )}
               </div>

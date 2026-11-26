@@ -49,7 +49,7 @@ export default function WhoWe({ data }: WhoWePropsInterface) {
                             <p>{item.name}</p> 
                         )}
                         {item?.slug && (
-                            <Link href={`${BASE_URL}category/${item.slug}`} className="streched_link"></Link>
+                            <Link href={`${BASE_URL}category/${item.slug}`} className="streched_link" aria-label={item.name || item.slug}></Link>
                         )}
                     </div>
                 ))}
@@ -59,7 +59,7 @@ export default function WhoWe({ data }: WhoWePropsInterface) {
                     <div className="mobile-trigger">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round"></path></svg>
                     </div>
-                    <Link className="streched_link" href={`${BASE_URL}industries`}>link</Link>
+                    <Link className="streched_link" href={`${BASE_URL}industries`} aria-label='Industries'>link</Link>
                 </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ export default function WhoWe({ data }: WhoWePropsInterface) {
                                     </svg>
                                 </div>
                                 {item?.slug && (
-                                    <Link href={`${BASE_URL}category/${item.slug}`} className="streched_link"></Link>
+                                    <Link href={`${BASE_URL}category/${item.slug}`} className="streched_link" aria-label={item.name}></Link>
                                 )}
                             </div>
                         ))}
@@ -119,7 +119,7 @@ export default function WhoWe({ data }: WhoWePropsInterface) {
                                     </svg>
                                 </div>
                                 {item?.slug && (
-                                    <Link href={`${BASE_URL}category/${item.slug}`} className="streched_link"></Link>
+                                    <Link href={`${BASE_URL}category/${item.slug}`} className="streched_link" aria-label={item.name}></Link>
                                 )}
                             </div>
                         ))}

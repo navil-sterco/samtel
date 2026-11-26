@@ -35,6 +35,7 @@ export default async function MediaPDFGrid({ data }: { data: any }) {
                 href={item.pdf}
                 className="streched_link"
                 target="_blank"
+                rel="noopener"
               ></Link>
             )}
             

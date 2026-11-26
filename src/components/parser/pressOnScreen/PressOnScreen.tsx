@@ -91,6 +91,7 @@ export default async function PressOnScreen({
               data-fancybox="video"
               href={fancyboxUrl}
               className="streched_link"
+              aria-label={item.title}
             ></a>
           )}
           </div>
