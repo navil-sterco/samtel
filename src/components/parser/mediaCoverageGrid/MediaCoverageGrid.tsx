@@ -50,6 +50,7 @@ export default async function MediaCoverageGrid({ data }: { data: any }) {
                 href={item.link}
                 className="streched_link"
                 target="_blank"
+                aria-label={item.title || item.link}
                 rel="noopener"
               ></Link>
             )}

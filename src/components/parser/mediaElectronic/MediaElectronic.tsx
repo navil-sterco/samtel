@@ -76,6 +76,7 @@ export default async function MediaElectronic({searchParams}:{searchParams?:Prom
                     href={item.link}
                     className="streched_link"
                     target="_blank"
+                    aria-label={item.title || item.link}
                     rel="noopener"
                   ></Link>
                 )}

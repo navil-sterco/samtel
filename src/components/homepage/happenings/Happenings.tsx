@@ -172,6 +172,7 @@ export default function Happenings({data}:HappeningsPropsInterface) {
                                                         className="streched_link"
                                                         target="_blank"
                                                         rel="noopener noreferrer"
+                                                        aria-label={item.name || item.title}
                                                         href={href}
                                                     />
                                                 </>
