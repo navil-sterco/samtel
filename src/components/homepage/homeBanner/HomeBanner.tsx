@@ -816,6 +816,13 @@ export default function HomeBanner({ data }: HomeBannerProps) {
               />
             )}
           </div>
+          <div className="scroll-arrows">
+            <svg width="90" height="95" viewBox="0 0 60 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path className="chevron c1" d="M12 15L30 33L48 15" stroke="#D32F2F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path className="chevron c2" d="M12 40L30 58L48 40" stroke="#D32F2F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path className="chevron c3" d="M12 65L30 83L48 65" stroke="#D32F2F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
         </div>
       </section>
     </div>
