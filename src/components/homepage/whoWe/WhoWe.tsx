@@ -43,7 +43,7 @@ export default function WhoWe({ data }: WhoWePropsInterface) {
                 {data?.categories && data?.categories?.length > 0 && data.categories.map((item, idx)=>(
                     <div key={idx} className="inustries_item">
                         <figure>
-                            <Image src={item?.product_image || item.home_image || '/assets/images/placeholders/placeholder2.webp'} className="img-fluid w-100" loading='lazy' width={366} height={304} alt={item?.name || 'Airborne Systems'} />
+                            <Image src={item?.product_image || item.home_image || '/assets/images/placeholders/placeholder2.webp'} className="img-fluid w-100" loading='lazy' sizes="(max-width: 992px) 50vw, 366px" width={366} height={304} alt={item?.name || 'Airborne Systems'} />
                         </figure> 
                         {item?.name && (
                             <p>{item.name}</p> 

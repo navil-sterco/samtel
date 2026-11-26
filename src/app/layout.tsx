@@ -129,13 +129,6 @@ export default async function RootLayout({
     >
       <head>
         <link rel="dns-prefetch" href="https://www.samtelavionics.com" />
-        <link
-            rel="preload"
-            as="image"
-            href="/assets/videos/home-banner-poster.webp"
-            fetchPriority="high"
-            media="(max-width: 767px)"
-        />
         <meta
           name="google-site-verification"
           content="5F1J4u7wctCD5Kzl3AJ0dOVJ12mfZUPxZL7EBvdfz3c"
