@@ -80,6 +80,66 @@
 .video_caption::after { content: ''; position: absolute; bottom: -100vw; left: -100vw; width: 200vw; height: 200vw; background: #efefef; background-position: bottom center; background-size: 100%; z-index: -1; opacity: 1; }
 .video_caption.transparent { background: transparent; transition: background 0.6s ease; -webkit-transition: background 0.6s ease; -moz-transition: background 0.6s ease; -ms-transition: background 0.6s ease; -o-transition: background 0.6s ease; }
 .video_caption.transparent::after { background: transparent; transition: background 0.6s ease; -webkit-transition: background 0.6s ease; -moz-transition: background 0.6s ease; -ms-transition: background 0.6s ease; -o-transition: background 0.6s ease; }
+
+/* Scroll arrows ko video_caption ke andar center-bottom par set karne ke liye */
+.scroll-arrows {
+    position: fixed;
+    left: 50%;
+    bottom: 4rem;
+    transform: translateX(-50%);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.scroll-arrows {
+    opacity: 0;
+    visibility: hidden;
+}
+.banner_caption.transparent .scroll-arrows {
+    opacity: 1;
+    visibility: visible;
+}
+.scroll-arrows svg {
+    overflow: visible;
+}
+
+.scroll-arrows .chevron {
+    opacity: 0;
+    animation: arrowDown 1.5s infinite;
+}
+
+.scroll-arrows .c1 {
+    animation-delay: 0s;
+}
+
+.scroll-arrows .c2 {
+    animation-delay: 0.25s;
+}
+
+.scroll-arrows .c3 {
+    animation-delay: 0.5s;
+}
+
+@keyframes arrowDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+}
+
 .desktop_video { opacity: 0; transition: none; }
 .home_banner>.desktop_video { grid-area: 1 / 1; height: 100%; object-fit: cover; z-index: -1; position: absolute; top: 0; opacity: 0.9; left: 0; width: 100%; filter: brightness(0.92); pointer-events: none; transition: opacity 1s ease; -webkit-transition: opacity 1s ease; -moz-transition: opacity 1s ease; -ms-transition: opacity 1s ease; -o-transition: opacity 1s ease; }
 .home_banner>.desktop_video.visible { opacity: 1; z-index: 10; }

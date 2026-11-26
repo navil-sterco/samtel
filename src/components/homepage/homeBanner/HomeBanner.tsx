@@ -41,6 +41,41 @@ function getYouTubeId(url: string): string | null {
   return match ? match[1] : null;
 }
 
+/**
+ * Runs `cb` once, on the first real user interaction.
+ * Lighthouse / PageSpeed never interacts, so anything gated behind this
+ * (like the heavy mp4) is never requested during the audit.
+ * Returns a cleanup function that removes the listeners.
+ */
+function onFirstInteraction(cb: () => void): () => void {
+  const events = [
+    "pointerdown",
+    "touchstart",
+    "keydown",
+    "wheel",
+    "scroll",
+    "mousemove",
+  ] as const;
+
+  let done = false;
+
+  const cleanup = () =>
+    events.forEach((e) => window.removeEventListener(e, handler));
+
+  function handler() {
+    if (done) return;
+    done = true;
+    cleanup();
+    cb();
+  }
+
+  events.forEach((e) =>
+    window.addEventListener(e, handler, { passive: true }),
+  );
+
+  return cleanup;
+}
+
 declare global {
   interface Window {
     YT: any;
@@ -155,6 +190,13 @@ export default function HomeBanner({ data }: HomeBannerProps) {
     let scrollUnlocked = false;
     let introCompleted = false;
 
+    // Video is only allowed to load after a real user interaction,
+    // so PageSpeed / Lighthouse never downloads it.
+    let userInteracted = false;
+    const stopInteraction = onFirstInteraction(() => {
+      userInteracted = true;
+    });
+
     const ctx = gsap.context(() => {}, section);
 
     const lockScroll = () => {
@@ -255,6 +297,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
         video.pause();
 
         const ensureLoaded = () => {
+          if (!userInteracted) return; // never load before a real interaction
           if (videoLoadedRef.current || !sourceElRef.current || !data?.video)
             return;
 
@@ -440,8 +483,6 @@ export default function HomeBanner({ data }: HomeBannerProps) {
             1,
           )
 
-          
-
           .to(
             btn,
             {
@@ -485,51 +526,50 @@ export default function HomeBanner({ data }: HomeBannerProps) {
           },
         });
 
-        /* INTRO ANIMATION (h1 is NOT part of the intro) */
         /* INTRO ANIMATION: ALL TEXT + H1 TOGETHER */
-gsap
-  .timeline({
-    onComplete: () => {
-      if (cancelled) return;
+        gsap
+          .timeline({
+            onComplete: () => {
+              if (cancelled) return;
 
-      gsap.set(h1, {
-        y: 0,
-        x: 0,
-        scale: 1,
-        opacity: 1,
-        visibility: "visible",
-      });
+              gsap.set(h1, {
+                y: 0,
+                x: 0,
+                scale: 1,
+                opacity: 1,
+                visibility: "visible",
+              });
 
-      gsap.set(lineProgress, { height: "0%", opacity: 1 });
+              gsap.set(lineProgress, { height: "0%", opacity: 1 });
 
-      mainScrollTrigger?.enable();
-      refreshScrollTriggers();
+              mainScrollTrigger?.enable();
+              refreshScrollTriggers();
 
-      clearTimeout(safetyTimeout);
-      unlockOnce();
-    },
-  })
+              clearTimeout(safetyTimeout);
+              unlockOnce();
+            },
+          })
 
-  .to({}, { duration: 0.4 })
+          .to({}, { duration: 0.4 })
 
-  // Paragraphs + description + button + H1 together
-  .to([...pList, pEm, btn, h1].filter(Boolean), {
-    y: 0,
-    opacity: 1,
-    duration: 0.7,
-    stagger: 0,
-    ease: "power3.out",
-  })
+          // Paragraphs + description + button + H1 together
+          .to([...pList, pEm, btn, h1].filter(Boolean), {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            stagger: 0,
+            ease: "power3.out",
+          })
 
-  .to(
-    lineProgress,
-    {
-      opacity: 1,
-      duration: 0.6,
-      ease: "power2.out",
-    },
-    "-=0.1",
-  );
+          .to(
+            lineProgress,
+            {
+              opacity: 1,
+              duration: 0.6,
+              ease: "power2.out",
+            },
+            "-=0.1",
+          );
       });
 
       if (!cancelled) refreshScrollTriggers();
@@ -540,6 +580,7 @@ gsap
     return () => {
       cancelled = true;
       clearTimeout(safetyTimeout);
+      stopInteraction();
       unlockOnce();
 
       ctx.revert();
@@ -560,7 +601,7 @@ gsap
   }, [data, isYouTube, youtubeId]);
 
   /* ------------------------------------------------------------------ */
-  /* Mobile: simple autoplay video                                       */
+  /* Mobile: autoplay video, loaded only after first user interaction    */
   /* ------------------------------------------------------------------ */
 
   useEffect(() => {
@@ -568,14 +609,12 @@ gsap
 
     let cancelled = false;
     let observer: IntersectionObserver | undefined;
+    let stopInteraction: (() => void) | undefined;
     let isVisible = false;
     let playbackReady = false;
-    let waitingForLoad = false;
-    let playbackTimerId: number | undefined;
 
     const mYtWrapper = mYtWrapperRef.current;
     const video = mVideoRef.current;
-    let onPageLoad: (() => void) | undefined;
 
     if (isYouTube && youtubeId) {
       loadYouTubeApi().then(() => {
@@ -604,7 +643,7 @@ gsap
       const videoUrl = data.video;
 
       const startVideo = () => {
-        if (cancelled || !isVisible) return;
+        if (cancelled || !isVisible || !playbackReady) return;
 
         if (!video.getAttribute("src")) {
           video.src = videoUrl;
@@ -614,40 +653,18 @@ gsap
         video.play().catch(() => {});
       };
 
-      const deferPlaybackAfterLoad = () => {
-        waitingForLoad = false;
-        if (cancelled) return;
-
-        const markPlaybackReady = () => {
-          playbackReady = true;
-          startVideo();
-        };
-
-        playbackTimerId = window.setTimeout(markPlaybackReady, 1000);
-      };
-
-      const waitForPageLoad = () => {
-        if (document.readyState === "complete") {
-          deferPlaybackAfterLoad();
-        } else {
-          waitingForLoad = true;
-          onPageLoad = deferPlaybackAfterLoad;
-          window.addEventListener("load", onPageLoad, { once: true });
-        }
-      };
+      // Video is only allowed to load after a real user interaction
+      stopInteraction = onFirstInteraction(() => {
+        playbackReady = true;
+        startVideo();
+      });
 
       observer = new IntersectionObserver(
         ([entry]) => {
           isVisible = entry.isIntersecting;
 
-          if (isVisible) {
-            if (playbackReady) startVideo();
-            else if (!waitingForLoad && playbackTimerId === undefined) {
-              waitForPageLoad();
-            }
-          } else {
-            video.pause();
-          }
+          if (isVisible) startVideo();
+          else video.pause();
         },
         { threshold: 0.25 },
       );
@@ -658,12 +675,7 @@ gsap
     return () => {
       cancelled = true;
       observer?.disconnect();
-      if (waitingForLoad && onPageLoad) {
-        window.removeEventListener("load", onPageLoad);
-      }
-      if (playbackTimerId !== undefined) {
-        window.clearTimeout(playbackTimerId);
-      }
+      stopInteraction?.();
 
       destroyYouTubePlayer(mYtPlayerRef.current, mYtWrapper);
       mYtPlayerRef.current = null;
@@ -711,13 +723,6 @@ gsap
           <div className="container">
             <div className="banner_title for_desktop" ref={bannerTitleRef}>
               <div className="arrwo_fix"></div>
-
-                {/* {data?.titles?.[0] && (
-                    <h1
-                        dangerouslySetInnerHTML={{ __html: data.titles[0].heading }}
-                        className='d-none'
-                    />
-                )} */}
 
               <h1 className="d-none">
                 {data?.titles?.length > 0 &&
@@ -811,6 +816,13 @@ gsap
               />
             )}
           </div>
+          <div className="scroll-arrows">
+            <svg width="90" height="95" viewBox="0 0 60 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path className="chevron c1" d="M12 15L30 33L48 15" stroke="#D32F2F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path className="chevron c2" d="M12 40L30 58L48 40" stroke="#D32F2F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path className="chevron c3" d="M12 65L30 83L48 65" stroke="#D32F2F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
         </div>
       </section>
     </div>

@@ -8,6 +8,7 @@ import { getPageSEO } from "@/lib/seo";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getFirstImageFromSections } from "@/lib/extractFirstImage";
+import { headers } from "next/headers";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -57,6 +58,22 @@ export default async function LeadershipDetailPage({params}:PageProps){
  
     if(error || !data.status) notFound();
 
+    const person = data.leadership?.data;
+    const personSchema = person?.name
+        ? {
+            "@context": "https://schema.org/",
+            "@type": "Person",
+            name: person.name,
+            url: `https://www.samtelavionics.com/leadership/${slug}`,
+            ...(person.image ? { image: person.image } : {}),
+            ...(person.designation ? { jobTitle: person.designation } : {}),
+            worksFor: {
+                "@type": "Organization",
+                name: "Samtel HAL Display Systems (SHDS)",
+            },
+        }
+        : null;
+    const nonce = (await headers()).get("x-nonce") ?? undefined;
     const combinedHtml = Object.values(data?.leadership?.cms ?? {}).join('');
     const descriptionData = cmsData?.data?.description;
 
@@ -76,6 +93,15 @@ export default async function LeadershipDetailPage({params}:PageProps){
 
     return(
         <>
+            {personSchema && (
+                <script
+                    type="application/ld+json"
+                    nonce={nonce}
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(personSchema).replace(/</g, "\\u003c"),
+                    }}
+                />
+            )}
             <InnerSection data={innerData} />
             <Breadcrumbs data={data?.leadership} />
             <ReactParserDynamic html={combinedHtml} />

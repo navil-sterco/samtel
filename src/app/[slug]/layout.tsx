@@ -57,9 +57,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function DynamicPageLayout({ children, params }: PageProps) {
     const {slug} = await params;
+    
+    const currentSlug = `${slug}`;
+
     const {data, error} = await apiFetch(`cms/${slug}`);
 
     if(error || !data.status) notFound();
+  
+    const pageData = data?.data;
+    const expectedPath = pageData?.slug_path?.replace(/^\/+|\/+$/g, "");
+    if(expectedPath !== currentSlug){
+      notFound();
+    }
 
     const topData = data?.data || {};
 

@@ -9,9 +9,10 @@ const cacheControl = `public, s-maxage=${revalidateSeconds}, stale-while-revalid
 
 const nextConfig: NextConfig = {
   htmlLimitedBots: /.*/,
-
   serverExternalPackages: ["jsdom", "isomorphic-dompurify"],
-
+  experimental: {
+    cssChunking: true, // or 'strict' depending on your Next version
+  },
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "**" },
@@ -62,7 +63,11 @@ async redirects() {
       destination: "/",
       permanent: true,
     },
-
+    {
+      source: "/index.php",
+      destination: "/",
+      permanent: true,
+    },
     {
       source: "/:path+/index.html",
       destination: "/:path*",

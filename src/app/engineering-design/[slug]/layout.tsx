@@ -60,6 +60,14 @@ export default async function DynamicPageLayout({ children, params }: PageProps)
 
     if(error ) return notFound();
 
+    const currentSlug = `engineering-design/${slug}`;
+
+    const pageData = data?.data;
+    const expectedPath = pageData?.slug_path?.replace(/^\/+|\/+$/g, "");
+    if(expectedPath !== currentSlug){
+      notFound();
+    }
+
     const topData = data?.data || {};
 
     return (
