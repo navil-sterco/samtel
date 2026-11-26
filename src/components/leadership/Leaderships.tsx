@@ -112,6 +112,7 @@ export default function Leaderships({
                     className="more_btn fade-up"
                     data-delay="0.3"
                     data-duration="3.1"
+                    aria-label={first.name}
                   >
                     <Image
                       src="/assets/images/right-arrow-white.svg"

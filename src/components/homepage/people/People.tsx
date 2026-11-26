@@ -201,7 +201,7 @@ export default function People({ data }: PeoplePropsInterface) {
                                     <div className="people_pic_text">
                                         <blockquote ref={picTextBlockquoteRef} dangerouslySetInnerHTML={{ __html: data.message }} />
                                         {data?.slug && (
-                                            <Link href={data.slug} className="more_btn" ref={moreBtnRef}>
+                                            <Link href={data.slug} className="more_btn" ref={moreBtnRef} aria-label={data.title}>
                                                 <img src="/assets/icons/right-arrow-white.svg" alt="right arrow" className="img-fluid" />
                                             </Link>
                                         )}

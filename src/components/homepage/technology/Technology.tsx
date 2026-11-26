@@ -246,7 +246,7 @@ export default function Technology({ data }: TechnologyPropsInterface) {
               {data?.desc && <p dangerouslySetInnerHTML={{ __html: data.desc }} />}
 
               {data?.buttonlink && (
-                <Link href={`${BASE_URL}${data.buttonlink}`} className="more_btn">
+                <Link href={`${BASE_URL}${data.buttonlink}`} className="more_btn" aria-label={data.title}>
                   <Image
                     src="/assets/icons/right-arrow-white.svg"
                     alt="right arrow"
@@ -342,7 +342,7 @@ export default function Technology({ data }: TechnologyPropsInterface) {
                       {item.title && <h5>{item.title}</h5>}
                       {item.description && <p>{item.description}</p>}
                       {item.slug && (
-                        <a href={`${BASE_URL}${item.slug}`} className="more_btn">
+                        <a href={`${BASE_URL}${item.slug}`} className="more_btn" aria-label={item.title}>
                           <img
                             src="/assets/icons/right-arrow-white.svg"
                             alt="right arrow"

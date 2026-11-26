@@ -29,7 +29,7 @@ export default function Sustainability({data}:SustainabilityPropsInterface) {
 
                                 {data?.pageslug && (
                                     <div className="for_desktop">
-                                    <Link href={data.pageslug} className="more_btn fade-up" data-aos="fade-up" data-aos-delay="600">
+                                    <Link href={data.pageslug} className="more_btn fade-up" data-aos="fade-up" data-aos-delay="600" aria-label={data.title}>
                                         <img src="/assets/icons/right-arrow-white.svg" alt="right arrow" className="img-fluid" />
                                     </Link>
                                     </div>
@@ -49,7 +49,7 @@ export default function Sustainability({data}:SustainabilityPropsInterface) {
 
                                 {data?.pageslug && (
                                     <div className="for_mobile">
-                                    <Link href={data.pageslug} className="more_btn fade-up" data-aos="fade-up" data-aos-delay="600">
+                                    <Link href={data.pageslug} className="more_btn fade-up" data-aos="fade-up" data-aos-delay="600" aria-label={data.title}>
                                         <img src="/assets/icons/right-arrow-white.svg" alt="right arrow" className="img-fluid" />
                                     </Link>
                                     </div>

@@ -80,7 +80,7 @@ export default function Happenings({data}:HappeningsPropsInterface) {
                     </div>
                     {data?.link && (
                         <div className="for_desktop">
-                            <Link href={data.link} className="more_btn fade-up" data-aos="fade-up" data-aos-delay="600">
+                            <Link href={data.link} className="more_btn fade-up" data-aos="fade-up" data-aos-delay="600" aria-label={data.title}>
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     strokeWidth="1.1">
                                     <polyline points="9 18 15 12 9 6"></polyline>
