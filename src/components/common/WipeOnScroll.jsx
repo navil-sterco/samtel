@@ -27,14 +27,26 @@ export default function WipeOnScroll(){
         }
         // document.querySelectorAll('.image');
 
+        // Throttle to one pass per frame; this runs on every scroll event and
+        // reads layout, so un-throttled it caused forced reflows.
+        let frame = 0;
+        const onScroll = ()=>{
+            if (frame) return;
+            frame = requestAnimationFrame(()=>{
+                frame = 0;
+                wipeOn();
+            });
+        }
+
         wipeOn();
 
-        window.addEventListener("scroll", wipeOn, { passive: true });
-        window.addEventListener("resize", wipeOn);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
 
         return()=>{
-            window.removeEventListener("scroll", wipeOn);
-            window.removeEventListener("resize", wipeOn);
+            cancelAnimationFrame(frame);
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", onScroll);
         }
 
     }, [pathname])

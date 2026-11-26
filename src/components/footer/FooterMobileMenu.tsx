@@ -303,11 +303,12 @@ export default function FooterMobileMenu({
                   key={industry.slug}
                   tabIndex={activePanel === "industries" ? 0 : -1}
                   onClick={closePanels}
+                  aria-label={`Explore ${industry.name}`}
                 >
                   {industry.menu_image && (
                     <img
                       src={industry.menu_image}
-                      alt={industry.name}
+                      alt={industry.name || ''}
                       loading="lazy"
                       // fill
                       // sizes="(max-width: 991px) 50vw, 0px"

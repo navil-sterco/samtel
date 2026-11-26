@@ -20,6 +20,7 @@ import { headers } from "next/headers";
 const funnelSans = Funnel_Sans({
   subsets: ["latin"],
   variable: "--font-funnel",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -136,7 +137,7 @@ export default async function RootLayout({
 
         <Script
           src="/js/google-tags.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           nonce={nonce}
         />
 
