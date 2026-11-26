@@ -311,8 +311,10 @@ export default function Technology({ data }: TechnologyPropsInterface) {
                     <Image
                       src={data.mobileimage}
                       alt={data.heading || "Technology"}
-                      width={437}
-                      height={237}
+                      width={500}
+                      height={809}
+                      sizes="367px"
+                      quality={70}
                       className="img-fluid w-100"
                       loading="lazy"
                     />

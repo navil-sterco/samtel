@@ -69,6 +69,14 @@ export default async function Home() {
         as="image"
         href="/assets/videos/home-banner-poster.webp"
         fetchPriority="high"
+        media="(min-width: 768px)"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href="/assets/videos/home-banner-poster-mobile.webp"
+        media="(max-width: 767px)"
+        fetchPriority="high"
       />
       <main className="homepage-content">
         <HomeBanner data={pageData?.banner} />

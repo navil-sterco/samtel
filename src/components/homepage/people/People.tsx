@@ -193,7 +193,7 @@ export default function People({ data }: PeoplePropsInterface) {
                             <div className="overlay-content">
                                 <div className="people-image for_mobile">
                                     {data?.mobileimage && (
-                                        <Image src={data.mobileimage} width={343} height={479} sizes="100vw" loading='lazy' className="img-fluid" alt="people image" />
+                                        <Image src={data.mobileimage} width={500} height={583} sizes="100vw" loading='lazy' className="img-fluid" alt="people image" quality={70} />
                                     )}
                                 </div>
 

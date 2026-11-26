@@ -5,6 +5,8 @@ import { refreshScrollTriggers } from "@/hooks/useScrollTriggerRefresh";
 import "./homeBanner.css";
 
 const HOME_BANNER_POSTER = "/assets/videos/home-banner-poster.webp";
+const HOME_BANNER_POSTER_MOBILE = "/assets/videos/home-banner-poster-mobile.webp";
+
 
 interface HomeBannerProps {
   data: {
@@ -813,7 +815,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
               <video
                 className="for_mobile"
                 ref={mVideoRef}
-                poster={HOME_BANNER_POSTER}
+                poster={HOME_BANNER_POSTER_MOBILE}
                 muted
                 playsInline
                 loop

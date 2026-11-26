@@ -16,7 +16,8 @@ const nextConfig: NextConfig = {
   compress: true,
   serverExternalPackages: ["jsdom", "isomorphic-dompurify"],
   experimental: {
-    cssChunking: true, // or 'strict' depending on your Next version
+    optimizeCss: true,
+    cssChunking: true, 
   },
   images: {
     formats: ["image/avif", "image/webp"],
