@@ -184,7 +184,7 @@ export default function ContactForm() {
         
 
         <div className="form-group">
-          <select name="emails" required defaultValue="">
+          <select name="select_business" required defaultValue="">
             <option value="" disabled>
               Select Business*
             </option>
