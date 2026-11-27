@@ -7,6 +7,8 @@ import { apiFetch } from "@/lib/api";
 import { getPageSEO } from "@/lib/seo";
 import "@/styles/inner.css";
 import "./product-detail-page.css";
+import InnerSection from "@/components/common/innerSection/InnerSection";
+import Breadcrumbs from "@/components/common/breadcrumbs/Breadcrumbs";
 
 interface Product {
     id: string | number;
@@ -133,10 +135,13 @@ export default async function ProductDetailPage({
     params: Promise<RouteParams>;
 }) {
     const { slug: categorySlug, productSlug } = await params;
-    const [{ category, product }, requestHeaders] = await Promise.all([
+    const [{ category, product }, requestHeaders, {data:productCMSData}] = await Promise.all([
         getProductDetails(categorySlug, productSlug),
         headers(),
+        apiFetch(`cms/product-solutions`)
     ]);
+
+    const topData = productCMSData?.data || {};
 
     const nonce = requestHeaders.get("x-nonce") ?? undefined;
     const productSchema = {
@@ -160,7 +165,11 @@ export default async function ProductDetailPage({
                     __html: JSON.stringify(productSchema).replace(/</g, "\\u003c"),
                 }}
             />
-            <ProductDetailsPage product={product} category={category} />
+            <div className="product_detail_page_main">
+                <InnerSection data={topData} />
+                <Breadcrumbs data={topData} />
+                <ProductDetailsPage product={product} category={category} />
+            </div>
         </>
     );
 }

@@ -106,7 +106,7 @@ async redirects() {
     return [
       {
         source: "/api/:path*",
-        destination: "https://project-demo.in/samtel/api/:path*",
+        destination: "https://www.samtelavionics.com/api/:path*",
       },
     ];
   },

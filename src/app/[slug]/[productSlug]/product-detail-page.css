@@ -8,6 +8,7 @@
     height: auto;
     margin: 0;
     overflow: visible;
+    background:transparent
 }
 
 .product-detail-page .product_modal_close {
@@ -26,6 +27,12 @@
     text-decoration: none;
 }
 
+.product-detail-page .products_systems_detail h3{
+    font: var(--font-21);
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
 .product-detail-page-link {
     display: inline-block;
     margin-top: 2rem;
@@ -34,7 +41,8 @@
 }
 
 .product-detail-page .product_modal_grid .product_image {
-    top: 5rem;
+    top: 25rem;
+    margin:0;
 }
 
 @media (max-width: 991px) {

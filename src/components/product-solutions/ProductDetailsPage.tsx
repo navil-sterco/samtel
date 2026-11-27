@@ -71,18 +71,18 @@ export default function ProductDetailsPage({ product, category }: ProductDetails
     };
 
     return (
-        <main className="product-detail-page">
-            <div className="product_modal_content">
-                <div className="product_modal_close">
+        <main className="product-detail-page ">
+            <div className="product_modal_content ">
+                {/* <div className="product_modal_close">
                     <Link
                         href={`/product-solutions/${category.slug}`}
                         className="product-detail-back"
                     >
                         Back
                     </Link>
-                </div>
-
-                <div className="container-full">
+                </div> */}
+                <div className="products_systems_detail">
+                <div className="container">
                     <div className="product_modal_grid">
                         <div className="product_image">
                             <figure>
@@ -170,7 +170,7 @@ export default function ProductDetailsPage({ product, category }: ProductDetails
                         </div>
 
                         <div>
-                            <Breadcrumbs data={breadcrumbData} />
+                            {/* <Breadcrumbs data={breadcrumbData} /> */}
                             <div className="product_content">
                                 <h1 className="font45" id="product-detail-title">
                                     {product.name}
@@ -204,6 +204,7 @@ export default function ProductDetailsPage({ product, category }: ProductDetails
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </main>

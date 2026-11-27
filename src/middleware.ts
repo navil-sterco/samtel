@@ -8,7 +8,6 @@ function buildCsp(nonce: string, isDev: boolean): string {
   return `
     default-src 'self';
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic'
-      https://cdn.example.com
       https://cdn.keka.com
       https://www.google.com
       https://www.gstatic.com
@@ -30,7 +29,6 @@ function buildCsp(nonce: string, isDev: boolean): string {
       data:;
     connect-src 'self'
       ${apiOrigin}
-      https://project-demo.in
       https://*.keka.com
       https://www.google-analytics.com
       https://analytics.google.com
