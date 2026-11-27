@@ -213,9 +213,9 @@ export default function ContactForm() {
             <option value="info@samtelgroup.com">
               Any other queries
             </option>
-            <option value="navil.stercodigitex@gmail.com">
+            {/* <option value="navil.stercodigitex@gmail.com">
               navil
-            </option>
+            </option> */}
           </select>
 
           {errors.emails?.map((msg, i) => (
