@@ -26,6 +26,7 @@ type FieldErrors = {
   country?: string[];
   phone?: string[];
   email?: string[];
+  emails?:string[];
 };
 
 export default function ContactForm() {
@@ -174,6 +175,47 @@ export default function ContactForm() {
         <div className="form-group">
           <input type="email" name="email" placeholder="Email ID*" required />
           {errors.email?.map((msg, i) => (
+            <small key={i} className="field-error">
+              {msg}
+            </small>
+          ))}
+        </div>
+
+        
+
+        <div className="form-group">
+          <select name="emails" required defaultValue="">
+            <option value="" disabled>
+              Select Business*
+            </option>
+
+            <option value="marketing@samtelgroup.com">
+              Defence Avionics business
+            </option>
+            <option value="info-railways@samtelgroup.com">
+              Railway Electronics business
+            </option>
+            <option value="space@samtelgroup.com">
+              Space/Satellite business
+            </option>
+            <option value="defence@samtelgroup.com">
+              UAV/ Drones business
+            </option>
+            <option value="sourcing@samtelgroup.com">
+              Sourcing or supplier related queries
+            </option>
+            <option value="careers@samtelgroup.com">
+              Careers
+            </option>
+            <option value="corpcomm@samtelgroup.com">
+              Media related queries
+            </option>
+            <option value="info@samtelgroup.com">
+              Any other queries
+            </option>
+          </select>
+
+          {errors.emails?.map((msg, i) => (
             <small key={i} className="field-error">
               {msg}
             </small>
