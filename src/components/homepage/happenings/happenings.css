@@ -18,6 +18,15 @@
 .happenings-section .more_btn {background: #fff;align-items: center;justify-content: center;top: -3rem;position: relative;}
 .happenings-section .more_btn:hover { background: #E6E6E6;}
 .happenings-section .more_btn svg{stroke:currentColor; color: var(--color-c8);}
+.happening-header h6 {
+    color: var(--color-white);
+        font: var(--font-21);
+    letter-spacing: 1.05px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-weight: 900;
+}
+
 
 @media (max-width: 1920px) {
 /* .happenings-section .slider-outer-wrapper { margin-left: calc((100vw - min(1505px, 73.409091vw)) / 2 + 6.5rem); } */

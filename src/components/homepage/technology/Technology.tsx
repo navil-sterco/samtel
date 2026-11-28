@@ -233,7 +233,7 @@ export default function Technology({ data }: TechnologyPropsInterface) {
               data-duration="1.6"
             >
               {data?.title && (
-                <h4 dangerouslySetInnerHTML={{ __html: data.title }} />
+                <div className="self" dangerouslySetInnerHTML={{ __html: data.title }} />
               )}
 
               {data?.subtitle && (
