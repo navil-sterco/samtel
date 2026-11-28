@@ -606,14 +606,14 @@
 .ss_csr_ovrbtm { padding-block: 10rem 7rem; }
 .csr_mod_pubsch { padding-block: 15rem 13rem; }
 .csr_ttl { padding-bottom: 8rem; }
-.csr_ttl h4 { margin-bottom: 4rem; }
-.csr_ttl h5 { margin-bottom: 3rem; }
+.csr_ttl h3 { margin-bottom: 4rem; }
+.csr_ttl h4 { margin-bottom: 3rem; }
 .csr_modbx { display: grid; grid-template-columns: repeat(2, 1fr); align-items: center; height: 100%; background-color: var(--color-f7); }
 .csr_modbx.csrmod_grid1 .csr_mod_rgt .csr_mod_content { height: 100%; margin-left: auto; max-width: 50rem; margin-left: 11.2rem; }
 .csr_modbx.csrmod_grid2 .csr_mod_lft .csr_mod_content { height: 100%; margin-left: auto; max-width: 47.8rem; margin-right: 13.5rem; }
 .csr_modbx .csr_mod_content { height: 100%; }
-.csr_modbx .csr_mod_content h3 { color: var(--color-c8); }
-.csr_modbx .csr_mod_content h5 { margin-bottom: 4rem; }
+.csr_modbx .csr_mod_content h5 { color: var(--color-c8); }
+.csr_modbx .csr_mod_content h6 { margin-bottom: 4rem; }
 .csr_mod_border { border-bottom: 0.2rem solid var(--color-c8); padding-bottom: 14.3rem; }
 .stu_ttl { display: grid; gap: 12.1rem; grid-template-columns: 49.4% auto; margin-bottom: 10.1rem; align-items: center; }
 .stu_ttl .stu_lftsec p:not(:last-child) { margin-bottom: 4rem; }
@@ -648,7 +648,7 @@
 .csr_modbx.csrmod_grid2 .csr_mod_lft .csr_mod_content { max-width: 38.4rem; margin-right: 6.5rem; }
 .csr_modbx.csrmod_grid1 .csr_mod_rgt .csr_mod_content { max-width: 40rem; }
 .csr_mod_pubsch { padding-block: 13rem 11rem; }
-.csr_modbx .csr_mod_content h5 { margin-bottom: 3rem; }
+.csr_modbx .csr_mod_content h6 { margin-bottom: 3rem; }
 .ss_csr_grid {grid-template-columns: 655fr 880fr;}
  }
 @media (max-width:1325px) {
@@ -706,14 +706,14 @@
 .csr_modbx.csrmod_grid1 { margin-bottom: 5rem; }
 .csr_modbx.csrmod_grid1 .csr_mod_rgt .csr_mod_content, .csr_modbx.csrmod_grid2 .csr_mod_lft .csr_mod_content { max-width: 100%; margin: 0; }
 .csr_modbx.csrmod_grid1 .csr_mod_rgt, .csr_modbx.csrmod_grid2 .csr_mod_lft { padding: 2rem 3rem 3rem; }
-.csr_modbx .csr_mod_content h5 { margin-bottom: 2rem; }
+.csr_modbx .csr_mod_content h6 { margin-bottom: 2rem; }
 .stu_ttl { grid-template-columns: 1fr; gap: 2.4rem; margin-bottom: 6rem; }
 /* .stu_rgtsec { max-width: 50rem; }
 */ .stu_ttl .stu_lftsec p:not(:last-child) { margin-bottom: 2rem; }
 .stu_learing_main { padding-bottom: 5rem; }
 .csr_mod_border { padding-bottom: 5.3rem; }
-.csr_ttl h4 { margin-bottom: 2rem; }
-.csr_ttl h5 { margin-bottom: 1.6rem; }
+.csr_ttl h3 { margin-bottom: 2rem; }
+.csr_ttl h4 { margin-bottom: 1.6rem; }
 .ss_csr_lft>h2 { margin-bottom: 2rem; }
  }
 @media (max-width:768px) {
@@ -723,7 +723,7 @@
 @media (max-width:575px) {
  .csr_modbx.csrmod_grid1 .csr_mod_rgt, .csr_modbx.csrmod_grid2 .csr_mod_lft { padding: 2rem 2rem 3rem; }
 .stu_rgtsec { grid-template-columns: 1fr; gap: 0rem; text-align: center; }
-.csr_ttl h4 { margin-bottom: 2rem; }
+.csr_ttl h3 { margin-bottom: 2rem; }
 .ss_csr_ovrbtm { padding-block: 2rem 4rem; padding-inline: 0; }
 .stu_rgtsec { padding-block: 2.4rem 2.2rem; padding-inline: 1.5rem 1.5rem; }
  }
@@ -1066,8 +1066,8 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 .testing_sec3 { padding-block: 15rem 9rem; }
 /* Heading */
 .testing-heading { text-align: center; margin-bottom: 9rem; }
-.testing-heading span { text-transform: uppercase; font: var(--font-21); color: var(--color-23); font-weight: 800; margin-bottom: 3rem; display: inline-block; letter-spacing: 1.05px; }
-.testing-heading h2 { font: var(--font-45); color: var(--color-23); letter-spacing: -0.9px; font-weight: 300; }
+.testing-heading h3 { text-transform: uppercase; font: var(--font-21); color: var(--color-23); font-weight: 800; margin-bottom: 3rem; display: inline-block; letter-spacing: 1.05px; }
+/* .testing-heading h3 { font: var(--font-45); color: var(--color-23); letter-spacing: -0.9px; font-weight: 300; } */
 .comprehensive_grid { display: grid; grid-template-columns: 750fr 850fr; gap: 12.5rem; margin-top: 13rem; }
 .comprehensive_txt { padding-left: 0; width: 50rem; margin-left: auto; }
 .comprehensive_txt>p { margin-bottom: 3rem; }
@@ -1076,7 +1076,7 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 .testing-grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6.8rem; row-gap: 0; }
 /* Individual Item */
 .testing-item { min-height: 17.2rem; /* padding: 0 0 28px; */ margin-bottom: 6rem; border-bottom: 2px solid var(--color-c8); box-sizing: border-box; }
-.testing-item h3 { font: var(--font-21); color: var(--color-23); margin-bottom: 2rem; }
+.testing-item blockquote { font: var(--font-21); color: var(--color-23); margin-bottom: 2rem; }
 .testing-item p { font: var(--font-18); color: var(--color-23); font-weight: 300; padding-inline: 0 2rem; line-height: 1.7; }
 .standards-section { background: var(--color-c8); padding-block: 15rem; box-sizing: border-box; }
 .standards-container { width: 100%; display: grid; grid-template-columns: 850fr 753fr; align-items: center; column-gap: 12.5rem; }
@@ -1097,11 +1097,11 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 ================================= */
 .infrastructure_sec1 { padding-block: 5rem 13rem; }
 .infrastructure_txt { margin-bottom: 7rem; }
-.infrastructure_txt blockquote { font: var(--font-24); color: var(--color-23); font-weight: 300; margin-bottom: 4rem; padding-inline: 0 7rem; line-height: 1.5; }
+.infrastructure_txt h2 { font: var(--font-24); color: var(--color-23); font-weight: 300; margin-bottom: 4rem; padding-inline: 0 7rem; line-height: 1.5; }
 .complex_txt { margin-top: 7rem; }
 .infrastructure_sec2 { background-color: var(--color-f7); padding-block: 13rem; }
 .infrastructure_sec2 .testing-heading { margin-bottom: 7.2rem; }
-.infrastructure_sec2 .testing-heading span { margin-bottom: 2rem; }
+.infrastructure_sec2 .testing-heading h3 { margin-bottom: 2rem; }
 .facilities_grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7.3rem 2.5rem; }
 .facilities_bx { position: relative; }
 .facilities_bx figure { margin-bottom: 3rem; }
@@ -1130,7 +1130,7 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 .line { border-bottom: 2px solid var(--color-c8); margin-block: 11.2rem 13rem; }
 .validation_sec4 { background: var(--color-c8); padding-block: 12rem 15rem; box-sizing: border-box; }
 .integration-section { width: 100%; display: flex; flex-direction: column; align-items: center; }
-.integration-section h3 { color: var(--color-white); margin-bottom: 6rem; }
+.integration-section h4 { color: var(--color-white); margin-bottom: 6rem; }
 .integration-list { display: grid; grid-template-columns: repeat(7, 1fr); }
 .integration-item { background: var(--color-e9); display: flex; flex-direction: column; align-items: center; text-align: center; padding: 3.5rem 2rem; width: 24.5rem; gap: 2rem; position: relative; border-left: 1px solid var(--color-df); }
 .integration-item:before { content: ""; pointer-events: none; z-index: 9; background: 
@@ -1146,7 +1146,7 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 .repeatable_txt p { font: var(--font-18); line-height: 1.7; }
 .design_sec1 { padding-block: 5rem 12rem; overflow: hidden; }
 .design_txt { margin-bottom: 7rem; }
-.design_txt blockquote { font: var(--font-24); line-height: 1.5 ; font-weight: 300; padding-inline: 0 13rem; }
+.design_txt h2 { font: var(--font-24); line-height: 1.5 ; font-weight: 300; padding-inline: 0 13rem; }
 .design_sec1 .naval_system_box { margin-top: 10.5rem; grid-template-columns: 35% 65%; padding-block: 5rem; padding-inline: 4rem; text-wrap: balance; }
 .integration-text { padding-top: 5rem; }
 .integration-text p { color: var(--color-white); }
@@ -1156,12 +1156,12 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 .design_sec2 { position: relative; z-index: 1; }
 .design_sec2::before { content: ''; background-color: var(--color-f7); width: 100%; height: 30rem; position: absolute; bottom: 0; z-index: -1; }
 .design_sec3 { padding-block: 12rem 9rem; background-color: var(--color-f7); }
-.design_sec3 .testing-heading span, .design_sec3 .testing-heading h2 { color: var(--color-23); }
-.design_sec3 .testing-item h3, .design_sec3 .testing-item p { color: var(--color-23); }
+.design_sec3 .testing-heading h3, .design_sec3 .testing-heading h3 { color: var(--color-23); }
+.design_sec3 .testing-item blockquote, .design_sec3 .testing-item p { color: var(--color-23); }
 .design_sec3 .testing-item p { padding-inline: 0 3rem; }
 .design_sec3 .testing-item { border-bottom: 2px solid var(--color-d4); min-height: 20.2rem; }
 .design_sec4 { padding-block: 13rem 15rem; }
-.platform_txt h3 { margin-bottom: 5rem; }
+.platform_txt h4 { margin-bottom: 5rem; }
 .platform_lst { display: grid; grid-template-columns: repeat(2, 1fr); gap: 19.8rem; }
 .platform_grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; margin-top: 4rem; }
 .design_sec5 { background-color: var(--color-white); padding-block: 15rem; }
@@ -1169,20 +1169,20 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 .engineering_bx { background-color: var(--color-white); align-items: center; position: sticky; top: 23rem; margin-bottom: .5rem; }
 .engineering_bx h3 { margin-bottom: 4rem; }
 .specialised .engineering_bx:nth-last-child(1) { padding-bottom: 8rem; }
-.engineering_bx .right_airborne_sys blockquote { margin-bottom: 3rem; }
+.engineering_bx .right_airborne_sys h2 { margin-bottom: 3rem; }
 .manufacturing_sec1 { padding-block: 5rem 10rem; }
 .manufacturing_grid { display: grid; grid-template-columns: 760fr 850fr; gap: 12.5rem; margin-top: 15rem; }
 .manufacturing_txt { padding-left: 0; margin-left: auto; max-width: 50rem; }
 .manufacturing_txt>p { margin-bottom: 3rem; }
 .manufacturing_txt .naval_system_box { margin-top: 9.5rem; }
 .manufacturing_sec2 { background-color: var(--color-23); padding-block: 15rem 9rem; }
-.manufacturing_sec2 .testing-heading span { color: var(--color-white); }
-.manufacturing_sec2 .testing-heading h2 { color: var(--color-white); }
+.manufacturing_sec2 .testing-heading h3 { color: var(--color-white); }
+.manufacturing_sec2 .testing-heading h3 { color: var(--color-white); }
 .comprehensive_img { height: 100%; overflow: hidden; }
 .comprehensive_img figure { height: 100%; }
 .comprehensive_img figure img { height: 100%; object-fit: cover; }
 .manufacturing_sec2 .testing-item { min-height: 20.2rem; }
-.manufacturing_sec2 .testing-item h3, .manufacturing_sec2 .testing-item p { color: var(--color-white); }
+.manufacturing_sec2 .testing-item blockquote, .manufacturing_sec2 .testing-item p { color: var(--color-white); }
 .manufacturing_sec3 { padding-block: 15rem; }
 .design_text { margin-bottom: 6rem; }
 .production_grid { display: grid; grid-template-columns: repeat(2, 1fr); align-items: center; }
@@ -1250,13 +1250,13 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 @media (max-width:1599px) {
  .comprehensive_txt { padding-inline: 8rem 0; }
 .production-bx1 { padding-inline: 37rem 15.6rem; }
-.design_txt blockquote { padding-inline: 0 4rem; }
+.design_txt h2 { padding-inline: 0 4rem; }
 .integration-item { width: 21.1rem; }
  }
 @media (max-width:1499px) {
  .integration-item { width: 20.1rem; }
 .production-bx1 { padding-inline: 34rem 15.6rem; }
-.design_txt blockquote { padding-inline: 0rem; }
+.design_txt h2 { padding-inline: 0rem; }
 .comprehensive_txt { padding-inline: 11rem 0; }
 .manufacturing_grid { gap: 9.5rem; }
 .manufacturing_txt { padding-left: 11rem; }
@@ -1312,7 +1312,7 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 .standards-content h4 br { display: none; }
 .design_sec1 .naval_system_box { grid-template-columns: 37% 62%; padding-block: 4rem; }
 .engineering_bx h3 { margin-bottom: 2rem; }
-.engineering_bx .right_airborne_sys blockquote { margin-bottom: 2rem; }
+.engineering_bx .right_airborne_sys h2 { margin-bottom: 2rem; }
 .integration-item { width: 19rem; padding: 2.5rem 1.5rem; }
  }
 @media (max-width:991px) {
@@ -1343,7 +1343,7 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 .comprehensive_txt .naval_system_box { width: auto; grid-template-columns: 11% auto; }
 .testing_sec3 { padding-block: 10rem 6rem; }
 .infrastructure_sec1 { padding-block: 8rem 9rem; }
-.infrastructure_txt blockquote { margin-bottom: 3rem; }
+.infrastructure_txt h2 { margin-bottom: 3rem; }
 .infrastructure_txt { margin-bottom: 4rem; }
 .complex_txt { margin-top: 5rem; }
 .infrastructure_sec2 { padding-block: 8rem; }
@@ -1380,7 +1380,7 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 .environment_left { order: 2; }
 .print_bx { min-height: 18rem; }
 .approach_grid { column-gap: 6.5rem; grid-template-columns: 1fr; gap: 4rem; }
-.design_txt blockquote { padding-inline: 0; }
+.design_txt h2 { padding-inline: 0; }
 .cus_icon .swiper-slide { width: 100% !important; }
 .standards-container { gap: 4.5rem; }
 .standards-content h4 { margin-bottom: 2rem; }
@@ -1403,7 +1403,7 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 .testing-grid { grid-template-columns: repeat(1, 1fr); }
 .print_grid { grid-template-columns: repeat(1, 1fr); }
 .print_bx { min-height: 20rem; }
-.design_txt blockquote { padding-inline: 0; }
+.design_txt h2 { padding-inline: 0; }
 .manufacturing_grid { margin-top: 4rem; }
 .naval_system_box { grid-template-columns: 100%; gap: 2rem; }
 .manufacturing_sec2 { padding-block: 8rem 4rem; }
@@ -1420,15 +1420,15 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 .programs_txt p { padding-inline: 0; }
 .print_bx { min-height: 16rem; }
 .standards-section { padding-block: 7rem 5rem; }
-.right_airborne_sys blockquote { margin-bottom: 3rem; }
+.right_airborne_sys h2 { margin-bottom: 3rem; }
 .comprehensive_grid { margin-top: 5rem; }
 .airborne_systems_detail { padding-block: 6rem 6.2rem; }
 .comprehensive_txt .naval_system_box { width: auto; grid-template-columns: 100%; }
 .testing_sec3 { padding-block: 7rem 3rem; }
 .testing-heading { margin-bottom: 3rem; }
 .standards-content { padding-inline: 0 0rem; }
-.testing-item h3 br { display: none; }
-.infrastructure_txt blockquote { padding-inline: 0; }
+.testing-item blockquote br { display: none; }
+.infrastructure_txt h2 { padding-inline: 0; }
 .facilities_grid { grid-template-columns: repeat(1, 1fr); }
 .infrastructure_sec1 { padding-block: 6rem 5rem; }
 .design_sec1 .naval_system_box { grid-template-columns: 100%; margin-top: 4.5rem; }
@@ -1485,7 +1485,7 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 .spce_stlt_top { padding-block: 5rem 10.9rem; }
 .infrastructure_img { position: relative; }
 .what_eng_txt { margin-bottom: 7rem; }
-.what_eng_txt blockquote { font: var(--font-24); color: var(--color-23); font-weight: 300; padding-inline: 0 7rem; line-height: 1.5; }
+.what_eng_txt h2 { font: var(--font-24); color: var(--color-23); font-weight: 300; padding-inline: 0 7rem; line-height: 1.5; }
 .wht_eng_keycap { padding-bottom: 15rem; }
 .keycap_common_grd { display: grid; grid-template-columns: 850fr 750fr; gap: 12.5rem; align-items: flex-start; }
 .key_left { position: sticky; top: 20rem; }
@@ -1507,7 +1507,7 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 .keycap_discuss_btn .more_btn img { margin-left: 1rem; }
 .wht_eng_keycap_right p { margin-bottom: 6rem; padding-bottom: 8rem; position: relative; }
 .wht_eng_keycap_right p::after { position: absolute; left: 0; bottom: 1px; content: ""; background-color: var(--color-c8); height: 0.2rem; width: 12.3rem; }
-.main_key_cap h5 { margin-bottom:4rem; }
+.main_key_cap h3 { margin-bottom:4rem; }
 .wht_eng_industries { padding-block: 13rem 15.2rem; background-color: var(--color-white); }
 .wht_eng_industries h4 { text-align: center; padding-bottom: 6rem; }
 .wht_eng_industies_grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.3rem; }
@@ -1536,6 +1536,10 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 /* Strategic */
 .strategic_sec { padding-top: 5rem; }
 .stategic_first_rght { padding-right: 0; width: 50rem; }
+.stategic_first_rght h2{
+    margin-bottom: 1rem;
+}
+
 /* .stategic_first_rght p { padding-block: 3rem 12.2rem; }
 */
 .stategic_first_rght .discuss_bx { margin-top: 12.2rem; }
@@ -1630,7 +1634,7 @@ body .kh-job-container:hover.kh-job-card { border-color:var(--color-c8)!importan
 .strategic_bottom_img { padding-block: 4rem 2rem; }
 .discuss_bx { width: 100%; padding-block: 3rem; padding-inline: 3rem; gap: 1rem; height: auto; margin-top: 3rem; grid-template-columns: 100%; text-align: center; }
 .wht_eng_top { padding-block: 3.5rem 0.9rem; }
-.main_key_cap h5 { margin-bottom: 2.5rem; }
+.main_key_cap h3 { margin-bottom: 2.5rem; }
 .avonic_display_right { padding-bottom: 0rem; }
 .rug_elect_list ul li { margin: 0 0 1.9rem 0; }
 .font_links { margin: 2rem 0 0 0; }
@@ -1804,7 +1808,7 @@ br.desktop-break { display: none; }
  }
 @media (max-width:768px) {
  .uav_oversec .uav_ovr_lft .image_title { bottom: 1rem; }
-.mro_grid .career_ttl p { padding-bottom: 2rem; margin: 0; }
+.mro_grid .career_ttl h2 { padding-bottom: 2rem; margin: 0; }
 .pro_solu_ovtop { margin-bottom: 3rem; }
 .media_link { margin-top: 3rem; }
 .apply_sec { padding-block: 6rem 3rem; }
@@ -1945,7 +1949,7 @@ br.desktop-break { display: none; }
 .umae_dron_content { z-index: 9; position: relative; max-width: 50rem; margin-left: auto; }
 .umae_dron_content p { color: var(--color-white); }
 .umae_dron_content  .explore_btn { margin-top: 5rem; }
-.umae_dron_content h5 { font: var(--font-24); color: var(--color-white); margin-bottom: 2rem; font-weight: bold; }
+.umae_dron_content h3 { font: var(--font-24); color: var(--color-white); margin-bottom: 2rem; font-weight: bold; }
 .product_image .image_title { bottom: 3.5rem; }
 @media (max-width:1199px) {
  .uuname_sys .unname_rgt { padding-inline: 0 7rem; }
@@ -1968,7 +1972,7 @@ br.desktop-break { display: none; }
 .umae_dron_content .explore_btn { margin-top: 3rem; }
 .uuname_ov_full { margin-bottom: 4rem; }
 .uuname_sys1.unam_grid { gap: 5.5rem; }
-.umae_dron_content h5 { color: var(--color-d4); }
+.umae_dron_content h3 { color: var(--color-d4); }
 .inner-text br { display: none; }
  }
 @media (max-width:768px) {
@@ -2128,13 +2132,13 @@ br.desktop-break { display: none; }
 .naval_systems { margin-block: 13rem 0rem; }
 .airborne_systems_detail.naval .airborne_systems_grid { margin-top: 13rem; }
 .airborne_systems_detail.naval .naval_system_box { grid-template-columns: 30% 57%; }
-.naval blockquote.blockquote { margin-bottom: 7rem; font: var(--font-24); margin-bottom: 7rem; line-height: 1.5; font-weight: 300; }
+.naval h2.blockquote { margin-bottom: 7rem; font: var(--font-24); margin-bottom: 7rem; line-height: 1.5; font-weight: 300; }
 .naval_system_box { background: #a8a9ad1f 0% 0% no-repeat padding-box; border: 1px solid #DFDADA; padding-block: 4.5rem; padding-inline: 4rem; display: grid; grid-template-columns: 30% 66%; gap: 3rem; margin-top: 11rem; position: relative; }
 .ns_number { font: var(--font-70); letter-spacing: -2.8px; color: var(--color-c8); font-weight: 300; line-height: 1; }
 .ns_number sup { font: var(--font-45); letter-spacing: -1.76px; font-weight: 300; }
 .naval_system_box p { font: var(--font-24); font-weight: normal; }
 .naval_system_box:after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(#ff6b6b, #ff6b6b) top 14px left 14px / 12px 1px no-repeat, linear-gradient(#ff6b6b, #ff6b6b) top 14px left 14px / 1px 12px no-repeat, linear-gradient(#ff6b6b, #ff6b6b) top 14px right 14px / 12px 1px no-repeat, linear-gradient(#ff6b6b, #ff6b6b) top 14px right 14px / 1px 12px no-repeat, linear-gradient(#ff6b6b, #ff6b6b) bottom 14px left 14px / 12px 1px no-repeat, linear-gradient(#ff6b6b, #ff6b6b) bottom 14px left 14px / 1px 12px no-repeat, linear-gradient(#ff6b6b, #ff6b6b) bottom 14px right 16px / 12px 1px no-repeat, linear-gradient(#ff6b6b, #ff6b6b) bottom 14px right 14px / 1px 12px no-repeat; top: -15px; left: -15px; right: -16px; z-index: 9; bottom: -15px; }
-.industries_panel2 h3 { letter-spacing: -0.9px; font: var(--font-45); font-weight: 300; margin-bottom: 4rem; color: #fff; }
+.industries_panel2 h2 { letter-spacing: -0.9px; font: var(--font-45); font-weight: 300; margin-bottom: 4rem; color: #fff; }
 .parallax-section { position: relative; height: 100vh; min-height: 100%; display: grid; align-items: center; padding: 0; overflow: hidden; }
 .bg-image-wrapper { width: 100%; height: 100%; z-index: 1; background-size: cover!important; background-attachment: fixed!important; background-position: 60%!important; }
 .bg-image-wrapper img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
@@ -2149,7 +2153,7 @@ br.desktop-break { display: none; }
 #space-systems .systems-content-box { max-width: 48rem; margin-left: auto; }
 .railways_secton { padding-block: 18rem 20rem; }
 .railwys_head { text-align: center; }
-.railwys_head h4 { font: var(--font-45); letter-spacing: -0.9px; margin-bottom: 3.3rem; }
+.railwys_head h2 { font: var(--font-45); letter-spacing: -0.9px; margin-bottom: 3.3rem; }
 .railwys_head blockquote { font: var(--font-24); letter-spacing: -0.9px; margin-bottom: 5.2rem; }
 .railways_thumb_box { display: grid; height: 100%; align-items: end; position: relative; }
 .railways_thumb_box>* { grid-area: 1/1; }
@@ -2159,7 +2163,7 @@ br.desktop-break { display: none; }
 .railwys_content a.more_btn { position: absolute; right: 0; top: 45%; }
 .geid_system2 { display: grid; grid-template-columns: repeat(2 , 1fr); position: sticky; top: 0; }
 .left_system_text { max-width: 78rem; margin-left: auto; padding-inline: 12.5rem; align-content: center; position: sticky; top: 0; background: #efefef; }
-.left_system_text h5 { font: var(--font-45); letter-spacing: -0.9px; margin-bottom: 3rem; font-weight: 300; }
+.left_system_text h2 { font: var(--font-45); letter-spacing: -0.9px; margin-bottom: 3rem; font-weight: 300; }
 .left_system_text p { margin-bottom: 3.2rem; line-height: 1.6; }
 .other_systems { padding-block: 0 15rem; }
 .naval_systems .left_in_grid blockquote { margin-bottom: 3.7rem; }
@@ -2242,7 +2246,7 @@ br.desktop-break { display: none; }
 .left__in_box2 { grid-template-columns: 9rem auto; }
 .naval_systems { margin-block: 5rem 0rem; }
 .naval_systems .naval_system_box { grid-template-columns: 10rem 70%; margin-top: 5rem; max-width: 50rem; }
-.industries_panel2 h3 { margin-bottom: 3rem; }
+.industries_panel2 h2 { margin-bottom: 3rem; }
 .railways_secton { padding-block: 7rem; }
 .naval_systems .left_in_grid blockquote { margin-bottom: 2rem; }
 .left_system_text { max-width: 100%; padding-inline: 0; }
@@ -2255,10 +2259,10 @@ br.desktop-break { display: none; }
 .railwys_content p { padding-inline: 0; }
 .other_systems .geid_system2:nth-child(2) 
      .left_system_text { margin-top: 6rem; }
-.left_system_text h5 { margin-bottom: 2.5rem; }
+.left_system_text h2 { margin-bottom: 2.5rem; }
 .other_systems { padding-block: 0 10rem; }
 .railwys_head blockquote br { display: none; }
-.railwys_head h4 { margin-bottom: 2.5rem; }
+.railwys_head h2 { margin-bottom: 2.5rem; }
 .in_grid img, .other_systems .right_system_img img { width: 100%; height: auto; }
 .right_grid2 blockquote { padding-inline: 0; padding-block: 0 3rem; }
 .naval_systems .left_in_grid a.more_btn { margin-top: 2.2rem; }
@@ -2280,12 +2284,12 @@ br.desktop-break { display: none; }
 .other_systems { padding-block: 0 6rem; }
 .ns_number { letter-spacing: 0; }
 .design_sec1 .naval_system_box { gap: 1rem; }
-.platform_txt h3 { margin-bottom: 3rem; }
+.platform_txt h4 { margin-bottom: 3rem; }
  }
 /* max-width:767px end */
 @media(max-width:640px) {
  .parallax-section { height: 60vh; }
-.industries_panel2 h3, .left_system_text h5, .industries_panel1 h2 { margin-bottom: 2rem; }
+.industries_panel2 h2, .left_system_text h2, .industries_panel1 h2 { margin-bottom: 2rem; }
  }
 /* max-width:640px end */
 @media(max-width:360px) {
@@ -2297,7 +2301,7 @@ br.desktop-break { display: none; }
 .airborne_systems_detail { padding-block:5rem 12rem; }
 .airborne_systems_grid { display: grid; grid-template-columns: 48.5% 40.7%; gap: 12.5rem; position: relative; }
 .spaceSatelliteSwiper { margin-bottom: 1rem; }
-.right_airborne_sys blockquote { font: var(--font-24); margin-bottom: 4rem; line-height: 1.5; font-weight: 300; }
+.right_airborne_sys h2 { font: var(--font-24); margin-bottom: 4rem; line-height: 1.5; font-weight: 300; }
 .dgaqa-logo { border-top: 1px solid #ddd; padding-block: 5rem; margin-top: 5rem; }
 .left_airborne_sys { width: 85rem; margin-left: -25rem; }
 .left_airborne_sys .image_title { bottom: 2rem; }
@@ -2307,7 +2311,7 @@ br.desktop-break { display: none; }
 .airborne_full { padding-block: 6rem 0; }
 .prodcut_text { margin-bottom: 8rem; }
 .prodcut_text blockquote { font: var(--font-24); color: var(--color-23); font-weight: 300; padding-inline: 0 7rem; margin-bottom: 4rem; line-height: 1.5; }
-.prodcut_text h5 { font: var(--font-24); font-weight: 500; margin-block: 4rem; }
+.prodcut_text h3 { font: var(--font-24); font-weight: 500; margin-block: 4rem; }
 .products_systems { padding-block: 13rem; background: var(--color-f7); text-align: center; }
 .products_systems h3 { font: var(--font-45); margin-bottom: 5.5rem; letter-spacing: -0.9px; font-weight: 300; }
 .product_item .plus_icon { width: 3.2rem; height: 3.2rem; border: 1px solid #cccccc; display: inline-flex; padding: 0.4rem; cursor: pointer; position: absolute; right: 2rem; top: 2rem; }
@@ -2385,6 +2389,10 @@ br.desktop-break { display: none; }
     /* land-and-tactical-systems-start */
 .airborne_systems_detail.land_tactical_systems { padding-block: 5rem 13.5rem; }
 .sec_hed { padding-bottom: 7rem; }
+.sec_hed h2{
+    margin: 0 0 1rem;
+}
+
 .land_tactical_systems_banner { padding-bottom: 15rem; }
 .products_announce.dmr_based .sec_hed { padding-top:0; border-top:0; padding-bottom:0; }
 .products_announce.dmr_based h3 { margin-bottom: 4rem; }
@@ -2450,7 +2458,7 @@ br.desktop-break { display: none; }
 /* space-and-satellite-end */
 /*product_list css satrt here*/
 .products_systems_detail { padding-block:5rem 8rem; }
-.products_systems_detail h3 { font:var(--font-45); margin-bottom: 4rem; letter-spacing: -0.9px; font-weight:300; }
+.products_systems_detail h2 { font:var(--font-45); margin-bottom: 4rem; letter-spacing: -0.9px; font-weight:300; }
 /* .products_systems_detail  .product_item p { text-align: center; }
 */
 .products_systems_detail_grd { position: relative; width: 83.3333333333%; margin-inline: auto; display: grid; grid-template-columns: 0% 100%; align-items: start; }
@@ -2647,7 +2655,7 @@ br.desktop-break { display: none; }
 @media(max-width:1199px) {
 .airborne_systems_grid2 { gap: 8rem; }
 .right_airborne_sys2 { width: 100%; }
-.naval blockquote.blockquote br { display: none; }
+.naval h2.blockquote br { display: none; }
 .left_airborne_sys { width: 100%; margin-left: -7rem; }
 .left_airborne_sys2 p:not(:last-child), .right_airborne_sys p:not(:last-child) { margin-bottom: 2rem; }
 .explore_btn { margin-top: 1rem; }
@@ -2675,13 +2683,13 @@ br.desktop-break { display: none; }
 .accordion-header { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; background: #f8f9fa; margin-top: 8px; cursor: pointer; border: 1px solid #e2e8f0; border-radius: 4px; transition: all 0.3s ease; width: 100%; }
 .acc-title { font: var(--font-21); }
 .accordion-header.active { background: var(--color-c8); color: #ffffff; }
-.products_systems_detail h3 { margin-top: 2.3rem; }
+.products_systems_detail h2 { margin-top: 2.3rem; }
 .acc-icon::after { content: '+'; font-size: 2.6rem; font-weight: 500; }
 .accordion-header.active .acc-icon::after { content: '−';  }
 .boder_line .explore_btn { margin-top: 1rem; }
 .accordion-header { padding: 0.6rem 1.8rem; }
 .airborne_systems_grid2 { grid-template-columns: 100%; }
-.naval blockquote.blockquote { margin-bottom: 3rem; }
+.naval h2.blockquote { margin-bottom: 3rem; }
 .airborne_systems_detail.naval .naval_system_box { grid-template-columns: 12rem auto; width: auto; }
 .airborne_systems_detail.naval .airborne_systems_grid { margin-top: 5rem; }
 .airborne_systems_grid { grid-template-columns: 100%; gap: 3rem; }
@@ -2692,10 +2700,10 @@ br.desktop-break { display: none; }
 .airborne_systems_grid.naval_systems .left_airborne_sys { order: 2; }
 .product_grid { grid-template-columns: repeat(2,1fr); }
 .products_systems_detail_grd { margin-inline:0; width: 100%; }
-.products_systems_detail h3 { margin-bottom: 2rem; }
+.products_systems_detail h2 { margin-bottom: 2rem; }
 .prodcut_text { margin-bottom: 5rem; }
 .prodcut_text blockquote { padding-inline: 0; margin-bottom: 3rem; }
-.right_airborne_sys blockquote { margin-bottom: 2rem; }
+.right_airborne_sys h2 { margin-bottom: 2rem; }
 .airb_solutions .airborne_systems_grid2 { grid-template-columns: 100%; }
 .key_capabilities_img figure img { width: 100%; }
 .stategic_first_rght { padding-inline: 0; width: auto; }

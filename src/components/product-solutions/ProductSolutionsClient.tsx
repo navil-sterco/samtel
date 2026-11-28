@@ -330,7 +330,7 @@ export default function ProductSolutionsClient({
 
                                         {isActive && (
                                             <div className={`tab_content_wrapper${accordionExpanded ? " active" : ""}`}>
-                                                <h3 className="fade-up" data-aos="fade-up" data-aos-delay="300">{category.name}</h3>
+                                                <h2 className="fade-up" data-aos="fade-up" data-aos-delay="300">{category.name}</h2>
                                                 
                                                 <div className="prodcut_text">
                                                     {category.subtitle && (

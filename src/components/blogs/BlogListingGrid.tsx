@@ -80,7 +80,7 @@ export default function ListingGrid({
                             </div>
 
                             <div className="media-content">
-                                <h3 className="media-title">{item.title}</h3>
+                                <span className="media-title">{item.title}</span>
                                 {dateText && <div className="date">{dateText}</div>}
                                 <div className="read-icon">
                                     <img src="/assets/icons/read-icon.svg" alt="read" />
