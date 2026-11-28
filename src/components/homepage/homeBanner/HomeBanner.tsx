@@ -804,7 +804,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
 
             <div className="banner_title for_mobile">
               {data?.mobiletitle && (
-                <p dangerouslySetInnerHTML={{ __html: data?.mobiletitle }} />
+                <h1 dangerouslySetInnerHTML={{ __html: data?.mobiletitle }} />
               )}
 
               {data?.mobilesubtitle && (

@@ -20,6 +20,13 @@
 @media(max-width:640px) {
  .inner-section { padding-block: 5.3rem 4.4rem; }
  }
+.font_title>blockquote{
+        font: var(--font-45);
+    color: var(--color-23);
+    letter-spacing: -.9px;
+    font-weight: 300;
+}
+
 .inner-text blockquote { font: var(--font-30); color: var(--color-23); font-weight: 300; line-height: 1.4; }
 .breadcrumb-sec { padding-block: 3rem 0; }
 .breadcrumb-sec li.breadcrumb-item { font: var(--font-18); font-weight: 300; letter-spacing: -0.18px; color: var(--color-23); position: relative; }
@@ -93,6 +100,8 @@
 .left_grid2 { position: relative; overflow: hidden; height: 100%; }
 .left_grid2 figure { height: 100%; }
 .left_grid2 figure img { height: 100%; object-fit: cover; }
+.milestone_txt h2{margin-bottom: 7rem;}
+
 @media(max-width:1920px) {
  .inner-section { margin-top: 18.8rem; }
 .optronics_grid { grid-template-columns: 97rem auto; }
@@ -205,6 +214,9 @@
 .right_grid2 p, .right_grid2 blockquote { color: var(--color-23); }
 .rug_elect_list blockquote { padding: 4.2rem 0 4rem 0; }
 .optronics_grid { grid-template-columns: 1fr; }
+.milestone_txt h2 {
+    margin-bottom: 5rem;
+}
  }
 @media (max-width:768px) {
  .vaue_item h6 { margin-top: 0; }
@@ -421,10 +433,10 @@
 .tquali_btmrgt .tq_btml_grp figure:nth-child(2) { width: 34.5rem; }
 .certi_accredi { background-color: var(--color-f7); padding-block: 14rem 14rem; }
 .certi_acc_grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6.1rem 4.8rem; }
-.certi_acc_col h5 { font: var(--font-21); margin-block: 2rem; min-height: 5.6rem; }
+.certi_acc_col h4 { font: var(--font-21); margin-block: 2rem; min-height: 5.6rem; }
 .certi_acc_col { border-bottom: 0.2rem solid var(--color-c8); padding-bottom: 6.1rem; }
 .certifi_redbx { margin-top: 11.1rem; padding: 8.5rem 25.1rem 8.4rem 25.2rem; background-color: var(--color-c8); }
-.certifi_redbx h4 { text-align: center; color: var(--color-white); padding-inline: 3rem; }
+.certifi_redbx h5 { text-align: center; color: var(--color-white); padding-inline: 3rem; }
 .certi_ttle { margin-bottom: 6rem; }
 @media (max-width:1700px) {
  .tquali_gridbtm { grid-template-columns: auto 38rem; gap: 11.5rem; }
@@ -453,7 +465,7 @@
 .test_quali_over { padding-bottom:8rem; }
 .certi_accredi { padding-block: 7rem 10rem; }
 .certi_ttle { margin-bottom: 4rem; }
-.certi_acc_col h5{    min-height: 5rem;}
+.certi_acc_col h4{    min-height: 5rem;}
 }
 @media (max-width:1280px) {
  .tquali_ovrgrid { grid-template-columns: repeat(1, 42.7rem auto); gap: 5.5rem; }
@@ -497,13 +509,13 @@
 .tquali_btmrgt .tq_btml_grp { flex-wrap: wrap; }
 .certi_acc_col { padding-bottom: 2.5rem; }
 .certi_ttle { margin-bottom: 3rem; }
-.certifi_redbx h4 { padding-inline: 0; }
-.certi_acc_col h5 { min-height: 2.3rem; }
+.certi_acc_col h5 { padding-inline: 0; }
+.certi_acc_col h4 { min-height: 2.3rem; }
  }
 @media (max-width:575px) {
  .certi_acc_grid { grid-template-columns: repeat(1, 1fr); }
 .tquali_gridbtm { margin-top: 3rem; }
-.certifi_redbx h4 { padding: 0; }
+.certi_acc_col h5 { padding: 0; }
 .certi_accredi { padding-block: 3rem 3.5rem; }
 .certi_acc_col { text-align: center; }
  }
