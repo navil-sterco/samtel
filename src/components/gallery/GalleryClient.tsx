@@ -90,7 +90,7 @@ export default function GalleryClient({ items }: { items: GalleryItem[] }) {
                             />
                         </div>
                         <div className="media-content">
-                            <h3 className="media-title">{item.title}</h3>
+                            <span className="media-title">{item.title}</span>
                             {item?.date && (
                                 <div className="date">{item.date}</div>
                             )}
