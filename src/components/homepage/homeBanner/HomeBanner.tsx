@@ -181,7 +181,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
 
     // Only the visible desktop paragraphs (excludes the hidden <h1> spans)
     const pList = Array.from(
-      section.querySelectorAll<HTMLElement>(".banner_title.for_desktop > p"),
+      section.querySelectorAll<HTMLElement>(".banner_title.for_desktop > h1 > span"),
     );
 
     let cancelled = false;
