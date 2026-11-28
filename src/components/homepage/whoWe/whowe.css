@@ -156,27 +156,32 @@
 .inustries_item::after { content: ""; width: 100%; height: 100%; position: absolute; bottom: 0px; left: 0px; z-index: 9; opacity: 0.5; transform: inherit !important; background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%) 0% 0% no-repeat padding-box padding-box transparent; }
 .inustries_item:last-child:after { display: none; }
     .banner_caption .banner_title{margin-top: 18rem;}
+    .banner_caption .banner_title>p>b {
+    color: var(--color-c8);
+    font-weight: 400;
+}
+.banner_caption .banner_title>p {   font-weight: 300!important;}
  }
 @media (max-width: 650px) {
  .grid-row-top,
     .grid-row-bottom { grid-template-columns: 1fr; }
-.banner_caption .banner_title p span { display: inline-block; padding-inline: 4rem; }
+.banner_caption .banner_title h1 span { display: inline-block; padding-inline: 4rem; }
  }
 @media (max-width:450px) {
     .banner_caption .banner_title{margin-top: 13rem;}
- .banner_caption .banner_title p span { display: inline-block; padding-inline: 9rem; margin-bottom: 0; }
-.banner_caption .banner_title p span { font-size: 2.6rem; margin-top: 1.3rem; }
-.banner_caption .banner_title>p { font-size: 2rem !important; }
+ .banner_caption .banner_title h1 span { display: inline-block; padding-inline: 9rem; margin-bottom: 0; }
+.banner_caption .banner_title h1 span { font-size: 2.6rem; margin-top: 1.3rem; }
+.banner_caption .banner_title>p { font-size: 2rem !important;          font-weight: 300!important;}
 .banner_caption video { margin-top: 5.5rem; }
  }
 @media (max-width:413px) {
- .banner_caption .banner_title p span { display: inline-block; padding-inline: 2rem; }
+ .banner_caption .banner_title h1 span { display: inline-block; padding-inline: 2rem; }
  }
 @media (max-width:370px) {
- .banner_caption .banner_title p span { display: inline-block; padding-inline: 1rem; }
+ .banner_caption .banner_title h1 span { display: inline-block; padding-inline: 1rem; }
  }
 @media (max-width:330px) {
- .banner_caption .banner_title p span { display: inline-block; padding-inline: 0rem; }
+ .banner_caption .banner_title h1 span { display: inline-block; padding-inline: 0rem; }
  }
 @media (max-width: 2199px) {
  .system-tile { position: relative; padding-block: 8rem; padding-inline: 6rem; }
