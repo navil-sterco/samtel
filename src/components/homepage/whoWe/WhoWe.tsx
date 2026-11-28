@@ -35,7 +35,7 @@ export default function WhoWe({ data }: WhoWePropsInterface) {
                     <p className="fade-up" data-aos="fade-up" data-aos-delay="300" dangerouslySetInnerHTML={{ __html: data.title }} />
                 )}
                 {data?.subtitle && (
-                    <blockquote className="fade-up" data-aos="fade-up" data-aos-delay="400" dangerouslySetInnerHTML={{ __html: data.subtitle }} />
+                    <h2 className="fade-up" data-aos="fade-up" data-aos-delay="400" dangerouslySetInnerHTML={{ __html: data.subtitle }} />
                 )}
             </div>
 

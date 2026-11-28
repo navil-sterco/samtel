@@ -732,7 +732,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
             <div className="banner_title for_desktop" ref={bannerTitleRef}>
               <div className="arrwo_fix"></div>
 
-              <h1 className="d-none">
+              {/* <h1 className="d-none">
                 {data?.titles?.length > 0 &&
                   data?.titles.map(
                     (item: { paragraph: string }, idx: number) => (
@@ -743,16 +743,19 @@ export default function HomeBanner({ data }: HomeBannerProps) {
                       />
                     ),
                   )}
-              </h1>
+              </h1> */}
 
-              {data?.titles?.length > 0 &&
-                data?.titles.map((item: { paragraph: string }, idx: number) => (
-                  <p
+              {data?.titles?.length > 0 && (
+                <h1>
+                  {data?.titles.map((item: { paragraph: string }, idx: number) => (
+                  <span
                     key={idx}
                     ref={addPRef}
                     dangerouslySetInnerHTML={{ __html: item?.paragraph }}
                   />
                 ))}
+                </h1>
+              )}
 
               {data?.description && (
                 <em

@@ -72,7 +72,7 @@ export default function Happenings({data}:HappeningsPropsInterface) {
                 <div className="happening-header">
                     <div className="font_title">
                         {data?.title && (
-                            <p dangerouslySetInnerHTML={{__html:data.title}}  className="fade-up" data-aos="fade-up" data-aos-delay="400" />
+                            <h6 dangerouslySetInnerHTML={{__html:data.title}}  className="fade-up" data-aos="fade-up" data-aos-delay="400" />
                         )}
                         {data?.subtitle && (
                             <blockquote className="fade-up" data-aos="fade-up" data-aos-delay="500" dangerouslySetInnerHTML={{__html:data.subtitle}}  />

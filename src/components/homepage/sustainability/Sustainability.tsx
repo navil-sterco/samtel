@@ -41,7 +41,7 @@ export default function Sustainability({data}:SustainabilityPropsInterface) {
                         <div className="col-lg-8">
                             <div className="sustainbility-content">
                                 <figure>
-                                    <Image src={data?.image ?? '/assets/images/placeholders/image1.webp'} className="img-fluid" width={850} height={600} loading='lazy' alt="sustainbility" />
+                                    <Image src={data?.image ?? '/assets/images/placeholders/image1.webp'} className="img-fluid" width={850} height={600} loading='lazy' alt="sustainability" />
                                 </figure>
                                 {data?.description && (
                                     <p dangerouslySetInnerHTML={{__html:data.description}} className="fade-up" data-aos="fade-up" data-aos-delay="700" />

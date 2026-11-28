@@ -82,11 +82,11 @@ function HeaderShell({ children }: { children: React.ReactNode }) {
 
     return (
         <>
-            <section className={className}>
+            <header className={className}>
                 {children}
                 {/* {showMegaMenu &&
                     createPortal(<div className="menu_backdrop"></div>, document.body)} */}
-                </section>
+                </header>
                 <div className={`nav-overlay ${showMegaMenu ? 'show' : ''}`} onClick={() => setShowMegaMenu(false)}></div>
         </>
     )

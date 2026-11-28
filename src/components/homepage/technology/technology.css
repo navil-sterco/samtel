@@ -317,7 +317,7 @@
     margin: 0 auto;
 }
 
-.journey-txt h4{
+.journey-txt .self{
     font: var(--font-21);
     color: var(--color-23);
     letter-spacing: 1.05px;

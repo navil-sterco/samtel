@@ -299,7 +299,7 @@ font: var(--font-45);
     gap: 1rem;
 }
 
-.leadership-bottom h4 {
+.leadership-bottom span {
   font: var(--font-21);
     color: var(--color-c8);
     margin: 0 0 .3rem;
@@ -383,7 +383,7 @@ border-bottom: 1px solid #c9c9c9f2;
     padding-right: 2rem;
 }
 
-.sustainability-bottom h3 {
+.sustainability-bottom span {
     font: var(--font-30);
     line-height: 1.25;
     font-weight: 300;
@@ -394,7 +394,7 @@ border-bottom: 1px solid #c9c9c9f2;
 
 }
 
-.sustainability-bottom h3 b {
+.sustainability-bottom span b {
     color: var(--color-c8);
     font-weight: 300;
 }
@@ -428,7 +428,7 @@ border-bottom: 1px solid #c9c9c9f2;
     font-weight: 800;
 }
 
-.what-intro h3 {
+.what-intro .menu-engineering {
     font:var(--font-34);
     font-weight: 300;
     line-height: 1.3;
@@ -438,7 +438,7 @@ border-bottom: 1px solid #c9c9c9f2;
     letter-spacing: -0.68px;
 }
 
-.what-intro h3 span {
+.what-intro .menu-engineering span {
     color: var(--color-c8);
 }
 
@@ -468,8 +468,8 @@ border-bottom: 1px solid #c9c9c9f2;
     margin-bottom: 3rem;
 }
 
-.what-engineering h4,
-.what-card h4 {
+.what-engineering span,
+.what-card span {
     font:var(--font-24);
     font-weight: 400;
     color: var(--color-c8);
@@ -558,12 +558,12 @@ content: "›";
     color: var(--color-c8);
 }
 
-.product-menu-txt h4{
+.product-menu-txt .menu-global{
     font: var(--font-30);
     color: var(--color-23);
     margin-bottom: 4rem;
 }
-.product-menu-txt h4 span{
+.product-menu-txt .menu-global span{
     color: var(--color-c8);
 }
 
@@ -620,7 +620,7 @@ content: "›";
 
 @media (min-width: 993px) and (max-width: 1536px) {
     .what-engineering figure, .what-card figure{margin-bottom: 1.5rem;}
-    .what-engineering h4, .what-card h4{margin-bottom: 1rem;font-size: 1.6rem;}
+    .what-engineering span, .what-card span{margin-bottom: 1rem;font-size: 1.6rem;}
     .what-engineering ul li a{    padding: 0.2rem 0;}
     .what-engineering ul{margin: 0;}
     .what-engineering .mega-arrow, .what-card .mega-arrow {margin-top: 1.5rem;}
@@ -636,14 +636,14 @@ content: "›";
     .who-links {margin-bottom: 3rem;}
     .sustainability-bottom{margin-top: 1rem;}
     .sustainability-bottom{padding-right:4rem}
-    .sustainability-bottom h3{font-size: 2.1rem;}
+    .sustainability-bottom span{font-size: 2.1rem;}
     .who-company-bottom p{margin-bottom: 2rem;}
     .technology-menu-box .what-card p {    height: 18rem;}
     .technology-menu-box .what-card p{line-height: 1.5;font-size: 1.35rem;}
     .product-mega-wrapper{padding: 2rem 0px 3rem;}
     .product-top-menu{gap: 1.1rem .5rem;}
     .product-menu-box p{margin-top: 0.9rem;}
-    .product-menu-txt h4{font-size: 2.2rem;}
+    .product-menu-txt .menu-global{font-size: 2.2rem;}
     .mega-btn{height: 2.5rem;width: 2.5rem;}
     .mega-count{padding-block: 2.5rem;}
     .mega-count b{font-size: 5rem;}
@@ -651,9 +651,9 @@ content: "›";
 }
 @media (max-width: 1399px) {
     .header_nav{padding-block: 2rem;}
-    .what-intro h3{width: 36rem;}
+    .what-intro .menu-engineering{width: 36rem;}
     .what-engineering figure, .what-card figure{margin-bottom: 1rem;}
-    .what-engineering h4, .what-card h4{margin-bottom: 0.7rem;font-size: 1.4rem;}
+    .what-engineering span, .what-card span{margin-bottom: 0.7rem;font-size: 1.4rem;}
     .what-engineering ul li a{font-size: 1.2rem;}
     .mega-arrow{width: 2.2rem;height: 2.2rem;}
     .what-engineering .mega-arrow, .what-card .mega-arrow {margin-top: 1rem;}
@@ -666,15 +666,15 @@ content: "›";
     .experience-number span {    font-size: 4.6rem;}
     .who-leadership .mega-label {margin-top: 1rem;margin-bottom: 0.5rem;}
     .who-leadership .mega-label{font-size: 1.1rem;}
-    .leadership-bottom h4{font-size: 1.2rem;}
+    .leadership-bottom span{font-size: 1.2rem;}
     .leadership-bottom p{font-size: 1.2rem;}
     .who-links li a{padding: 1rem 0;    font-size: 1.2rem;}
     .who-links {    margin-bottom: 2rem;}
-    .sustainability-bottom h3{font-size: 1.8rem;}
+    .sustainability-bottom span{font-size: 1.8rem;}
     .what-mega-wrapper, .who-mega-wrapper {    padding: 2.5rem 0 2rem;}
     .technology-menu-box .what-card p{line-height: 1.4;font-size: 1.23rem;}
     .product-top-menu{gap: 1rem .5rem;}
-    .product-menu-txt h4{font-size: 2rem;}
+    .product-menu-txt .menu-global{font-size: 2rem;}
     .product-menu-box p {font-size: 1.2rem;margin-bottom: 0.3rem;}
     .product-menu-box figure{height: 13.5rem;}
     .mega-count { margin-right: 7rem;}
@@ -730,7 +730,7 @@ content: "›";
         height: 14rem;
     }
 
-    .what-intro h3 {
+    .what-intro .menu-engineering {
         font-size: 2.2rem;
     }
 }
