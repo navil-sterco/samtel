@@ -72,6 +72,7 @@ export default async function PressGallery({
                   data-fancybox="gallery"
                   href={item.modal_image || ''}
                   className="streched_link"
+                  aria-label={item.name}
                 ></Link>
               </div>
             ))}

@@ -2,17 +2,25 @@
 'use client'
 
 import { useEffect } from 'react'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 let refreshTimer: ReturnType<typeof setTimeout> | null = null
+let refreshVersion = 0
 
 export function refreshScrollTriggers() {
     if (refreshTimer) clearTimeout(refreshTimer)
 
+    const version = ++refreshVersion
     refreshTimer = setTimeout(() => {
-        ScrollTrigger.sort()
-        ScrollTrigger.refresh()
         refreshTimer = null
+        import('gsap/ScrollTrigger')
+            .then(({ ScrollTrigger }) => {
+                if (version !== refreshVersion) return
+                ScrollTrigger.sort()
+                ScrollTrigger.refresh()
+            })
+            .catch((error) => {
+                console.error('Failed to refresh scroll triggers:', error)
+            })
     }, 100)
 }
 
@@ -22,6 +30,7 @@ export function cancelScrollTriggerRefresh() {
         clearTimeout(refreshTimer)
         refreshTimer = null
     }
+    refreshVersion++
 }
 
 export function useScrollTriggerRefresh() {

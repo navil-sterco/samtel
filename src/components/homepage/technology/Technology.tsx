@@ -13,13 +13,9 @@ import type {
 } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { refreshScrollTriggers } from "@/hooks/useScrollTriggerRefresh";
 import { BASE_URL } from "@/config/config";
 import "./technology.css";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const DESKTOP_QUERY = "(min-width: 1024px)";
 const MOBILE_QUERY = "(max-width: 992px)";
@@ -79,47 +75,94 @@ export default function Technology({ data }: TechnologyPropsInterface) {
     const section = sectionRef.current;
     if (!section || slides.length === 0) return;
 
-    const media = gsap.matchMedia();
+    const desktopQuery = window.matchMedia(DESKTOP_QUERY);
+    let cancelled = false;
+    let media: { revert: () => void } | undefined;
+    let loadingAnimations = false;
+    let removeLoadListener = () => {};
 
-    media.add(DESKTOP_QUERY, () => {
-      const figures = gsap.utils.toArray<HTMLElement>(
-        section.querySelectorAll(".tech_figureitem .techfigure"),
-      );
+    const setupAnimations = async () => {
+      if (!desktopQuery.matches || media || loadingAnimations) return;
+      loadingAnimations = true;
 
-      figures.forEach((figure, i) => gsap.set(figure, { yPercent: startY(i) }));
+      try {
+        const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
+          import("gsap"),
+          import("gsap/ScrollTrigger"),
+        ]);
+        if (cancelled || !desktopQuery.matches) return;
 
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "center center",
-          end: "+=1200",
-          pin: true,
-          pinSpacing: true,
-          scrub: 1.5,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            const index = Math.min(
-              slides.length - 1,
-              Math.floor(self.progress * slides.length),
-            );
-            setActiveIndex((prev) => (prev === index ? prev : index));
-          },
-        },
-      });
+        gsap.registerPlugin(ScrollTrigger);
+        const animationMedia = gsap.matchMedia();
+        media = animationMedia;
 
-      figures.forEach((figure, i) => {
-        timeline.to(figure, { yPercent: endY(i) }, 0);
-      });
-    });
+        animationMedia.add(DESKTOP_QUERY, () => {
+          const figures = gsap.utils.toArray<HTMLElement>(
+            section.querySelectorAll(".tech_figureitem .techfigure"),
+          );
 
-    const handleLoad = () => refreshScrollTriggers();
-    window.addEventListener("load", handleLoad);
-    refreshScrollTriggers();
+          figures.forEach((figure, i) =>
+            gsap.set(figure, { yPercent: startY(i) }),
+          );
+
+          const timeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: section,
+              start: "center center",
+              end: "+=1200",
+              pin: true,
+              pinSpacing: true,
+              scrub: 1.5,
+              anticipatePin: 1,
+              invalidateOnRefresh: true,
+              onUpdate: (self) => {
+                const index = Math.min(
+                  slides.length - 1,
+                  Math.floor(self.progress * slides.length),
+                );
+                setActiveIndex((prev) => (prev === index ? prev : index));
+              },
+            },
+          });
+
+          figures.forEach((figure, i) => {
+            timeline.to(figure, { yPercent: endY(i) }, 0);
+          });
+        });
+
+        const handleLoad = () => refreshScrollTriggers();
+        window.addEventListener("load", handleLoad);
+        removeLoadListener = () =>
+          window.removeEventListener("load", handleLoad);
+        refreshScrollTriggers();
+      } finally {
+        loadingAnimations = false;
+      }
+    };
+
+    const handleBreakpointChange = () => {
+      if (desktopQuery.matches) {
+        void setupAnimations().catch((error) =>
+          console.error("Failed to load technology animations:", error),
+        );
+      } else {
+        media?.revert();
+        media = undefined;
+        removeLoadListener();
+        removeLoadListener = () => {};
+      }
+    };
+
+    desktopQuery.addEventListener("change", handleBreakpointChange);
+    void setupAnimations().catch((error) =>
+      console.error("Failed to load technology animations:", error),
+    );
 
     return () => {
-      window.removeEventListener("load", handleLoad);
-      media.revert();
+      cancelled = true;
+      desktopQuery.removeEventListener("change", handleBreakpointChange);
+      removeLoadListener();
+      media?.revert();
     };
   }, [slides.length, images.length]);
 
@@ -203,7 +246,7 @@ export default function Technology({ data }: TechnologyPropsInterface) {
               {data?.desc && <p dangerouslySetInnerHTML={{ __html: data.desc }} />}
 
               {data?.buttonlink && (
-                <Link href={`${BASE_URL}${data.buttonlink}`} className="more_btn">
+                <Link href={`${BASE_URL}${data.buttonlink}`} className="more_btn" aria-label={data.title}>
                   <Image
                     src="/assets/icons/right-arrow-white.svg"
                     alt="right arrow"
@@ -268,8 +311,10 @@ export default function Technology({ data }: TechnologyPropsInterface) {
                     <Image
                       src={data.mobileimage}
                       alt={data.heading || "Technology"}
-                      width={437}
-                      height={237}
+                      width={500}
+                      height={809}
+                      sizes="367px"
+                      quality={70}
                       className="img-fluid w-100"
                       loading="lazy"
                     />
@@ -297,7 +342,7 @@ export default function Technology({ data }: TechnologyPropsInterface) {
                       {item.title && <h5>{item.title}</h5>}
                       {item.description && <p>{item.description}</p>}
                       {item.slug && (
-                        <a href={`${BASE_URL}${item.slug}`} className="more_btn">
+                        <a href={`${BASE_URL}${item.slug}`} className="more_btn" aria-label={item.title}>
                           <img
                             src="/assets/icons/right-arrow-white.svg"
                             alt="right arrow"

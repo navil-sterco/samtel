@@ -1,14 +1,10 @@
 'use client'
 
 import { useEffect, useLayoutEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 import Link from 'next/link'
 import './people.css'
 
-
-gsap.registerPlugin(ScrollTrigger)
 
 interface ButtonInterface {
     name: string;
@@ -57,7 +53,18 @@ export default function People({ data }: PeoplePropsInterface) {
             return window.innerHeight || document.documentElement.clientHeight
         }
 
-        const ctx = gsap.context(() => {
+        let cancelled = false
+        let cleanupAnimation: (() => void) | undefined
+
+        const setup = async () => {
+            const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
+                import('gsap'),
+                import('gsap/ScrollTrigger'),
+            ])
+            if (cancelled) return
+
+            gsap.registerPlugin(ScrollTrigger)
+            const ctx = gsap.context(() => {
             const peopleTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: section,
@@ -139,13 +146,22 @@ export default function People({ data }: PeoplePropsInterface) {
                     }
                 )
             }
-        }, section)
+            }, section)
+            cleanupAnimation = () => {
+                ctx.revert()
+                ScrollTrigger.getAll().forEach((st) => {
+                    if (st.trigger === section) st.kill()
+                })
+            }
+        }
+
+        void setup().catch((error) => {
+            console.error('Failed to load people animations:', error)
+        })
 
         return () => {
-            ctx.revert();
-            ScrollTrigger.getAll().forEach((st)=>{
-                if(st.trigger === section) st.kill();
-            })
+            cancelled = true
+            cleanupAnimation?.()
         }
     }, [])
 
@@ -167,7 +183,7 @@ export default function People({ data }: PeoplePropsInterface) {
             <div className="people-image-wrap" ref={imageWrapRef}>
                 {data?.image && (
                     <div className="people-image for_desktop">
-                        <Image src={data.image} width={2545} height={900} loading='lazy' className="img-fluid" alt="people image" ref={imageRef} />
+                        <Image src={data.image} width={2545} height={900} sizes="100vw" loading='lazy' className="img-fluid" alt="people image" ref={imageRef} />
                     </div>
                 )}
 
@@ -177,7 +193,7 @@ export default function People({ data }: PeoplePropsInterface) {
                             <div className="overlay-content">
                                 <div className="people-image for_mobile">
                                     {data?.mobileimage && (
-                                        <Image src={data.mobileimage} width={343} height={479} loading='lazy' className="img-fluid" alt="people image" />
+                                        <Image src={data.mobileimage} width={500} height={583} sizes="100vw" loading='lazy' className="img-fluid" alt="people image" quality={70} />
                                     )}
                                 </div>
 
@@ -185,7 +201,7 @@ export default function People({ data }: PeoplePropsInterface) {
                                     <div className="people_pic_text">
                                         <blockquote ref={picTextBlockquoteRef} dangerouslySetInnerHTML={{ __html: data.message }} />
                                         {data?.slug && (
-                                            <Link href={data.slug} className="more_btn" ref={moreBtnRef}>
+                                            <Link href={data.slug} className="more_btn" ref={moreBtnRef} aria-label={data.title}>
                                                 <img src="/assets/icons/right-arrow-white.svg" alt="right arrow" className="img-fluid" />
                                             </Link>
                                         )}

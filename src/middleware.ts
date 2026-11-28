@@ -8,7 +8,6 @@ function buildCsp(nonce: string, isDev: boolean): string {
   return `
     default-src 'self';
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic'
-      https://cdn.example.com
       https://cdn.keka.com
       https://www.google.com
       https://www.gstatic.com
@@ -30,7 +29,6 @@ function buildCsp(nonce: string, isDev: boolean): string {
       data:;
     connect-src 'self'
       ${apiOrigin}
-      https://project-demo.in
       https://*.keka.com
       https://www.google-analytics.com
       https://analytics.google.com
@@ -60,6 +58,10 @@ function buildCsp(nonce: string, isDev: boolean): string {
     .trim();
 }
 
+
+// Per-instance cache of redirect lookups so repeat hits skip the API call.
+const REDIRECT_TTL_MS = 60_000;
+const redirectCache = new Map<string, { value: unknown; expires: number }>();
 
 function toInternalTarget(
   newUrl: string,
@@ -111,12 +113,22 @@ export async function middleware(request: NextRequest) {
     }
 
     const apiUrl = `${API_URL}redirect/${slug}`;
-    const res = await fetch(apiUrl, {
-      cache: 'no-store',
-    });
+    const cached = redirectCache.get(slug);
+    let json: unknown;
 
-    if (res.ok) {
-      const json: unknown = await res.json();
+    if (cached && cached.expires > Date.now()) {
+      json = cached.value;
+    } else {
+      const res = await fetch(apiUrl, {
+        cache: 'no-store',
+        signal: AbortSignal.timeout(2500), // never let a slow API stall the page
+      });
+      json = res.ok ? await res.json() : null;
+      if (redirectCache.size > 500) redirectCache.clear();
+      redirectCache.set(slug, { value: json, expires: Date.now() + REDIRECT_TTL_MS });
+    }
+
+    if (json) {
 
       if (
         typeof json === 'object' &&
@@ -159,5 +171,9 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+  // Skip static files: they never need a CSP nonce or a redirect lookup, and
+  // without this every image/script request triggered an API round-trip.
+  matcher: [
+    '/((?!_next/|assets/|js/|api/|favicon\\.ico|robots\\.txt|llms\\.txt|sitemap.*\\.xml|.*\\.(?:png|jpe?g|gif|webp|avif|svg|ico|mp4|webm|woff2?|ttf|otf|css|js|map|txt|xml|json|pdf)$).*)',
+  ],
 };

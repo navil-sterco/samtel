@@ -70,8 +70,8 @@ export default async function Footer() {
                                     .filter((item)=>(item.key == 'facebook' || item.key == 'x' || item.key == 'youtube' || item.key == 'insta' || item.key == 'linkedn'))
                                     .map((item)=>(
                                         item.image && (
-                                            <Link key={item.key} href={item.value ?? ''} target='_blank'>
-                                                <img src={item.image} className="img-fluid" alt={item.key} />
+                                            <Link key={item.key} href={item.value ?? ''} target='_blank' rel='noopener noreferrer' aria-label={`Samtel Avionics on ${item.key === 'insta' ? 'Instagram' : item.key === 'linkedn' ? 'LinkedIn' : item.key === 'x' ? 'X' : item.key.charAt(0).toUpperCase() + item.key.slice(1)}`}>
+                                                <img src={item.image} className="img-fluid" alt={item.key} aria-hidden="true" loading="lazy" decoding="async" />
                                             </Link>
                                         )
                                     ))}

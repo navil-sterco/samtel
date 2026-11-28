@@ -61,6 +61,7 @@ export default function MediaGallery({ data }: { data: any }) {
             data-fancybox="gallery"
             href={item.modal_image || item.thumbnail_image || '/assets/images/default-image.jpg'}
             className="streched_link"
+            aria-label={item.name}
           ></a>
         </div>
       ))}

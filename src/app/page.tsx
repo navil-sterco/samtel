@@ -63,13 +63,29 @@ export default async function Home() {
   const happeningData = {...pageData?.news_and_events, happeningsData:data?.latestModuleEntries ?? []};
 
   return (
-    <main className="homepage-content">
-      <HomeBanner data={pageData?.banner}  />
-      <WhoWe data={whoWeData} />
-      <Technology data={pageData?.technology ?? {}} />
-      <People data={pageData?.people ?? {}} />
-      <Sustainability data={pageData?.sustainability ?? {}} />
-      <Happenings data={happeningData} />
-    </main>
+    <>
+      <link
+        rel="preload"
+        as="image"
+        href="/assets/videos/home-banner-poster.webp"
+        fetchPriority="high"
+        media="(min-width: 768px)"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href="/assets/videos/home-banner-poster-mobile.webp"
+        media="(max-width: 767px)"
+        fetchPriority="high"
+      />
+      <main className="homepage-content">
+        <HomeBanner data={pageData?.banner} />
+        <WhoWe data={whoWeData} />
+        <Technology data={pageData?.technology ?? {}} />
+        <People data={pageData?.people ?? {}} />
+        <Sustainability data={pageData?.sustainability ?? {}} />
+        <Happenings data={happeningData} />
+      </main>
+    </>
   );
 }

@@ -44,6 +44,7 @@ interface ProductCategory {
 interface Product {
     id: string | number;
     name: string;
+    slug?: string;
     image?: string;
     description?: string;
     details?: string;
@@ -500,6 +501,14 @@ export default function ProductSolutionsClient({
                                             </div>
                                         ))}
                                     </div>
+                                    {/* {activeCategory?.slug && selectedProduct.slug && (
+                                        <Link
+                                            className="product-detail-page-link"
+                                            href={`/${activeCategory.slug}/${selectedProduct.slug}`}
+                                        >
+                                            View product details
+                                        </Link>
+                                    )} */}
                                 </div>
                             </div>
                         </div>

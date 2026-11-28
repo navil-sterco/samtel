@@ -84,6 +84,7 @@ export default function FeaturedNews({ data, title }: FeaturedDataInterface) {
                                                         className="more_btn"
                                                         target="_blank"
                                                         href={href}
+                                                        aria-label={item.name}
                                                     >
                                                         <img src="/assets/images/icons/right-arrow-red.svg" alt="arrow" className="img-fluid" />
                                                     </Link>

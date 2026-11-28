@@ -31,7 +31,7 @@ export default async function CategoryGrid() {
                   />
                 </figure>
                 <h4 className="font24">{category.name}</h4>
-                <Link href={`${BASE_URL}product-solutions/${category.slug}`} className="streched_link"></Link>
+                <Link href={`${BASE_URL}product-solutions/${category.slug}`} className="streched_link" aria-label={category.name}></Link>
               </div>
             }
           })}

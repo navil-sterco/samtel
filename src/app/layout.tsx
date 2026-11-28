@@ -20,6 +20,7 @@ import { headers } from "next/headers";
 const funnelSans = Funnel_Sans({
   subsets: ["latin"],
   variable: "--font-funnel",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -129,13 +130,25 @@ export default async function RootLayout({
     >
       <head>
         <link rel="dns-prefetch" href="https://www.samtelavionics.com" />
+        <link rel="preload" as="video" href="https://backoffice.samtelavionics.com/assets/img/home-page/homepage_1793882162_6aec78326d2ff.mp4" type="video/mp4" />
         <link
-            rel="preload"
-            as="image"
-            href="/assets/videos/home-banner-poster.webp"
-            fetchPriority="high"
-            media="(max-width: 767px)"
+          rel="preconnect"
+          href="https://backoffice.samtelavionics.com"
+          crossOrigin="anonymous"
         />
+
+        {/* DNS lookup */}
+        <link
+          rel="dns-prefetch"
+          href="//backoffice.samtelavionics.com"
+        />
+        
+         <link
+            rel="dns-prefetch"
+            href="//static.cloudflareinsights.com"
+        />
+        <link rel="dns-prefetch" href="//scripts.clarity.ms" />
+
         <meta
           name="google-site-verification"
           content="5F1J4u7wctCD5Kzl3AJ0dOVJ12mfZUPxZL7EBvdfz3c"
@@ -143,7 +156,7 @@ export default async function RootLayout({
 
         <Script
           src="/js/google-tags.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           nonce={nonce}
         />
 

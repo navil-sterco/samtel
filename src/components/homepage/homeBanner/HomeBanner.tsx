@@ -1,14 +1,12 @@
 "use client";
 
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { refreshScrollTriggers } from "@/hooks/useScrollTriggerRefresh";
 import "./homeBanner.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const HOME_BANNER_POSTER = "/assets/videos/home-banner-poster.webp";
+const HOME_BANNER_POSTER_MOBILE = "/assets/videos/home-banner-poster-mobile.webp";
+
 
 interface HomeBannerProps {
   data: {
@@ -179,7 +177,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
     const pEm = pEmRef.current;
     const ytWrapper = ytWrapperRef.current;
 
-    if (!section || !h1) return;
+    if (!section || !h1 || window.innerWidth < 1024) return;
 
     // Only the visible desktop paragraphs (excludes the hidden <h1> spans)
     const pList = Array.from(
@@ -197,7 +195,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
       userInteracted = true;
     });
 
-    const ctx = gsap.context(() => {}, section);
+    let revertAnimations: (() => void) | undefined;
 
     const lockScroll = () => {
       if (!introCompleted) window.scrollTo(0, 0);
@@ -246,6 +244,10 @@ export default function HomeBanner({ data }: HomeBannerProps) {
     async function setup() {
       if (!section || !h1) return;
 
+      const animationModules = Promise.all([
+        import("gsap"),
+        import("gsap/ScrollTrigger"),
+      ]);
       let controller: VideoController;
 
       if (isYouTube && youtubeId) {
@@ -338,6 +340,12 @@ export default function HomeBanner({ data }: HomeBannerProps) {
         clearTimeout(safetyTimeout);
         return;
       }
+
+      const [{ default: gsap }, { ScrollTrigger }] = await animationModules;
+      if (cancelled) return;
+      gsap.registerPlugin(ScrollTrigger);
+      const ctx = gsap.context(() => {}, section);
+      revertAnimations = () => ctx.revert();
 
       window.addEventListener("scroll", lockScroll, { passive: false });
       window.addEventListener("wheel", preventWheel, { passive: false });
@@ -583,7 +591,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
       stopInteraction();
       unlockOnce();
 
-      ctx.revert();
+      revertAnimations?.();
 
       destroyYouTubePlayer(ytPlayerRef.current, ytWrapper);
       ytPlayerRef.current = null;
@@ -807,7 +815,7 @@ export default function HomeBanner({ data }: HomeBannerProps) {
               <video
                 className="for_mobile"
                 ref={mVideoRef}
-                poster={HOME_BANNER_POSTER}
+                poster={HOME_BANNER_POSTER_MOBILE}
                 muted
                 playsInline
                 loop

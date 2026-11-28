@@ -61,6 +61,7 @@ export default function News({ data }: NewsPropsInterface) {
                                                 className="streched_link"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
+                                                aria-label={item.name}
                                                 href={href}
                                             />
                                         </>

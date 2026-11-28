@@ -70,6 +70,7 @@ export default function MegaMenu({
                   key={idx}
                   className="industry-card"
                   onClick={onClose}
+                  aria-label={`Explore ${category.name}`}
                 >
                   {category.image && (
                     <Image

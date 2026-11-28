@@ -68,6 +68,7 @@ export default function MediaFeatured({ data }: { data: any }) {
               data-fancybox="video"
               href={videoUrl}
               className="streched_link"
+              aria-label={item.title}
             ></a>
           )}
           </div>
