@@ -276,6 +276,17 @@ a:focus-visible{outline:none;}
 .font_title>p { font: var(--font-21); font-weight: 900; color: var(--color-23); letter-spacing: 1.05px; text-transform: uppercase; margin-bottom: 2rem; }
 .font_title>h2 { font: var(--font-45); font-weight: 300; color: var(--color-23); letter-spacing: -0.9px; }
 .font_title>h2>b { font-weight: 300; color: var(--color-c8); }
+.font_title>blockquote {
+    font: var(--font-45);
+    color: var(--color-23);
+    letter-spacing: -.9px;
+    font-weight: 300
+}
+
+.font_title>blockquote>b {
+    color: var(--color-c8);
+    font-weight: 300
+}
 figure{margin:0;}
 .streched_link { position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 100%; z-index: 1;font-size: 0; }
 ul.list { list-style-type: disc; margin-inline: 2rem 0; }
